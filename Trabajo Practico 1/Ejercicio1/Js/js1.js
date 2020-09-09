@@ -1,20 +1,23 @@
-var col=100;
-var fil=100;
+let col=100;
+let fil=100;
+let max=101;
+let min=0;
 
-var mat=[];
+
+let mat=[];
 for(let x=0;x<col;x++){
      mat[x]=[];
      for(let y=0;y<fil;y++){
            mat[x][y]= Math.random() * 100;
      }
 }
-console.table(mat)
+console.table(mat);
 
 //Inciso A
 getValorMaximo(mat)
 
 function getValorMaximo(){
-      var ValorMaximo=-1;
+      let ValorMaximo=-1;
       for(let x=0;x<col;x++){
             for(let y=0;y<fil;y++){
                   if(mat[x][y]> ValorMaximo){
@@ -30,8 +33,8 @@ getValorMaxFilPar_MenorFilImp(mat)
 function getValorMaxFilPar_MenorFilImp(){
 
       for(let x=0;x<fil;x++){
-            if(x%2==0){      
-                  var ValorMaximo=-1;
+            if(x%2==0){
+                  let ValorMaximo=-1;
                   for(let y=0;y<col;y++){
                         if(mat[x][y]> ValorMaximo){
                               ValorMaximo=mat[x][y];
@@ -40,7 +43,7 @@ function getValorMaxFilPar_MenorFilImp(){
                   console.log("El valor maximo de la fila par " + x + " es: " + ValorMaximo);
             }
             else{
-                  var ValorMin=1000;
+                  let ValorMin=1000;
                   for(let y=0;y<col;y++){
                         if(mat[x][y]< ValorMin){
                               ValorMin=mat[x][y];
@@ -54,7 +57,7 @@ function getValorMaxFilPar_MenorFilImp(){
 getValorPromedioXfila(mat);
 
 function getValorPromedioXfila(){
-      var ValoresProm=[fil];
+      let ValoresProm=[fil];
       for(let x=0;x<col;x++){
             let Sum=0;
             for(let y=0;y<fil;y++){
