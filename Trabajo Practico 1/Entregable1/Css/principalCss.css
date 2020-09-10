@@ -1,0 +1,31 @@
+.total{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.botonera{
+    align-content: center;
+    
+}
+.funct button {
+    align-content: space-around;
+    flex-direction: row;
+    background-color:cadetblue;
+}
+.botonera button {
+    border:solid 1px black ;
+    background-color: aquamarine;
+    align-items: center;
+    border:solid 1px black ;
+}
+.botonera h4{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: aquamarine;
+    align-items: center;
+    }
+.inputs{
+    display: none;
+}
+.canvas{
+    border:solid 4px black ;
+}

@@ -2,52 +2,86 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="../Css/principalCss.css">
 		<title>Principal_Entregable</title>
 	</head>
 	<body>
-		<h1>Ejercicio Entregable</h1>
-		<div class="botoneraPincel">
-			<!-- <select id="pincelPX">
-				<option value="" disabled selected hidden>Tamaño del Pincel</option>
-				<option value="1">1px</option>
-				<option value="3">3px</option>
-				<option value="5">5px</option>
-				<option value="10">10px</option>
-				<option value="20">20px</option>
-			</select> -->
-			<select id="pinceles">
-				<option value="" disabled selected hidden>Tipo de pinceles</option>
-				<option value="pincel">Lapiz</option>
-				<option value="porrador">Borrador</option>
-			</select>
+		<div class="total">
+			<h1>Ejercicio Entregable</h1>
+			
+			<div class="botonera">
+			<h4>Iniciar Proyecto</h4>
+			<!-- Andando correctamente -->
+			<button id="btnImage">Iniciar a partir de una imágen</button>
+			<input id="inputImage" type="file" class="inputs"> </input>
+			
+			<button id="btnLienzo">Iniciar desde lienzo blaco</button>
+			<input id="inputLienzo" class="inputs"> </input>
+			
 		</div>
-		<div class="botonera">
-			<button onclick="document.querySelector('#inputImage').click();">Iniciar a partir de una imágen</button>
-			<input id="inputImage" type="file" style="display: none;"> </input>
-			<button onclick="document.querySelector('#inputLienzo').click();">Iniciar desde lienzo blaco</button>
-			<input id="inputLienzo" style="display: none;"> </input>
-		</div>
-		<canvas hidden id="canvas" width="400" height="400" style="border:solid 4px black ;"></canvas>
-		<div>
-			<button onclick="document.querySelector('#deleteImage').click();">Limpiar lienzo</button>
-			<input id="deleteImage" style="display: none;"> </input>
-			<button class="btn" onclick="document.querySelector('#oldImage').click();">Revertir cambio</button>
-			<input id="oldImage" style="display: none;"> </input>
+				<div id="alertImg" class="alert alert-warning" role="alert" hidden>
+					El formato del archivo que trata de utilizar no es valido
+				</div>
+		<canvas hidden id="canvas" width="400" height="400" class="canvas"></canvas>
+		<div class="funct">
+			<button id="clean">Limpiar lienzo</button>
+			<input id="deleteImage" class="inputs"> </input>
+			<button  id="revert" >Revertir cambio</button>
+			<input id="oldImage" class="inputs"> </input>
 			<!-- <button class="btn" onclick="document.querySelector('#oldDraw').click();">Revertir Dibujo</button>
-			 --><input id="oldDraw" style="display: none;"> </input>
-			<button class="btns" onclick="document.querySelector('#OriginalImage').click();">Revertir todos los cambios</button>
-			<input id="OriginalImage" style="display: none;"> </input>
-			<button onclick="document.querySelector('#downloadImage').click();">Descargar proyecto</button>
-			<a href="" download="myProy.png" id="downloadImage" style="display: none;"></a>
+			<input id="oldDraw" style="display: none;"> </input> -->
+			<button id="reverts" >Revertir todos los cambios</button>
+			<input id="OriginalImage" class="inputs"> </input>
+			<button id="download">Descargar proyecto</button>
+			<a href="" download="myProy.png" id="downloadImage" ></a>
 		</div>
+
+	<!-- 	<div class="dropdown">
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Aplicar Filtro
+			</button>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			  <a id="fNegativo" value="fNegativo"class="dropdown-item">Action</a>
+			  <a id="fBinary" value="fBinary" class="dropdown-item" >Action</a>
+			  <a id="fSepia" value="fSepia" class="dropdown-item" >Action</a>
+			  <a id="fGscale" value="fGscale" class="dropdown-item" >Another action</a>
+			  <a id="fBlur" value="fBlur" class="dropdown-item" >Something else here</a>
+			  <a id="fSat" value="fSat" class="dropdown-item" >Something else here</a>
+			</div>
+		</div> -->
+
 		<select id="filterSelector">
 			<option value="" disabled selected hidden>Aplicar Filtro</option>
 			<option value="fNegativo"> Negativo</option>
 			<option value="fBinary"  > Binarizacion</option>
 			<option value="fSepia"   > Sepia</option>
 			<option value="fGscale"  > Escala de Grises</option>
-			<option value="fBlur"  > Blur </option>
+<!-- 		<option value="fBlur"  > Blur </option> -->
+			<option value="fSat"  > Saturacion </option>
 		</select>
+		
+		<div class="botoneraPincel">
+
+				<select id="pincelPX">
+					<option value="" disabled selected hidden>Tamaño del Pincel</option>
+					<option value="1">1px</option>
+					<option value="3">3px</option>
+					<option value="5">5px</option>
+					<option value="10">10px</option>
+					<option value="20">20px</option>
+				</select>
+
+				<select id="pinceles" hidden>
+					<option value="" disabled selected hidden>Tipo de pinceles</option>
+					<option value="pincel">Lapiz</option>
+					<option value="borrador">Borrador</option>
+				</select>
+		</div>
+	</div>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="..\Js\principalJS.js"></script>
 	</body>        
 </html>
