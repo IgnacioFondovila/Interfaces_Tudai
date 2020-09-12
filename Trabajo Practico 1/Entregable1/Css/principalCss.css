@@ -1,3 +1,15 @@
+header {
+    font-family:'Segoe UI', cursive,'Courier new ',  monospace;
+    width: 100%;
+    padding-left: 33%;
+    color: rgb(77, 64, 47);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: burlywood;
+    border-bottom: rgb(112, 194, 166) solid 6px;
+    border-block-end: 12%;
+}
 .total{
     display: flex;
     flex-direction: column;

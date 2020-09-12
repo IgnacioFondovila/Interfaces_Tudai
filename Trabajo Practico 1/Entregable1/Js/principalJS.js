@@ -1,218 +1,224 @@
 "USE STRICT";
-canvas=document.querySelector("#canvas")
+canvas = document.querySelector("#canvas")
 let ctx = canvas.getContext("2d");
-let canOriginalW=canvas.width;
-let canOriginalH=canvas.height;
-let canvasData = ctx.createImageData(canOriginalW,canOriginalH);
+let canOriginalW = canvas.width;
+let canOriginalH = canvas.height;
+let canvasData = ctx.createImageData(canOriginalW, canOriginalH);
 
-let inputImage= document.querySelector('#inputImage');
-let imageData=canvasData;
-let originalImageData=null;
-let imageModify=canvasData;
+let color=document.querySelector("#color-picker");
+let btnColor=document.querySelector("#color");
+let filters = document.querySelector("#filterSelector");
+let inputImage = document.querySelector('#inputImage');
+let imageData = canvasData;
+let originalImageData = null;
+let imageModify = canvasData;
 /*function clickInput() {
     document.querySelector('#foto-input').click();
 }
 onclick="document.querySelector('#inputImage').click();"*/
 //let lastImages=[]; arreglo de versiones previas
-document.querySelector('#btnImage').addEventListener("click", function(){
+document.querySelector('#btnImage').addEventListener("click", function () {
     document.querySelector('#inputImage').click();
 });
-let lastImage=imageModify;
-let lastDrawing=lastImage;
-let btnRevertCambio=document.querySelector("#revert");
-let btnRevertCambios=document.querySelector("#reverts");
-btnRevertCambio.disabled=true;
-btnRevertCambios.disabled=true;
+let lastImage = imageModify;
+//let lastDrawing = lastImage;
+let btnRevertCambio = document.querySelector("#revert");
+let btnRevertCambios = document.querySelector("#reverts");
+let cleanCanvas = document.querySelector('#deleteImage');
+btnRevertCambio.disabled = true;
+btnRevertCambios.disabled = true;
 
+//-------------------------------Lienzo-----------------------------------------     
 
-
-//-------------------Lienzo-------------------------
 let lienzo = document.querySelector('#inputLienzo');
 
-document.querySelector('#btnLienzo').addEventListener("click",function(){
-    lienzo.addEventListener("click", function(){
-        canvas.hidden=false;
-        if(originalImageData==null){
-            btnRevertCambios.disabled=true;
-            btnRevertCambio.disabled=true;
-        }
-        else{
-            //Si deseo iniciar nuevamente desde el lienzo blanco
-            //DEBERIA PERMITIR VOLVER A MI PROYECTO ANTERIOR?????????????????????????  
-            btnRevertCambio.disabled=false;
-        }
-        saveOriginalImage()
-        ctx.putImageData(originalImageData,0,0);
-        imageData = canvasData;
-    })
+document.querySelector('#btnLienzo').addEventListener("click", function () {
     lienzo.click();
-    pinceles.hidden=false;
-    document.querySelector("#alertImg").hidden=true;
+    lienzo.addEventListener("click", function () {
+        btnRevertCambios.disabled = true;
+        btnRevertCambio.disabled = true;
+        saveOriginalImage()
+        ctx.putImageData(originalImageData, 0, 0);
+        imageData = canvasData;
+        lienzo.hidden=true;
+    })
+    pinceles.hidden = false;
+    pxInput.hidden = false;
+    canvas.hidden = false;
+    cleanCanvas.hidden=false;
+    btnColor.hidden=false;
+    this.style.visibility = "hidden";
+    //document.querySelector("#alertImg").hidden=true;
 })
 
-//------------------------------------Dibujo
-//--Tamaño pincel--
-/*    
+//-------------------------------Dibujo-----------------------------------------     
+let herramienta;
+let accion = false;
+let havePuntos = false;
+let lastX = 0;
+let lastY = 0;
+let sizePincel = 1;
+let penColor=[];
 
-function agrandarPincel(x,y,tam){
-    console.log(tam);
-    let localX = x;
-    let localY = y;
-    for (let i = 0; i<tam; i++){
-        localX++;
-        localY = y;
-        dibujarPixel(imageData,localX,localY);
-        for (let j = 0; j<tam; j++){
-            localY++;
-                dibujarPixel(imageData,localX,localY);
-            }
-            localY = y;
-            for (let k = 0; k>tam; k++){
-                localY--;
-                dibujarPixel(imageData,localX,localY);
-            }
+
+//---Cambiar Color---
+document.querySelector("#color").addEventListener("click",function(){
+    color.click()
+})
+
+color.addEventListener("change",function(){ 
+    let hex = color.value.toString(16);
+    penColor=hexToRgbA(hex);
+})
+
+function hexToRgbA(hex){
+    let c;
+    if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+        c= hex.substring(1).split('');
+        if(c.length== 3){
+            c= [c[0], c[0], c[1], c[1], c[2], c[2]];
         }
-        localX = x;
-        for (let i = 0; i>tam; i--){
-            localX++;
-            localY = y
-            dibujarPixel(imageData,localX,localY);
-            for (let j = 0; j<tam; j++){
-                dibujarPixel(imageData,localX,localY);
-            }
-            localY = y
-            for (let k = 0; k>tam; k++){
-                dibujarPixel(imageData,localX,localY);
-            }
-        }
-        
+        c= '0x'+c.join('');
+        return [(c>>16)&255, (c>>8)&255, c&255];
     }
-    agrandarPincel(calcularX(i,lastX,lastY,x,y),i,p-1)*/
-    let herramienta; 
-    let accion = false;
-    let havePuntos = false;
-    let lastX = 0;
-    let lastY = 0;
-    let sizePincel = 1;
+}
+
+
+let pinceles = document.querySelector("#pinceles");
+let pxInput = document.querySelector("#pincelPX");
 //---control de acciones---
-    canvas.addEventListener("mousedown", function() {
-        accion = true;
-    });   
-    
-    canvas.addEventListener("mouseup", function() {
-        accion = false;
-        havePuntos = false;
-    });
-    
-    canvas.addEventListener("mouseleave",function(){
-        accion = false;
-        havePuntos = false;
-    })
-    
-    let pinceles=document.querySelector("#pinceles");
-    pinceles.addEventListener("click",function(){
-        herramienta=this.value;
-    });
-    
-    //------Dibujo--------
-    let pxInput=document.querySelector("#pincelPX");
-    pxInput.addEventListener("change", function(){
-        sizePincel = pxInput.value;
-    })
-    canvas.addEventListener("mousemove", function(e) {
-        if(accion){
-            lastDrawing=ctx.getImageData(0, 0, canvas.width, canvas.height);
-            let x = e.pageX - this.offsetLeft;
-            let y = e.pageY - this.offsetTop;
-            dibujarPixel(imageData,x,y);
-            chequeoPuntos(x,y)
-            //lastDrawing=imageData;
-            ctx.putImageData(imageData,0,0);
+canvas.addEventListener("mousedown", function () {
+    accion = true;
+});
+
+canvas.addEventListener("mouseup", function () {
+    accion = false;
+    havePuntos = false;
+});
+
+canvas.addEventListener("mouseleave", function () {
+    accion = false;
+    havePuntos = false;
+})
+
+pinceles.addEventListener("click", function () {
+    herramienta = this.value;
+    pinceles.value="Hid"
+});
+
+//--Tamaño pincel--  
+function drawWithSize(horiz, vert, r, g, b, a) {
+    let distance = sizePincel - 1;
+    for (let x = horiz - distance; x <= horiz + distance; x++) {
+        for (let y = vert - distance; y <= vert + distance; y++) {
+            if(x < canvas.width && x >= 0 && y < canvas.height && y >= 0) {
+                setPixel(imageData, x, y, r, g, b, a);
+                
+            }
         }
-    });
-    
-    function chequeoPuntos(x,y){
-        //si no dibuje anteriormente declaro mis nuevos puntos
-        //si tengo puntos los uno con los actuales
-        if (!havePuntos){
-            lastX = x;
-            lastY = y;
-            havePuntos = true;
+    }
+}
+
+
+pxInput.addEventListener("change", function () {
+    sizePincel = pxInput.value;
+    pxInput.value="Hid";
+})
+
+//-----Pintado-----
+
+canvas.addEventListener("mousemove", function (e) {
+    if (accion) {
+        //  lastDrawing = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        let x = e.pageX - this.offsetLeft;
+        let y = e.pageY - this.offsetTop;
+        dibujarPixel(imageData, x, y);
+        chequeoPuntos(x, y);
+        //lastDrawing=imageData;
+        ctx.putImageData(imageData, 0, 0);
+    }
+});
+
+function chequeoPuntos(x, y) {
+    //si no dibuje anteriormente declaro mis nuevos puntos
+    //si tengo puntos los uno con los actuales
+    if (!havePuntos) {
+        lastX = x;
+        lastY = y;
+        havePuntos = true;
+    } else {
+        hacerLinea(lastX, lastY, x, y)
+        lastX = x;
+        lastY = y;
+    }
+}
+
+function dibujarPixel(x, y) {
+    //que no dibuje de ambos lados
+    if (herramienta != "borrador") {
+        if(penColor!=[]){
+            if (sizePincel == 1) {
+                setPixel(imageData, x, y, penColor[0], penColor[1], penColor[2], 255);
+            } else {
+                console.log(penColor)
+                drawWithSize(x, y, penColor[0], penColor[1], penColor[2], 255);
+            }    
         }else{
-            hacerLinea(lastX,lastY,x,y)
-            lastX = x;
-            lastY = y;
-        }
-    }
-
-    function drawWithSize(horiz,vert,r, g, b,a) {
-        let distance = sizePincel - 1;
-        for(let x = horiz - distance; x <= horiz + distance; x ++) {
-            for(let y = vert - distance; y <= vert + distance; y ++) {
-                setPixel(imageData,x,y,r, g, b,a);
+            if (sizePincel == 1) {
+                setPixel(imageData, x, y, 0, 0, 0, 255);
+            } else {
+                drawWithSize(x, y, 0, 0, 0, 255);
             }
         }
-    }
-    
-    function dibujarPixel(x,y){
-        if(herramienta !="borrador"){
-            if(sizePincel==1){
-                setPixel(imageData,x,y,0,0,0,255)
-            }else{
-                drawWithSize(x,y,0,0,0,255)
-            }            
-        }else{
-            if(sizePincel==1){
-                setPixel(imageData,x,y,255,255,255,255)
-            }else{
-                console.log("enaneaer")
-                drawWithSize(x,y,255,255,255,255)
-            }            
+    } else {
+        if (sizePincel == 1) {
+            setPixel(imageData, x, y, 255, 255, 255, 255);
+        } else {
+            drawWithSize(x, y, 255, 255, 255, 255);
         }
     }
- 
-    function hacerLinea(lastX,lastY,x,y) {
-        if (lastX<x){
-            for (let i = lastX; i<x; i++){
-                dibujarPixel(i,calcularY(i,lastX,lastY,x,y));
-            }
-        }else{
-            for (let i = lastX; i>x; i--){
-                dibujarPixel(i,calcularY(i,lastX,lastY,x,y));
-            }
+}
+
+function hacerLinea(lastX, lastY, x, y) {
+    if (lastX < x) {
+        for (let i = lastX; i < x; i++) {
+            dibujarPixel(i, calcularY(i, lastX, lastY, x, y));
         }
-        if (lastY<y){
-            for (let i = lastY; i<y; i++){
-                dibujarPixel(calcularX(i,lastX,lastY,x,y),i);
-            }
-        }else{
-            for (let i = lastY; i>y; i--){
-                dibujarPixel(calcularX(i,lastX,lastY,x,y),i);
-            }
+    } else {
+        for (let i = lastX; i > x; i--) {
+            dibujarPixel(i, calcularY(i, lastX, lastY, x, y));
         }
     }
-
-    function calcularX(i,lastX,lastY,x,y){
-        return Math.floor(((i-lastY)/(y-lastY))*(x-lastX)+lastX);
+    if (lastY < y) {
+        for (let i = lastY; i < y; i++) {
+            dibujarPixel(calcularX(i, lastX, lastY, x, y), i);
+        }
+    } else {
+        for (let i = lastY; i > y; i--) {
+            dibujarPixel(calcularX(i, lastX, lastY, x, y), i);
+        }
     }
+}
 
-    function calcularY(i,lastX,lastY,x,y){
-        return Math.floor(((i-lastX)/(x-lastX))*(y-lastY)+lastY);
-    }
+function calcularX(i, lastX, lastY, x, y) {
+    return Math.floor(((i - lastY) / (y - lastY)) * (x - lastX) + lastX);
+}
 
-
-
-
-
+function calcularY(i, lastX, lastY, x, y) {
+    return Math.floor(((i - lastX) / (x - lastX)) * (y - lastY) + lastY);
+}
 
 //-------------------------------Image-----------------------------------------     
+let reiniciar = document.querySelector("#OriginalImage");
+let downloadImage = document.querySelector("#downloadImage");
+let revert = document.querySelector("#oldImage");
 
 //---Charge---
 
 inputImage.onchange = e => {
     let file = e.target.files[0];
-    canvas.hidden=false;
-    if(areImg(file)){
+    if (areImg(file)) {
+        canvas.hidden = false;
         let reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = readerEvent => {
@@ -222,381 +228,424 @@ inputImage.onchange = e => {
             image.src = content;
             
             image.onload = function () {
-                let arrWxH= adaptCanvasTo(this)
-                let imageScaledWidth=arrWxH[0];
-                let imageScaledHeight=arrWxH[1];
+                let arrWxH = adaptCanvasTo(this);
+                let imageScaledWidth = arrWxH[0];
+                let imageScaledHeight = arrWxH[1];
                 // draw image on canvas
-                canvasData=ctx.createImageData(imageScaledWidth , imageScaledHeight)
-                ctx.drawImage(image,0,0, imageScaledWidth, imageScaledHeight);
+                canvasData = ctx.createImageData(imageScaledWidth, imageScaledHeight);
+                ctx.drawImage(image, 0, 0, imageScaledWidth, imageScaledHeight);
                 imageData = ctx.getImageData(0, 0, imageScaledWidth, imageScaledHeight);
                 // get imageData from content of canvas
-                if(originalImageData==null){
-                    btnRevertCambio.disabled=true;
-                    originalImageData = imageData;
-                    imageModify=originalImageData;
+                if (originalImageData == null) {
+                    btnRevertCambio.disabled = true;
+                    saveOriginalImage()
+                    imageModify = originalImageData;
                 }
-                else{
-                    console.log("entro a la false")
-                    btnRevertCambio.disabled=false;
-                    imageModify=imageData
+                else {
+                    btnRevertCambio.disabled = false;
+                    imageModify = imageData;
                 }
-                saveOriginalImage()
-                ctx.putImageData(imageData,0,0);
+                ctx.putImageData(imageData, 0, 0);
                 //lienzo.hidden=true;
-                pinceles.hidden=false;
+                pinceles.hidden = false;
             }
-            lastImage=ctx.getImageData(0, 0, canvas.width, canvas.height);
-            document.querySelector("#alertImg").hidden=true; 
+            lastImage = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            document.querySelector("#alertImg").hidden = true;
+            pxInput.hidden = false;
+            filters.hidden = false;
+            btnColor.hidden=false;
+            document.querySelector('#btnLienzo').style.visibility = 'hidden';
         }
-    }else{
-        document.querySelector("#alertImg").hidden=false
+    } else {
+        document.querySelector("#alertImg").hidden = false
     }
-    inputImage.value=null;
-    console.log(originalImageData);
+    document.querySelector("#clean").hidden=false;
+    inputImage.value = null;
+}
+function areImg(imagen) {
+    isImg = true;
+    let imgType = imagen['type'];
+    if (imgType == 'image/jpeg' || imgType == 'image/jpg' || imgType == 'image/png') {
+        isImg = true;
+    } else {
+        isImg = false;
+    }
+    return isImg;
 }
 
-    function adaptCanvasTo(picture){
-        let arr=[];
-        let imageAspectRatio;
-        let imageScaledWidth;
-        let imageScaledHeight;
-        if( picture.width > picture.height){
-            imageAspectRatio = (1.0 * picture.height) / picture.width;
-            imageScaledWidth = canOriginalW;
-            imageScaledHeight = canOriginalH * imageAspectRatio;
-        }else{
-            imageAspectRatio =(1.0 * picture.width) / picture.height
-            imageScaledWidth=canOriginalW * imageAspectRatio 
-            imageScaledHeight=canOriginalH;                    
-        }
-        arr.push(imageScaledWidth);
-        arr.push(imageScaledHeight);
-        canvas.width=imageScaledWidth ;
-        canvas.height=imageScaledHeight;
-        console.log("printing")        
-        return arr;
+function adaptCanvasTo(picture) {
+    let arr = [];
+    let imageAspectRatio;
+    let imageScaledWidth;
+    let imageScaledHeight;
+    if (picture.width > picture.height) {
+        imageAspectRatio = (1.0 * picture.height) / picture.width;
+        imageScaledWidth = canOriginalW;
+        imageScaledHeight = canOriginalH * imageAspectRatio;
+    } else {
+        imageAspectRatio = (1.0 * picture.width) / picture.height
+        imageScaledWidth = canOriginalW * imageAspectRatio
+        imageScaledHeight = canOriginalH;
     }
+    arr.push(imageScaledWidth);
+    arr.push(imageScaledHeight);
+    canvas.width = imageScaledWidth;
+    canvas.height = imageScaledHeight;
+    return arr;
+}
 
-    function areImg(imagen){
-        isImg=true;
-        let imgType=imagen['type'];
-        if(imgType == 'image/jpeg' || imgType == 'image/jpg' || imgType =='image/png') {
-            isImg=true;
-        }else{
-            isImg=false;
-        }
-        return isImg;
-    }
 
-    //---Dowload
-    let downloadImage = document.querySelector("#downloadImage");
-    document.querySelector("#download").addEventListener("click",function(){
-        downloadImage.click();
-    })
+//---Dowload---
 
-    downloadImage.addEventListener("click", download);
-    function download() {
-        downloadImage.href = canvas.toDataURL();
-        downloadImage.download = "myProyect.png";
-    }
+document.querySelector("#download").addEventListener("click", function () {
+    downloadImage.click();
+})
+
+downloadImage.addEventListener("click", download);
+function download() {
+    downloadImage.href = canvas.toDataURL();
+    downloadImage.download = "myProyect.png";
+}
 
 //---Delete---
-let cleanCanvas = document.querySelector('#deleteImage');
-document.querySelector("#clean").addEventListener("click",function(){
+
+document.querySelector("#clean").addEventListener("click", function () {
     cleanCanvas.click();
 })
-cleanCanvas.addEventListener("click", function() {
-    lastImage=ctx.getImageData(0, 0, canvas.width, canvas.height);
-    iData=ctx.getImageData(0, 0, canvas.width, canvas.height);
-    for(let x = 0; x < canvas.width ; x++) {
-        for(let y = 0; y < canvas.height; y++) {
-            setPixel(iData , x , y , 255, 255, 255,255);
+
+cleanCanvas.addEventListener("click", function () {
+    lastImage = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    iData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    for (let x = 0; x < canvas.width; x++) {
+        for (let y = 0; y < canvas.height; y++) {
+            setPixel(iData, x, y, 255, 255, 255, 255);
         }
     }
     ctx.putImageData(iData, 0, 0);
-    imageData=iData;
-    btnRevertCambio.disabled=false;
+    imageData = iData;
+    btnRevertCambio.disabled = false;
 })
 
-//--Revertir cambio
-let revert=document.querySelector("#oldImage");
-document.querySelector("#revert").addEventListener("click",function(){
+//---Revertir cambio---
+
+document.querySelector("#revert").addEventListener("click", function () {
     revert.click()
 })
 
-revert.addEventListener("click",function(){
-    if(lastImage!=canvasData){
-        let arr= adaptCanvasTo(lastImage)
-        canvas.width=arr[0];
-        canvas.height=arr[1];
+revert.addEventListener("click", function () {
+    if (lastImage != canvasData) {
+        let arr = adaptCanvasTo(lastImage)
+        canvas.width = arr[0];
+        canvas.height = arr[1];
         ctx.putImageData(lastImage, 0, 0);
-        
-        imageData=lastImage;
-        btnRevertCambio.disabled=true;
-        console.log("lastImage")
-    }else{
-        console.log("imageData")
+
+        imageData = lastImage;
+        btnRevertCambio.disabled = true;
+    } else {
         ctx.putImageData(imageData, 0, 0);
-        btnRevertCambio.disabled=true;
+        btnRevertCambio.disabled = true;
+    }
+    if (lastImage != originalImageData) {
+        btnRevertCambios.disabled = false
     }
 })
 
-/* let revertDraw=document.querySelector("#oldDraw");
-revertDraw.addEventListener("click",function(){
-    if(lastImage!=lastDrawing){
-        ctx.putImageData(lastDrawing, 0, 0);
-        imageData=lastImage;
-        btnRevertCambio.disabled=true;
-    }else{
-        ctx.putImageData(imageData, 0, 0);
-        btnRevertCambio.disabled=true;
-    }
-})
- */
 //--Reiniciar Proyecto
-let reiniciar=document.querySelector("#OriginalImage");
-btnRevertCambios.addEventListener("click",function(){
+
+btnRevertCambios.addEventListener("click", function () {
     reiniciar.click()
 })
-
-reiniciar.addEventListener("click",function(){
-    let arr= adaptCanvasTo(lastImage)
-    canvas.width=arr[0];
-    canvas.height=arr[1];
+reiniciar.addEventListener("click", function () {
     resetImage();
-    btnRevertCambio.disabled=false;
-    btnRevertCambios.disabled=true;
-    console.log(originalImageData);
+    saveOriginalImage();
+    btnRevertCambio.disabled = false;
+    btnRevertCambios.disabled = true;
 })
 
 function saveOriginalImage() {
     originalImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    } 
+}
 
 function resetImage() {
+    let arr = adaptCanvasTo(originalImageData)
+    canvas.width = arr[0];
+    canvas.height = arr[1];
+    imageData = originalImageData
     ctx.putImageData(originalImageData, 0, 0);
 }
 
-    //---Filters---
-let filters=document.querySelector("#filterSelector");
-filters.addEventListener("change",function(){
-    lastImage=ctx.getImageData(0, 0, canvas.width, canvas.height);
-    let image=imageData;
-    imageModify=image;
-    let data=image.data;
-    if(filters.value == "fNegativo"){
-        for(let i = 0; i < data.length; i += 4){
+//---Filters---
+filters.addEventListener("change", function () {
+    lastImage = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let image = imageData;
+    imageModify = image;
+    let data = image.data;
+    if (filters.value == "fNegativo") {
+        for (let i = 0; i < data.length; i += 4) {
             data[i + 0] = 255 - getRed(i);
             data[i + 1] = 255 - getGreen(i);
             data[i + 2] = 255 - getBlue(i);
         }
-        ctx.putImageData(image,0,0)   
+        ctx.putImageData(image, 0, 0)
     }
-    else if(filters.value== "fBinary"){
+    else if (filters.value == "fBinary") {
         let umbral = 50
-        for(let i = 0; i < data.length; i += 4){
-            let promedio = Math.floor((getRed(i)+getGreen(i)+getBlue(i))/3)
-            if(promedio>umbral){
-                data[i + 0] = 255 ;
-                data[i + 1] = 255 ;
-                data[i + 2] = 255 ;
-            }else{
-                data[i + 0] = 0 ;
-                data[i + 1] = 0 ;
-                data[i + 2] = 0 ;
+        for (let i = 0; i < data.length; i += 4) {
+            let promedio = Math.floor((getRed(i) + getGreen(i) + getBlue(i)) / 3)
+            if (promedio > umbral) {
+                data[i + 0] = 255;
+                data[i + 1] = 255;
+                data[i + 2] = 255;
+            } else {
+                data[i + 0] = 0;
+                data[i + 1] = 0;
+                data[i + 2] = 0;
             }
         }
-        ctx.putImageData(image,0,0);
+        ctx.putImageData(image, 0, 0);
     }
-    else if(filters.value== "fSepia"){
-        for(let i = 0; i < data.length; i += 4){
-            let promedio = Math.floor((getRed(i)+getGreen(i)+getBlue(i))/3)
-            data[i+0]= Math.min(promedio+40,255)
-            data[i+1]= Math.min(promedio+15,255)
-            data[i+2]= Math.min(promedio,255)   
+    else if (filters.value == "fSepia") {
+        for (let i = 0; i < data.length; i += 4) {
+            let promedio = Math.floor((getRed(i) + getGreen(i) + getBlue(i)) / 3)
+            data[i + 0] = Math.min(promedio + 40, 255)
+            data[i + 1] = Math.min(promedio + 15, 255)
+            data[i + 2] = Math.min(promedio, 255)
         }
-        ctx.putImageData(image,0,0)
+        ctx.putImageData(image, 0, 0)
     }
-    /*else if("fBlur"){
-        let blurMat = [1/36, 1/36, 1/36,
-            1/36, 1/36, 1/36,
-            1/36, 1/36, 1/36,
-            1/36, 1/36, 1/36,
-            1/36, 1/36, 1/36,
-            1/36, 1/36, 1/36,
-            1/36, 1/36, 1/36,
-            1/36, 1/36, 1/36,
-            1/36, 1/36, 1/36,
-            1/36, 1/36, 1/36,
-            1/36, 1/36, 1/36,
-            1/36, 1/36, 1/36 ]
-        let prom = Math.round(Math.sqrt(blurMat.length));
-        let halfProm = Math.floor(prom/2);
-        let iw = image.width;
-        console.log(iw);
-        let ih = image.height;
-        console.log(ih);
-        let w = iw;
-        let h = ih;
-        let retImage = image;
-        let returnData = data;
-        console.log(returnData);//var output = Filters.createImageData(w, h);
-      
-        let alphaFac = false ? 1 : 0;
-        for (let y=0; y<h; y++) {
-            for (let x=0; x<w; x++) {
-            let iY = y;
-            let iX = x;
-            let dstOff = (y*w+x)*4;
-            let r=0, g=0, b=0, a=0;
-            for (let cy=0; cy<prom; cy++) {
-                for (let cx=0; cx<prom; cx++) {
-                    let scy = iY + cy - halfProm;
-                    let scx = iX + cx - halfProm;
-                    if (scy >= 0 && scy < ih && scx >= 0 && scx < iw) {
-                        let imgOff = (scy*iw+scx)*4;
-                        let wt = blurMat[cy*prom+cx];
-                        r += retImage[imgOff] * wt;
-                        g += retImage[imgOff+1] * wt;
-                        b += retImage[imgOff+2] * wt;
-                        a += retImage[imgOff+3] * wt;
-                    }
-                }
-            }
-            returnData[dstOff] = r;
-            returnData[dstOff+1] = g;
-            returnData[dstOff+2] = b;
-            returnData[dstOff+3] = a + alphaFac*(255-a);
+
+    else if (filters.value == "fGscale") {
+        for (let i = 0; i < data.length; i += 4) {
+            let grayscale = getRed(i) * .3 + getGreen(i) * .59 + getBlue(i) * .11;
+            data[i + 0] = grayscale;    // r
+            data[i + 1] = grayscale;    // g
+            data[i + 2] = grayscale;    // b
         }
+        ctx.putImageData(image, 0, 0)
     }
-    ctx.putImageData(image,0,0)
-}*/
-else if(filters.value== "fGscale"){
-    for (let i = 0; i < data.length; i += 4) {
-        let grayscale = getRed(i) * .3 + getGreen(i) * .59 + getBlue(i) * .11;
-        data[i+0] = grayscale;    // r
-        data[i+1] = grayscale;    // g
-        data[i+2] = grayscale;    // b
-    }
-    ctx.putImageData(image,0,0)
-}
-else if(filters.value=="fSat"){
-    let r=0, g=0, b=0, a=0;
-    for(let i = 0; i<canvas.width-1; i++){
-        for(let j = 0; j<canvas.height; j++){
+    else if (filters.value == "fSat") {
+        let r = 0, g = 0, b = 0, a = 0;
+        for (let i = 0; i < canvas.width - 1; i++) {
+            for (let j = 0; j < canvas.height; j++) {
                 let ind = (i + j * image.width) * 4
-                r =data[ind]/255
-                g = data[ind+1]/255
-                b = data[ind+2]/255
-                let cmax = Math.max(r,g,b)
-                let cmin = Math.min(r,g,b)
-                let delta = cmax-cmin
-                let hue = getHue(delta,cmax,r,g,b)
-                let light = getLight(cmax,cmin)
-                let sat = getSaturacion(light,delta) + 0.3
-                let c = getC(sat,light)
-                let x = getX(hue,c)
-                let m = light - (c/2)
-                let arrNewRGB = getNewRGB(hue,c,x)
+                r = data[ind] / 255
+                g = data[ind + 1] / 255
+                b = data[ind + 2] / 255
+                let cmax = Math.max(r, g, b)
+                let cmin = Math.min(r, g, b)
+                let delta = cmax - cmin
+                let hue = getHue(delta, cmax, r, g, b)
+                let light = getLight(cmax, cmin)
+                let sat = getSaturacion(light, delta) + 0.3
+                let c = getC(sat, light)
+                let x = getX(hue, c)
+                let m = light - (c / 2)
+                let arrNewRGB = getNewRGB(hue, c, x)
                 r = arrNewRGB[0];
                 g = arrNewRGB[1];
                 b = arrNewRGB[2];
-                let newRed = (r+m)*255
-                let newGreen = (g+m)*255
-                let newBlue = (b+m)*255
-                setPixel(image,i,j,newRed,newGreen,newBlue,255)
+                let newRed = (r + m) * 255
+                let newGreen = (g + m) * 255
+                let newBlue = (b + m) * 255
+                setPixel(image, i, j, newRed, newGreen, newBlue, 255)
             }
         }
-        ctx.putImageData(image,0,0)
+        ctx.putImageData(image, 0, 0)
+    } else {
+        let DetecMat=[1, 1, 1, 1, -7, 1, 1, 1, 1]//deteccion de borde
+        //[0, -1, 0, -1, 5, -1, 0, -1, 0];//Nitidez
+        //[1/19,1/19,1/19,1/19,1/19,1/19,1/19,1/19,1/19]//blur
+        /*Efecto Flaaaaasheraazo
+        let prom = 3;//Math.round(Math.sqrt(blurMat.length));
+        let halfProm = 1;//Math.floor(prom / 2);
+        let w = canvas.width;
+        let h = canvas.height;
+        let inputData = ctx.getImageData(0, 0, w, h).data
+        let output = image.data
+        let altery;
+        let alterx;
+        let inptIndex;
+        let ouptIndex;
+        let weight;
+        let pxAvove;
+        for (let x = 0; x < w; ++x) {
+            pxAvove = x * w
+        
+            for (let y = 0; y < h; ++y) {
+
+                let r = 0, g = 0, b = 0, a = 0;
+
+                for (let matY = 0; matY < prom; ++matY) {
+
+                    for (let matX = 0; matX < prom; ++matX) {
+                        weight = blurMat[matY * prom + matX];
+                        altery = Math.min(
+                            h - 1,
+                            Math.max(0, x + matY - halfProm)
+                        );
+                        alterx = Math.min(
+                            w   - 1,
+                            Math.max(0, y + matX - halfProm)
+                        )
+                        inptIndex = (alterx * x + altery) * 4;
+                        r += inputData[inptIndex] * weight;
+                        g += inputData[inptIndex + 1] * weight;
+                        b += inputData[inptIndex + 2] * weight;
+                        a += inputData[inptIndex + 3] * weight;
+                    }
+
+                }
+                ouptIndex = (pxAvove + y) * 4
+                output[ouptIndex] = r;
+                output[ouptIndex + 1] = g;
+                output[ouptIndex + 2] = b;
+                output[ouptIndex + 3] = blurMat.normalized ? a : 255;;
+            }
+        }
+        ctx.putImageData(image, 0, 0)*/
+            let size = Math.sqrt(DetecMat.length);
+            let half = Math.floor(size / 2);
+        
+            let width = canvas.width;
+            let height = canvas.height;
+        
+            let inputData = ctx.getImageData(0, 0, width, height).data;
+        
+            let outputData = image.data;
+        
+            let pixelsAbove;
+        
+            let weight;
+            let neighborY;
+            let neighborX;
+        
+            let inputIndex;
+            let outputIndex;
+        
+            for (let i = 0; i < height; ++i) {
+                pixelsAbove = i * width;
+                for (let j = 0; j < width; ++j) {
+                    r = 0;
+                    g = 0;
+                    b = 0;
+                    a = 0;
+        
+                    for (let matY = 0; matY < size; ++matY) {
+                        for (let matX = 0; matX < size; ++matX) {
+                            weight = DetecMat[matY * size + matX];
+                            neighborY = Math.min(
+                                height - 1,
+                                Math.max(0, i + matY - half)
+                            );
+                            neighborX = Math.min(
+                                width - 1,
+                                Math.max(0, j + matX - half)
+                            );
+                            inputIndex = (neighborY * width + neighborX) * 4;
+                            r += inputData[inputIndex] * weight;
+                            g += inputData[inputIndex + 1] * weight;
+                            b += inputData[inputIndex + 2] * weight;
+                            a += inputData[inputIndex + 3] * weight;
+                        }
+                    }
+                    outputIndex = (pixelsAbove + j) * 4;
+                    outputData[outputIndex] = r;
+                    outputData[outputIndex + 1] = g;
+                    outputData[outputIndex + 2] = b;
+                    outputData[outputIndex + 3] = DetecMat.normalized ? a : 255;
+                }
+            }
+            ctx.putImageData(image, 0, 0);
     }
-    btnRevertCambio.disabled=false;
-    btnRevertCambios.disabled=false;
-    console.log(originalImageData);
+    btnRevertCambio.disabled = false;
+    btnRevertCambios.disabled = false;
+    filters.value="Hid";
 })
 //---saturacion methods---
 
-    function getNewRGB(hue,c,x){
-        if(hue>=0 && hue<60){
-            return [c,x,0]
-        }else if (hue>=60 && hue<120){
-            return [x,c,0]
-        }else if (hue>=120 && hue <180){
-            return [0,c,x]
-        }else if (hue>=180 && hue<240){
-            return [0,x,c]
-        }else if (hue>=240 && hue<300){
-            return [x,0,c]
-        }else{
-            return [c,0,x]
+function getNewRGB(hue, c, x) {
+    if (hue >= 0 && hue < 60) {
+        return [c, x, 0]
+    } else if (hue >= 60 && hue < 120) {
+        return [x, c, 0]
+    } else if (hue >= 120 && hue < 180) {
+        return [0, c, x]
+    } else if (hue >= 180 && hue < 240) {
+        return [0, x, c]
+    } else if (hue >= 240 && hue < 300) {
+        return [x, 0, c]
+    } else {
+        return [c, 0, x]
+    }
+}
+
+function getX(hue, c) {
+    let aux = ((hue / 60) % 2) - 1
+    if (aux < 0) {
+        aux = aux * -1
+    }
+    return c * (1 - aux)
+}
+
+
+function getC(sat, light) {
+    let aux = 2 * light - 1
+    if (aux < 0) {
+        aux = aux * -1
+    }
+    return (1 - aux) * sat
+}
+
+function getSaturacion(light, delta) {
+    if (delta == 0) {
+        return 0
+    } else {
+        let aux = (2 * light) - 1
+        if (aux < 0) {
+            aux = aux * -1
         }
+        return delta / (1 - ((2 * light) - 1))
     }
+}
 
-    function getX(hue, c){
-        let aux = ((hue / 60) % 2) - 1
-        if (aux<0){
-            aux = aux*-1
-        }
-        return c * (1 - aux)
-    }
+function getLight(cmax, cmin) {
+    return (cmax + cmin) / 2
+}
 
+function getHue(delta, cmax, r, g, b) {
+    if (delta == 0) {
+        return 0
+    } else if (cmax == r) {
+        return Math.floor(60 * (((g - b) / delta) % 6))
+    } else if (cmax == g) {
+        return Math.floor(60 * (((b - r) / delta) + 2))
+    } else {
+        return Math.floor(60 * (((r - g) / delta) + 4))
+    }
+}
 
-    function getC(sat,light){
-        let aux = 2*light - 1
-        if (aux<0){
-            aux = aux* -1
-        }
-        return (1 - aux) * sat
-    }
+//---DataMatriz Methods---
 
-    function getSaturacion(light,delta){
-        if (delta==0){
-            return 0
-        }else{
-            let aux = (2*light)-1
-            if (aux<0){
-                aux = aux * -1
-            }
-            return delta/(1-((2*light)-1))
-        }
-    }
+function getRed(x) {
+    return imageData.data[x];
+}
 
-    function getLight(cmax,cmin){
-        return (cmax + cmin) / 2
-    }
+function getGreen(x) {
+    return imageData.data[x + 1];
+}
 
-    function getHue(delta,cmax,r,g,b){
-        if (delta==0){
-            return 0
-        }else if (cmax==r){
-            return Math.floor(60*(((g-b)/delta)%6))
-        }else if(cmax==g){
-            return Math.floor(60*(((b-r)/delta)+2))
-        }else{
-            return Math.floor(60*(((r-g)/delta)+4))
-        }
-    }
-//---DataMatriz Methods
+function getBlue(x) {
+    return imageData.data[x + 2];
+}
 
-    function getRed(x){
-        return  imageData.data[x];
-    }
+function getAlpha(x) {
+    return imageData.data[x + 3];
+}
 
-    function getGreen(x){
-        return imageData.data[x +1];
-    }
-
-    function getBlue(x){
-        return imageData.data[x +2];
-    }
-    
-    function getAlpha(x){
-        return imageData.data[x +3];
-    }
-
-    function setPixel(d, x, y, r, g, b, a) {
-        let  i = (x + y * d.width) * 4;
-        d.data[i + 0] = r;
-        d.data[i + 1] = g;
-        d.data[i + 2] = b;
-        d.data[i + 3] = a;
-    }
+function setPixel(d, x, y, r, g, b, a) {
+    let i = (x + y * d.width) * 4;
+    d.data[i + 0] = r;
+    d.data[i + 1] = g;
+    d.data[i + 2] = b;
+    d.data[i + 3] = a;
+}

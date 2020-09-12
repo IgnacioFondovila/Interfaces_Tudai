@@ -8,24 +8,29 @@
 	</head>
 	<body>
 		<div class="total">
-			<h1>Ejercicio Entregable</h1>
 			
+			<header>
+				<h1>
+					PAINTING EDITOR 	
+				</h1>
+			</header>
+
 			<div class="botonera">
 			<h4>Iniciar Proyecto</h4>
 			<!-- Andando correctamente -->
-			<button id="btnImage">Iniciar a partir de una imágen</button>
+			<button id="btnImage">Iniciar a partir de una imagen</button>
 			<input id="inputImage" type="file" class="inputs"> </input>
 			
-			<button id="btnLienzo">Iniciar desde lienzo blaco</button>
+			<button id="btnLienzo" >Iniciar desde lienzo blanco</button>
 			<input id="inputLienzo" class="inputs"> </input>
 			
 		</div>
-				<div id="alertImg" class="alert alert-warning" role="alert" hidden>
-					El formato del archivo que trata de utilizar no es valido
-				</div>
-		<canvas hidden id="canvas" width="400" height="400" class="canvas"></canvas>
+		<div id="alertImg" class="alert alert-warning" role="alert" hidden>
+			El formato del archivo que trata de utilizar no es valido
+		</div>
+		<canvas hidden id="canvas" width="500" height="500" class="canvas"></canvas>
 		<div class="funct">
-			<button id="clean">Limpiar lienzo</button>
+			<button id="clean" hidden>Limpiar lienzo</button>
 			<input id="deleteImage" class="inputs"> </input>
 			<button  id="revert" >Revertir cambio</button>
 			<input id="oldImage" class="inputs"> </input>
@@ -37,34 +42,22 @@
 			<a href="" download="myProy.png" id="downloadImage" ></a>
 		</div>
 
-	<!-- 	<div class="dropdown">
-			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Aplicar Filtro
-			</button>
-			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-			  <a id="fNegativo" value="fNegativo"class="dropdown-item">Action</a>
-			  <a id="fBinary" value="fBinary" class="dropdown-item" >Action</a>
-			  <a id="fSepia" value="fSepia" class="dropdown-item" >Action</a>
-			  <a id="fGscale" value="fGscale" class="dropdown-item" >Another action</a>
-			  <a id="fBlur" value="fBlur" class="dropdown-item" >Something else here</a>
-			  <a id="fSat" value="fSat" class="dropdown-item" >Something else here</a>
-			</div>
-		</div> -->
-
-		<select id="filterSelector">
-			<option value="" disabled selected hidden>Aplicar Filtro</option>
+		<select id="filterSelector" hidden>
+			<option value="Hid" disabled selected hidden>Aplicar Filtro</option>
 			<option value="fNegativo"> Negativo</option>
 			<option value="fBinary"  > Binarizacion</option>
 			<option value="fSepia"   > Sepia</option>
 			<option value="fGscale"  > Escala de Grises</option>
-<!-- 		<option value="fBlur"  > Blur </option> -->
+			<option value="fBlur"  > Blur </option>
 			<option value="fSat"  > Saturacion </option>
 		</select>
 		
 		<div class="botoneraPincel">
 
-				<select id="pincelPX">
-					<option value="" disabled selected hidden>Tamaño del Pincel</option>
+			<input type="range" id="tamanioPincel" min="0" max="50" step="5"/>
+
+				<select id="pincelPX" hidden>
+					<option value="Hid" disabled selected hidden>Tamaño del Pincel</option>
 					<option value="1">1px</option>
 					<option value="3">3px</option>
 					<option value="5">5px</option>
@@ -72,8 +65,12 @@
 					<option value="20">20px</option>
 				</select>
 
+				<button  id="color" title="Seleccionar color" hidden>
+					<input type="color" id="color-picker" value="#007bff">
+				</button>
+
 				<select id="pinceles" hidden>
-					<option value="" disabled selected hidden>Tipo de pinceles</option>
+					<option value="Hid" disabled selected hidden>Tipo de pinceles</option>
 					<option value="pincel">Lapiz</option>
 					<option value="borrador">Borrador</option>
 				</select>
