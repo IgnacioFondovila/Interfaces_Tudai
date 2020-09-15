@@ -5,8 +5,8 @@ let canOriginalW = canvas.width;
 let canOriginalH = canvas.height;
 let canvasData = ctx.createImageData(canOriginalW, canOriginalH);
 
-let color=document.querySelector("#color-picker");
-let btnColor=document.querySelector("#color");
+let color = document.querySelector("#color-picker");
+let btnColor = document.querySelector("#color");
 let filters = document.querySelector("#filterSelector");
 let inputImage = document.querySelector('#inputImage');
 let imageData = canvasData;
@@ -31,24 +31,25 @@ btnRevertCambios.disabled = true;
 //-------------------------------Lienzo-----------------------------------------     
 
 let lienzo = document.querySelector('#inputLienzo');
+let pinceles = document.querySelector("#pinceles");
+let pxInput = document.querySelector("#pincelPX");//Slider Pincel
 
 document.querySelector('#btnLienzo').addEventListener("click", function () {
     lienzo.click();
     lienzo.addEventListener("click", function () {
         btnRevertCambios.disabled = true;
         btnRevertCambio.disabled = true;
-        saveOriginalImage()
         ctx.putImageData(originalImageData, 0, 0);
         imageData = canvasData;
-        lienzo.hidden=true;
+        lienzo.hidden = true;
     })
-    pinceles.hidden = false;
-    pxInput.hidden = false;
+    saveOriginalImage()
+    document.querySelector('.botoneraPincel').hidden=false;
     canvas.hidden = false;
-    cleanCanvas.hidden=false;
-    btnColor.hidden=false;
+    document.querySelector(".funct").hidden = false;
+    btnColor.hidden = false;
     this.style.visibility = "hidden";
-    //document.querySelector("#alertImg").hidden=true;
+    document.querySelector("#alertImg").hidden=true;
 })
 
 //-------------------------------Dibujo-----------------------------------------     
@@ -58,34 +59,8 @@ let havePuntos = false;
 let lastX = 0;
 let lastY = 0;
 let sizePincel = 1;
-let penColor=[];
+let penColor = [];
 
-
-//---Cambiar Color---
-document.querySelector("#color").addEventListener("click",function(){
-    color.click()
-})
-
-color.addEventListener("change",function(){ 
-    let hex = color.value.toString(16);
-    penColor=hexToRgbA(hex);
-})
-
-function hexToRgbA(hex){
-    let c;
-    if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
-        c= hex.substring(1).split('');
-        if(c.length== 3){
-            c= [c[0], c[0], c[1], c[1], c[2], c[2]];
-        }
-        c= '0x'+c.join('');
-        return [(c>>16)&255, (c>>8)&255, c&255];
-    }
-}
-
-
-let pinceles = document.querySelector("#pinceles");
-let pxInput = document.querySelector("#pincelPX");
 //---control de acciones---
 canvas.addEventListener("mousedown", function () {
     accion = true;
@@ -103,27 +78,52 @@ canvas.addEventListener("mouseleave", function () {
 
 pinceles.addEventListener("click", function () {
     herramienta = this.value;
-    pinceles.value="Hid"
+    pinceles.value = "Hid"
 });
 
-//--Tamaño pincel--  
-function drawWithSize(horiz, vert, r, g, b, a) {
-    let distance = sizePincel - 1;
-    for (let x = horiz - distance; x <= horiz + distance; x++) {
-        for (let y = vert - distance; y <= vert + distance; y++) {
-            if(x < canvas.width && x >= 0 && y < canvas.height && y >= 0) {
-                setPixel(imageData, x, y, r, g, b, a);
-                
-            }
+//---Cambiar Color---
+document.querySelector("#color").addEventListener("click", function () {
+    color.click()
+})
+
+color.addEventListener("change", function () {
+    let hex = color.value.toString(16);
+    penColor = hexToRgbA(hex);
+})
+
+function hexToRgbA(hex) {
+    let c;
+    if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+        c = hex.substring(1).split('');
+        if (c.length == 3) {
+            c = [c[0], c[0], c[1], c[1], c[2], c[2]];
         }
+        c = '0x' + c.join('');
+        return [(c >> 16) & 255, (c >> 8) & 255, c & 255];
     }
 }
 
 
-pxInput.addEventListener("change", function () {
-    sizePincel = pxInput.value;
-    pxInput.value="Hid";
-})
+//---Tamaño pincel---
+
+    let sliderValor = document.querySelector("#slider");
+    pxInput.addEventListener("input", slider);
+    function slider(){ //ANDA
+        //console.log(tamanioPincel.value);
+        sliderValor.innerHTML = pxInput.value;
+        sizePincel= pxInput.value;
+    };
+
+function drawWithSize(horiz, vert, r, g, b, a) {
+    let distance = sizePincel - 1;
+    for (let x = horiz - distance; x <= horiz + distance; x++) {
+        for (let y = vert - distance; y <= vert + distance; y++) {
+            if (x < canvas.width && x >= 0 && y < canvas.height && y >= 0) {
+                setPixel(imageData, x, y, r, g, b, a);
+            }
+        }
+    }
+}
 
 //-----Pintado-----
 
@@ -156,14 +156,13 @@ function chequeoPuntos(x, y) {
 function dibujarPixel(x, y) {
     //que no dibuje de ambos lados
     if (herramienta != "borrador") {
-        if(penColor!=[]){
+        if (penColor != []) {
             if (sizePincel == 1) {
                 setPixel(imageData, x, y, penColor[0], penColor[1], penColor[2], 255);
             } else {
-                console.log(penColor)
                 drawWithSize(x, y, penColor[0], penColor[1], penColor[2], 255);
-            }    
-        }else{
+            }
+        } else {
             if (sizePincel == 1) {
                 setPixel(imageData, x, y, 0, 0, 0, 255);
             } else {
@@ -226,7 +225,7 @@ inputImage.onchange = e => {
             let image = new Image();
             //image.crossOrigin = 'Anonymous';
             image.src = content;
-            
+
             image.onload = function () {
                 let arrWxH = adaptCanvasTo(this);
                 let imageScaledWidth = arrWxH[0];
@@ -246,22 +245,22 @@ inputImage.onchange = e => {
                     imageModify = imageData;
                 }
                 ctx.putImageData(imageData, 0, 0);
+                filters.hidden=false;
                 //lienzo.hidden=true;
-                pinceles.hidden = false;
             }
             lastImage = ctx.getImageData(0, 0, canvas.width, canvas.height);
             document.querySelector("#alertImg").hidden = true;
-            pxInput.hidden = false;
-            filters.hidden = false;
-            btnColor.hidden=false;
+            document.querySelector('.botoneraPincel').hidden=false;
             document.querySelector('#btnLienzo').style.visibility = 'hidden';
+            document.querySelector('#btnLienzo').style.display='none';
         }
     } else {
         document.querySelector("#alertImg").hidden = false
     }
-    document.querySelector("#clean").hidden=false;
+    document.querySelector(".funct").hidden = false;
     inputImage.value = null;
 }
+
 function areImg(imagen) {
     isImg = true;
     let imgType = imagen['type'];
@@ -294,8 +293,7 @@ function adaptCanvasTo(picture) {
     return arr;
 }
 
-
-//---Dowload---
+//---Download---
 
 document.querySelector("#download").addEventListener("click", function () {
     downloadImage.click();
@@ -417,9 +415,9 @@ filters.addEventListener("change", function () {
     else if (filters.value == "fGscale") {
         for (let i = 0; i < data.length; i += 4) {
             let grayscale = getRed(i) * .3 + getGreen(i) * .59 + getBlue(i) * .11;
-            data[i + 0] = grayscale;    // r
-            data[i + 1] = grayscale;    // g
-            data[i + 2] = grayscale;    // b
+            data[i + 0] = grayscale;    // r
+            data[i + 1] = grayscale;    // g
+            data[i + 2] = grayscale;    // b
         }
         ctx.putImageData(image, 0, 0)
     }
@@ -451,8 +449,8 @@ filters.addEventListener("change", function () {
             }
         }
         ctx.putImageData(image, 0, 0)
-    } else {
-        let DetecMat=[1, 1, 1, 1, -7, 1, 1, 1, 1]//deteccion de borde
+    } else if (filters.value == "fDetec") {
+        let Mat = [1, 1, 1, 1, -7, 1, 1, 1, 1]//deteccion de borde
         //[0, -1, 0, -1, 5, -1, 0, -1, 0];//Nitidez
         //[1/19,1/19,1/19,1/19,1/19,1/19,1/19,1/19,1/19]//blur
         /*Efecto Flaaaaasheraazo
@@ -470,30 +468,29 @@ filters.addEventListener("change", function () {
         let pxAvove;
         for (let x = 0; x < w; ++x) {
             pxAvove = x * w
-        
+            
             for (let y = 0; y < h; ++y) {
-
+                
                 let r = 0, g = 0, b = 0, a = 0;
-
+                
                 for (let matY = 0; matY < prom; ++matY) {
-
+                    
                     for (let matX = 0; matX < prom; ++matX) {
                         weight = blurMat[matY * prom + matX];
                         altery = Math.min(
                             h - 1,
                             Math.max(0, x + matY - halfProm)
-                        );
+                            );
                         alterx = Math.min(
                             w   - 1,
                             Math.max(0, y + matX - halfProm)
-                        )
-                        inptIndex = (alterx * x + altery) * 4;
-                        r += inputData[inptIndex] * weight;
+                            )
+                            inptIndex = (alterx * x + altery) * 4;
+                            r += inputData[inptIndex] * weight;
                         g += inputData[inptIndex + 1] * weight;
                         b += inputData[inptIndex + 2] * weight;
                         a += inputData[inptIndex + 3] * weight;
                     }
-
                 }
                 ouptIndex = (pxAvove + y) * 4
                 output[ouptIndex] = r;
@@ -503,64 +500,75 @@ filters.addEventListener("change", function () {
             }
         }
         ctx.putImageData(image, 0, 0)*/
-            let size = Math.sqrt(DetecMat.length);
-            let half = Math.floor(size / 2);
-        
-            let width = canvas.width;
-            let height = canvas.height;
-        
-            let inputData = ctx.getImageData(0, 0, width, height).data;
-        
-            let outputData = image.data;
-        
-            let pixelsAbove;
-        
-            let weight;
-            let neighborY;
-            let neighborX;
-        
-            let inputIndex;
-            let outputIndex;
-        
-            for (let i = 0; i < height; ++i) {
-                pixelsAbove = i * width;
-                for (let j = 0; j < width; ++j) {
-                    r = 0;
-                    g = 0;
-                    b = 0;
-                    a = 0;
-        
-                    for (let matY = 0; matY < size; ++matY) {
-                        for (let matX = 0; matX < size; ++matX) {
-                            weight = DetecMat[matY * size + matX];
-                            neighborY = Math.min(
-                                height - 1,
-                                Math.max(0, i + matY - half)
-                            );
-                            neighborX = Math.min(
-                                width - 1,
-                                Math.max(0, j + matX - half)
-                            );
-                            inputIndex = (neighborY * width + neighborX) * 4;
-                            r += inputData[inputIndex] * weight;
-                            g += inputData[inputIndex + 1] * weight;
-                            b += inputData[inputIndex + 2] * weight;
-                            a += inputData[inputIndex + 3] * weight;
-                        }
-                    }
-                    outputIndex = (pixelsAbove + j) * 4;
-                    outputData[outputIndex] = r;
-                    outputData[outputIndex + 1] = g;
-                    outputData[outputIndex + 2] = b;
-                    outputData[outputIndex + 3] = DetecMat.normalized ? a : 255;
-                }
-            }
-            ctx.putImageData(image, 0, 0);
+        convolution(Mat,image);
+    }
+    else if(filters.value == "fNitid"){
+        let Mat=[0, -1, 0, -1, 5, -1, 0, -1, 0];//Nitidez
+        convolution(Mat,image);
     }
     btnRevertCambio.disabled = false;
     btnRevertCambios.disabled = false;
-    filters.value="Hid";
+    filters.value = "Hid";
 })
+//---Mat convolution Filters---
+function convolution(Mat,image){
+    let size = Math.sqrt(Mat.length);
+    let half = Math.floor(size / 2);
+
+    let width = canvas.width;
+    let height = canvas.height;
+
+    let inputData = ctx.getImageData(0, 0, width, height).data;
+
+    let outputData = image.data;
+
+    let pixelsAbove;
+
+    let weight;
+    let neighborY;
+    let neighborX;
+
+    let inputIndex;
+    let outputIndex;
+
+    for (let i = 0; i < height; ++i) {
+        pixelsAbove = i * width;
+        for (let j = 0; j < width; ++j) {
+            r = 0;
+            g = 0;
+            b = 0;
+            a = 0;
+
+            for (let matY = 0; matY < size; ++matY) {
+                for (let matX = 0; matX < size; ++matX) {
+                    weight = Mat[matY * size + matX];
+                    neighborY = Math.min(
+                        height - 1,
+                        Math.max(0, i + matY - half)
+                    );
+                    neighborX = Math.min(
+                        width - 1,
+                        Math.max(0, j + matX - half)
+                    );
+                    inputIndex = (neighborY * width + neighborX) * 4;
+                    r += inputData[inputIndex] * weight;
+                    g += inputData[inputIndex + 1] * weight;
+                    b += inputData[inputIndex + 2] * weight;
+                    a += inputData[inputIndex + 3] * weight;
+                }
+            }
+            outputIndex = (pixelsAbove + j) * 4;
+            outputData[outputIndex] = r;
+            outputData[outputIndex + 1] = g;
+            outputData[outputIndex + 2] = b;
+            outputData[outputIndex + 3] = Mat.normalized ? a : 255;
+        }
+    }
+    ctx.putImageData(image, 0, 0);
+}
+
+
+
 //---saturacion methods---
 
 function getNewRGB(hue, c, x) {
