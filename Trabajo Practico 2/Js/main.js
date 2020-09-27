@@ -39,6 +39,10 @@ img4.src = "./Images/fondoCanvas.jpg";
 //----------------------Board----------------
 let board = null;
 let gameBoard=null;
+let st=document.querySelector("#btnT");
+st.addEventListener("click",function(){
+    gameBoard=board.makeGameBoard();
+})
 
 let startBtn=document.querySelector("#start");
 document.querySelector('#btnStart').addEventListener("click", function (){
@@ -64,35 +68,62 @@ function startGame(){
     }
 }
 
+canvas.addEventListener("mousedown", function (e) {
+
+    let clicked=verifyClick(e);
+
+});
+
+canvas.addEventListener("mouseup", function () {
+    accion = false;
+    havePuntos = false;
+});
+
+canvas.addEventListener("mouseleave", function () {
+    accion = false;
+    havePuntos = false;
+})
+
+function reDrawing(){
+    board.draw()
+    for (const c in chips1) {
+        c.draw();
+    }
+    for (const c in chips2) {
+        c.draw();
+    }
+    board.draw()
+}
+
+function selectChip(){
+    
+}
 
 function makeChips(board){
-
     // Fichero izquierdo
     for (let posX = board.getRadius(); posX < board.getPackageWidth(); posX += board.getChipSize()) {
         for (let posY = board.getHeight()-board.getRadius()+board.getPackageWidth(); posY > board.getPackageWidth() && chips1.length < board.getTotalChips()/2; posY -= board.getChipSize()) {
             let chip= new Chip(posX, posY,board.getRadius(),canvas.getContext("2d"), fillStyleP1, strokeStyleP1);
-                chips1.push(chip);
+            chips1.push(chip);
             }
         }
-    
+        
         // Fichero derecho
         
         for (let posX = board.getWidth()+board.getPackageWidth()+board.getRadius(); posX <= ((board.getPackageWidth() * 2) + board.getWidth());posX += board.getChipSize()) {
             for (let posY = board.getHeight()-board.getRadius()+board.getPackageWidth();
              posY > board.getPackageWidth() && chips2.length < board.getTotalChips()/2;
-              posY -= board.getChipSize()) {
+             posY -= board.getChipSize()) {
                 let ficha= new Chip(posX, posY, board.getRadius(), ctx, fillStyleP2, strokeStyleP2);
                 chips2.push(ficha);
             }
         }
-        
-        
-}
-
-function getBoardSelected(){
-    let boards=document.querySelector("#boards");
-    let aux=null;
-    switch (boards.value) {
+    }
+    
+    function getBoardSelected(){
+        let boards=document.querySelector("#boards");
+        let aux=null;
+        switch (boards.value) {
         case "0":
             document.querySelector("#alert").hidden = false;
             break;

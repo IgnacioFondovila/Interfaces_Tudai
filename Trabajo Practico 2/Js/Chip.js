@@ -33,6 +33,7 @@ class Chip {
         let y_ = this.posY - y;
         return Math.sqrt(x_ * x_ + y_ * y_) < this.radius;
     }
+    
     toString(){
         let s="[x:"+this.posX+"y:"+this.posY+"]";
         return s 
