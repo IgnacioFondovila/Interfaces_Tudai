@@ -1,6 +1,4 @@
 class Chip {
-        this.img.src= "./Images/Ficha.png";
-        this.firstDrawing(ctx);
   constructor(posX, posY, radius, ctx, fillStyle, strokeStyle, player) {
     this.posX = posX;
     this.player = player;
@@ -61,6 +59,10 @@ class Chip {
     let x_ = this.posX - x;
     let y_ = this.posY - y;
     return Math.sqrt(x_ * x_ + y_ * y_) < this.radius;
+  }
+
+  getPlayer(){
+      return this.player
   }
 
   getX(){

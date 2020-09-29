@@ -74,14 +74,13 @@ function startGame(){
 let origX;
 let origy;
 
+//--------------------Mouse actions------------
 function onDown(e) {
     let tX=e.layerX
     let tY=e.layerY
     if(inicial){
         if(tX < board.getPackageWidth() && tY > board.getPackageWidth()){
             lastClicked = verifyClick(tX,tY,chips1);
-            console.log(1)
-            console.log(chips1)
             if(lastClicked!=null){
                 lastClicked.setSelected();
                 origX=lastClicked.getX()
@@ -93,7 +92,13 @@ function onDown(e) {
     }else{
         if(tX > board.getPackageWidth()+board.getWidth() && tY > board.getPackageWidth()){
             lastClicked = verifyClick(tX,tY,chips2);
-            lastClicked.setSelected(strokeStyleP2)
+            if(lastClicked!=null){
+                lastClicked.setSelected()
+                origX=lastClicked.getX()
+                origY=lastClicked.getY()
+                reDrawing();
+                canvas.addEventListener("mousemove", onMove, false);
+            }
         }
     }
 };
@@ -112,7 +117,10 @@ function onUp(e){
     if(validPosition(lastX,lastY)){
         let newChip=board.putChip(lastClicked,gameBoard)
         transicionChip(lastClicked,newChip.getX(),newChip.getY());
-        
+        if(verifyWinner(newChip,gameBoard)){
+            console.log("the winner is"+(lastClicked.getPlayer()));
+        }
+        inicial= !inicial;
     }else{
         lastClicked.setPosition(origX,origY)
         lastClicked.setSelected()
@@ -125,15 +133,170 @@ function onUp(e){
     canvas.removeEventListener("mouseup", onUp, false);
 }
 
+function verifyWinner(chip,gameBoard){
+    console.log(gameBoard);
+    let counter=4;
+    let moveX=board.getChipSize()+board.getRadius();
+    let moveY=board.getChipSize();
+    //RowControl
+    counter=verifyLeftWinner(chip,counter-1,moveX,gameBoard);
+    if(counter!=0){
+        counter=verifyRigthtWinner(chip,counter,moveX,gameBoard);
+    }
+    if(counter!=0){
+        counter=4;
+        counter=verifyTopWinner(chip,counter-1,moveY,gameBoard);
+        if(counter!=0){
+            counter=verifyBottomWinner(chip,counter,moveY,gameBoard);
+        }
+    }
+    if(counter!=0){
+        counter=4;
+        counter=verifyTopRightDiagonal(chip ,counter-1,moveX,moveY,gameBoard)
+        if(counter!=0){
+            counter=verifyBttmLeftDiagonal(chip ,counter,moveX,moveY,gameBoard);
+        }
+    }
+    if(counter!=0){
+        counter=4;
+        counter=verifyTopLeftDiagonal(chip ,counter-1,moveX,moveY,gameBoard)
+        if(counter!=0){
+            counter=verifyBttmRightDiagonal(chip,counter,moveX,moveY,gameBoard);
+        }
+    }
+    if(counter==0){
+        return true;
+    }
+    return false;
+}
+
+function verifyTopRightDiagonal(chip,counter,moveX,moveY,gameBoard){
+    if(counter!=0){
+        let rtx=chip.getX()
+        let rty=chip.getY()
+        console.log("verifyTopRightDiagonal");
+        console.log(gameBoard[rtx+moveX]);
+        if(gameBoard[rtx+moveX]!=null && gameBoard[rtx+moveX][rty-moveY]!=null){
+            console.log(gameBoard[rtx+moveX][rty-moveY]);
+            let rtChip=gameBoard[rtx+moveX][rty-moveY];
+            if(rtChip!=null && rtChip.getPlayer() == chip.getPlayer()){
+                counter=verifyTopRightDiagonal(rtChip , counter-1 , moveX,moveY,gameBoard);
+            }
+        }
+    }
+    return counter;
+}
+function verifyBttmRightDiagonal(chip,counter,moveX,moveY,gameBoard){
+    if(counter!=0){
+        let brx=chip.getX()
+        let bry=chip.getY()
+        console.log("verifyBttmRightDiagonal");
+        console.log(gameBoard[brx-moveX]);
+        if(gameBoard[brx-moveX]!=null && gameBoard[brx-moveX][bry+moveY]!=null){
+            console.log(gameBoard[brx-moveX][bry+moveY]);
+            let brChip=gameBoard[brx-moveX][bry+moveY];
+            if(brChip!=null && brChip.getPlayer() == chip.getPlayer()){
+                counter=verifyBttmRightDiagonal(brChip , counter-1 , moveX,moveY,gameBoard);
+            }
+        }
+    }
+    return counter;
+}
+function verifyTopLeftDiagonal(chip,counter,moveX,moveY,gameBoard){
+    if(counter!=0){
+        let ltx=chip.getX()
+        let lty=chip.getY()
+        console.log("verifyTopLeftDiagonal");
+        console.log(gameBoard[ltx-moveX]);
+        if(gameBoard[ltx-moveX]!=null && gameBoard[ltx-moveX][lty-moveY]!=null){
+            console.log(gameBoard[ltx-moveX][lty-moveY]);
+            let ltChip=gameBoard[ltx-moveX][lty-moveY];
+            if(ltChip!=null && ltChip.getPlayer() == chip.getPlayer()){
+                counter=verifyTopLeftDiagonal(ltChip , counter-1 , moveX,moveY,gameBoard);
+            }
+        }
+    }
+    return counter;
+}
+function verifyBttmLeftDiagonal(chip,counter,moveX,moveY,gameBoard){
+    if(counter!=0){
+        let blx=chip.getX()
+        let bly=chip.getY()
+        console.log("verifyBttmLeftDiagonal");
+        console.log(gameBoard[blx-moveX]);
+        if(gameBoard[blx-moveX]!=null && gameBoard[blx-moveX][bly+moveY]!=null){
+            let blChip=gameBoard[blx-moveX][bly+moveY];
+            if(blChip!=null && blChip.getPlayer() == chip.getPlayer()){
+                counter=verifyBttmLeftDiagonal(blChip , counter-1 , moveX,moveY,gameBoard);
+            }
+        }   
+    }
+    return counter;
+}
+function verifyLeftWinner(chip,counter,index,gameBoard){
+    if(counter!=0){
+        let lx=chip.getX()
+        let ly=chip.getY()
+        if(gameBoard[lx-index]!=null && gameBoard[lx-index][ly]!=null){
+            let lChip=gameBoard[lx-index][ly];
+            if(lChip!=null && lChip.getPlayer() == chip.getPlayer()){
+                counter=verifyLeftWinner(lChip , counter-1 , index,gameBoard);
+            }
+        }
+    }
+    return counter;
+}
+
+function verifyRigthtWinner(chip,counter,index,gameBoard){
+    if(counter!=0){
+        let rx=chip.getX()
+        let ry=chip.getY()
+        if(gameBoard[rx+index]!=null && gameBoard[rx+index][ry]!=null){
+            let rChip=gameBoard[rx+index][ry];
+            if(rChip !=null && rChip.getPlayer() == chip.getPlayer()){
+                counter=verifyRigthtWinner(rChip,counter-1,index,gameBoard);
+            }
+        }
+    }
+    return counter;
+}
+function verifyTopWinner(chip,counter,index,gameBoard){
+    if(counter!=0){
+        let tx=chip.getX()
+        let ty=chip.getY()
+        if(gameBoard[tx]!=null && gameBoard[tx][ty-index]!=null){
+            let tChip=gameBoard[tx][ty-index];
+            if(tChip !=null && tChip.getPlayer() == chip.getPlayer()){
+                counter=verifyTopWinner(tChip,counter-1,index,gameBoard);
+            }
+        }
+    }
+    return counter;
+}
+function verifyBottomWinner(chip,counter,index,gameBoard){
+    if(counter!=0){
+        let bx=chip.getX()
+        let by=chip.getY()
+        if(gameBoard[bx]!=null && gameBoard[bx][by+index]!=null){
+            let bChip=gameBoard[bx][by+index];
+            if(bChip !=null && bChip.getPlayer() == chip.getPlayer()){
+                counter=verifyBottomWinner(bChip,counter-1,index,gameBoard);
+            }
+        }
+    }
+    return counter;
+}
+
+
 function transicionChip(chip,x,y){
     chip.setSelected()
     for(let i=board.getPackageWidth()+board.getRadius();i<=y;i+=board.getChipSize()){
-        transicionPrint(chip,x,i)
+        transicionPrint(chip,x,i);
     }
 }
 
 function transicionPrint(chip,x,y){
-   chip.setPosition(x,y);
+    chip.setPosition(x,y);
    reDrawing()
 }
 

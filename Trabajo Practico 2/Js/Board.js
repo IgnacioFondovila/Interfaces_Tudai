@@ -155,17 +155,15 @@ cutBoard() {
     
     putChip(chip,board){
         let arr=board[chip.getX()];
-        if(arr[arr.lenght-1]==null){
-            for (
-                let pos = this.cvs.height - this.getRadius();
-                pos > this.getPackageWidth();
-                pos -= this.getChipSize()) {   
-                    if(arr[pos]==null){
-                        chip.setPosition(chip.getX(),pos);   
-                        board[chip.getX()][pos]=chip;
-                        break;
-                    }
-            }
+        for (
+        let pos = this.cvs.height - this.getRadius();
+        pos > this.getPackageWidth();
+        pos -= this.getChipSize()) {   
+            if(arr[pos]==null){
+                chip.setPosition(chip.getX(),pos);   
+                board[chip.getX()][pos]=chip;
+                break;
+            }   
         }  
         return chip; 
     }    // if(lastUb[1]!=(this.cvs.height-(this.altoDeFicha/2))){
