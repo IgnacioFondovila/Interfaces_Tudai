@@ -23,6 +23,7 @@ class Chip {
   }
 
   draw() {
+    console.log("entraFicha")
     this.ctx.beginPath();
     this.ctx.arc(this.posX, this.posY, this.radius, 0, 2 * Math.PI, true);
     this.ctx.fillStyle = this.fill;
@@ -63,6 +64,10 @@ class Chip {
 
   getPlayer(){
       return this.player
+  }
+
+  getFill(){
+    return this.fill
   }
 
   getX(){

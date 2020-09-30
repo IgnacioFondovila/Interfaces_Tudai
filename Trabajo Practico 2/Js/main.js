@@ -2,74 +2,129 @@ let canvas = document.querySelector("#canvas");
 let ctx = canvas.getContext("2d");
 
 let inicial=true;
+let origCounter=2;
+let winner=document.querySelector("#wnner");
+let reset=document.querySelector("#reset");
+let finished=false;
+let tx=null;
+let txW=null;
+let tx2=null;
+let tx3=null;
+
 
 let player1=null;
 let chips1 = [];
 let fillStyleP1 = null;
-let strokeStyleP1 = '#D46000';
+let strokeStyleP1 = '#c2fbff';
 let p1 = document.getElementById("p1");
 let colorP1 = document.querySelector("#color-picker1");
-
 let lastClicked=null;
 
 let player2=null;
 let chips2 = [];
 let fillStyleP2 = null;
-let strokeStyleP2 = '#0A2699';
+let strokeStyleP2 = '#c2fbff';
 let p2 = document.getElementById("p2");
 let colorP2 = document.querySelector("#color-picker2");
 
+// imgChip=new Image();
+// imgChip.src = "./Images/Ficha.png";
+
 colorP1.addEventListener("change",function(){
+    console.log(colorP1.value)
     fillStyleP1=colorP1.value;
 });
 
 colorP2.addEventListener("change",function(){
     fillStyleP2=colorP2.value;
 });
-/*
-let backImages = [];
-img1 = new Image();
-img1.src = "./Images/fondoTablero1.jpg";
-img2 = new Image();
-img2.src = "./Images/fondoTablero2.jpg";
-img3 = new Image();
-img3.src = "./Images/fondoTablero3.jpg";
-backImages.push(img1);
-backImages.push(img2);
-backImages.push(img3); */
 svgElement=document.querySelector("#svgElement");
 svgRect=document.querySelector("#svgRect");
-img4 = new Image();
-img4.src = "./Images/fondoCanvas.jpg";
+//style.fill="#dbf038"
 //----------------------Board----------------
 let board = null;
 let gameBoard=null;
 
 let startBtn=document.querySelector("#start");
 document.querySelector('#btnStart').addEventListener("click", function (){
+    finished=false;
     board=getBoardSelected();
     startBtn.addEventListener("click",startGame())
+})
+
+reset.addEventListener("click",function(){
+    console.log("reinicio")
+    canvas.hidden=true
+    startBtn.style.visibility = 'visible';
+    document.querySelector("#form").style.visibility = 'visible';
+    document.querySelector("#vis").hidden=true;
+    document.querySelector("#turn").removeChild(tx);
+    document.querySelector("#cardW").hidden=true;
+    document.querySelector("#cardL").hidden=true;
+    winner.removeChild(txW)
+    p1.removeChild(tx1)
+    p2.removeChild(tx2)
+    player1=null;
+    player2=null;
+    fillStyleP1 = null;
+    fillStyleP2 = null;
+    inicial= !inicial
+    chips1 = [];
+    chips2 = [];
+    board=null
+    tx=null;
+    tx2=null;
+    tx3=null;
+    txW=null;
 })
 
 function startGame(){
     console.log("inicio")
     let names=document.querySelectorAll(".playerName");
-    player1=names[0].value;
+    if(fillStyleP1==null){
+        fillStyleP1=colorP1.value;
+    }
+    if(fillStyleP2==null){
+        fillStyleP2=colorP2.value;
+    }
+    player1=names[0].value; 
     player2=names[1].value;
+    names=[];
     if(board!=null){
         canvas.hidden=false
         makeChips(board);
+        console.log("fich")
         gameBoard=board.makeGameBoard();
         startBtn.style.visibility = 'hidden';
         document.querySelector("#form").style.visibility = 'hidden';
         document.querySelector("#vis").hidden=false;
-        let tx1=document.createTextNode(player1);
-        let tx2=document.createTextNode(player2);
+        tx1=document.createTextNode(player1);
+        tx2=document.createTextNode(player2);
+        tx =document.createTextNode("ES EL TURNO DE");
+        document.querySelector("#turn").append(tx);
         p1.append(tx1);
         p2.append(tx2);
+        postTurn()
         canvas.addEventListener("mousedown", onDown,false);
     }
 }
+
+function postTurn(){
+    document.querySelector("#arrow1").style.background = fillStyleP1
+    document.querySelector("#arrow2").style.background = fillStyleP2
+    if(inicial){
+        document.querySelector("#arrow1").hidden=false
+        document.querySelector("#arrow2").hidden=true
+        p2.style.background = "none";
+        p1.style.background = fillStyleP1;
+    }else{
+        document.querySelector("#arrow1").hidden=true
+        document.querySelector("#arrow2").hidden=false
+        p1.style.background = "none";
+        p2.style.background = fillStyleP2
+    }
+}
+
 // -----------ChipsMovements-----------------------
 let origX;
 let origy;
@@ -85,8 +140,10 @@ function onDown(e) {
                 lastClicked.setSelected();
                 origX=lastClicked.getX()
                 origY=lastClicked.getY()
-                reDrawing();
                 canvas.addEventListener("mousemove", onMove, false);
+                canvas.addEventListener("mouseup", onUp, false);
+                canvas.addEventListener("mouseleave", onUp, false);
+                reDrawing();
             }
         }
     }else{
@@ -98,6 +155,8 @@ function onDown(e) {
                 origY=lastClicked.getY()
                 reDrawing();
                 canvas.addEventListener("mousemove", onMove, false);
+                canvas.addEventListener("mouseup", onUp, false);
+                canvas.addEventListener("mouseleave", onUp, false);
             }
         }
     }
@@ -116,26 +175,51 @@ function onUp(e){
     let lastY=e.layerY
     if(validPosition(lastX,lastY)){
         let newChip=board.putChip(lastClicked,gameBoard)
+        // if(inicial){
+            //     chips1.length=chips1.length-1;
+            // }else{
+        //     chips1.length=chips2.length-1;
+        // }
         transicionChip(lastClicked,newChip.getX(),newChip.getY());
         if(verifyWinner(newChip,gameBoard)){
-            console.log("the winner is"+(lastClicked.getPlayer()));
+            let card=document.querySelector("#cardW");
+            card.hidden=false;
+            card.style.borderColor = newChip.getFill()
+            if(lastClicked.getPlayer()!=2){
+                txW=document.createTextNode("The winner is " + (player1));
+                winner.append(txW);
+            }else{
+                txW=document.createTextNode(("The winner is "+ player2));
+                winner.append(txW); 
+            }
+            canvas.removeEventListener("mousedown", onDown, false);
+            document.querySelector("#vis").hidden=true;
+            board.finishCard()
+            finished=true;
         }
         inicial= !inicial;
+        postTurn()
     }else{
         lastClicked.setPosition(origX,origY)
         lastClicked.setSelected()
     }
+    // if(chips1.length==0&&chips2.length==0){
+        //     document.querySelector("#cardL").hidden=false;
+        // }
     lastClicked=null;
     origX=null
     origY=null
-    reDrawing();
+    if(!finished){
+        reDrawing();
+    }
+
     canvas.removeEventListener("mousemove", onMove, false);
     canvas.removeEventListener("mouseup", onUp, false);
 }
 
 function verifyWinner(chip,gameBoard){
     console.log(gameBoard);
-    let counter=4;
+    let counter=origCounter;
     let moveX=board.getChipSize()+board.getRadius();
     let moveY=board.getChipSize();
     //RowControl
@@ -144,21 +228,18 @@ function verifyWinner(chip,gameBoard){
         counter=verifyRigthtWinner(chip,counter,moveX,gameBoard);
     }
     if(counter!=0){
-        counter=4;
-        counter=verifyTopWinner(chip,counter-1,moveY,gameBoard);
-        if(counter!=0){
-            counter=verifyBottomWinner(chip,counter,moveY,gameBoard);
-        }
+        counter=origCounter;
+        counter=verifyBottomWinner(chip,counter-1,moveY,gameBoard);
     }
     if(counter!=0){
-        counter=4;
+        counter=origCounter;
         counter=verifyTopRightDiagonal(chip ,counter-1,moveX,moveY,gameBoard)
         if(counter!=0){
             counter=verifyBttmLeftDiagonal(chip ,counter,moveX,moveY,gameBoard);
         }
     }
     if(counter!=0){
-        counter=4;
+        counter=origCounter;
         counter=verifyTopLeftDiagonal(chip ,counter-1,moveX,moveY,gameBoard)
         if(counter!=0){
             counter=verifyBttmRightDiagonal(chip,counter,moveX,moveY,gameBoard);
@@ -166,6 +247,7 @@ function verifyWinner(chip,gameBoard){
     }
     if(counter==0){
         return true;
+
     }
     return false;
 }
@@ -260,19 +342,19 @@ function verifyRigthtWinner(chip,counter,index,gameBoard){
     }
     return counter;
 }
-function verifyTopWinner(chip,counter,index,gameBoard){
-    if(counter!=0){
-        let tx=chip.getX()
-        let ty=chip.getY()
-        if(gameBoard[tx]!=null && gameBoard[tx][ty-index]!=null){
-            let tChip=gameBoard[tx][ty-index];
-            if(tChip !=null && tChip.getPlayer() == chip.getPlayer()){
-                counter=verifyTopWinner(tChip,counter-1,index,gameBoard);
-            }
-        }
-    }
-    return counter;
-}
+// function verifyTopWinner(chip,counter,index,gameBoard){
+//     if(counter!=0){
+//         let tx=chip.getX()
+//         let ty=chip.getY()
+//         if(gameBoard[tx]!=null && gameBoard[tx][ty-index]!=null){
+//             let tChip=gameBoard[tx][ty-index];
+//             if(tChip !=null && tChip.getPlayer() == chip.getPlayer()){
+//                 counter=verifyTopWinner(tChip,counter-1,index,gameBoard);
+//             }
+//         }
+//     }
+//     return counter;
+// }
 function verifyBottomWinner(chip,counter,index,gameBoard){
     if(counter!=0){
         let bx=chip.getX()
@@ -297,7 +379,7 @@ function transicionChip(chip,x,y){
 
 function transicionPrint(chip,x,y){
     chip.setPosition(x,y);
-   reDrawing()
+    reDrawing()
 }
 
 function verifyClick(x,y,chips){
@@ -311,7 +393,6 @@ function verifyClick(x,y,chips){
         }
     }
     console.log(2)
-    console.log(chips)
     return cAux;
 }
 
@@ -349,7 +430,7 @@ function fullColum(x){
 }
 
 function makeChips(board){
-    // Fichero izquierdo
+
     for (let posX = board.getRadius(); posX < board.getPackageWidth(); posX += board.getChipSize()) {
         for (let posY = board.getHeight()-board.getRadius()+board.getPackageWidth(); posY > board.getPackageWidth() && chips1.length < board.getTotalChips()/2; posY -= board.getChipSize()) {
             let chip= new Chip(posX, posY,board.getRadius(),canvas.getContext("2d"), fillStyleP1, strokeStyleP1,1);
@@ -357,7 +438,6 @@ function makeChips(board){
             }
         }
         
-        // Fichero derecho
         for (let posX = board.getWidth()+board.getPackageWidth()+board.getRadius(); posX <= ((board.getPackageWidth() * 2) + board.getWidth());posX += board.getChipSize()) {
             for (let posY = board.getHeight()-board.getRadius()+board.getPackageWidth();
              posY > board.getPackageWidth() && chips2.length < board.getTotalChips()/2;
@@ -376,25 +456,19 @@ function makeChips(board){
             document.querySelector("#alert").hidden = false;
             break;
         case "1":
-            //Tablero de 6x7
-            // img1 = new Image();
-            // img1.src = "./Images/fondoTablero1.jpg";
+            //Tablero de 7x6
             aux = new Board(7, 6, ctx, canvas, svgElement,svgRect);
-            // tableroFondo = imagenes[0];
+            
             break;
         case "2":
-                //Tablero de 8x5
-                img2 = new Image();
-                img2.src = "./Images/fondoTablero2.jpg";
+                //Tablero de 9x6
                 aux = new Board(9, 6, ctx, canvas, svgElement,svgRect);
-                // tableroFondo = imagenes[0];
+            
                 break;
         case "3":
             //Tablero de 8x5
-            img3 = new Image();
-            img3.src = "./Images/fondoTablero3.jpg";
-            aux = new Board(8, 5, ctx, canvas,svgElement,img4);
-            // tableroFondo = imagenes[0];
+            aux = new Board(8, 5, ctx, canvas,svgElement,svgRect);
+        
             break;
         };
     return aux;

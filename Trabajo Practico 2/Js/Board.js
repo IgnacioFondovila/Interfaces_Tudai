@@ -23,9 +23,8 @@ class Board {
     let imgSrc = new XMLSerializer().serializeToString(this.img);
     this.img = new Image();
     this.img.onload = function () {
-      aux.draw();
-      aux.draw();
-      //ctx.drawImage(img4,0,0,canvas.width,canvas.height)
+        aux.draw();
+        aux.draw();
     };
     this.img.src ="data:image/svg+xml; charset=utf8, " + encodeURIComponent(imgSrc);
   }
@@ -36,7 +35,6 @@ class Board {
       this.cvs.height = this.getHeight() + this.getPackageWidth();
       let pst = this.cvs.width / 2 - this.img.width / 2;
       ctx.drawImage(this.img, pst, this.cvs.height - this.getHeight());
-      // this.makeGameBoard();
       this.firstDraw = false;
     }else {
         this.cutBoard();
@@ -98,6 +96,11 @@ class Board {
     console.log(gBoard);
     return gBoard;
 }
+finishCard(){
+    this.ctx.font = "bold 30px sans-serif";
+    this.fillStyle="#d3cf55";
+    this.ctx.fillText("JUEGO TERMINADO",this.getPackageWidth()+this.getChipSize(),this.getChipSize())
+}
 
 cutBoard() {
     console.log("cut");
@@ -146,9 +149,23 @@ cutBoard() {
             this.slider.push({x,y})
             this.ctx.beginPath();
             this.ctx.arc(x, y, this.getRadius(), 0, Math.PI * 2);
+            this.ctx.closePath();
+            this.ctx.moveTo(
+                x,
+                y+ this.getChipSize()
+            )
+            this.ctx.lineTo(
+                x +this.getRadius(),
+                y
+                );
+                this.ctx.lineTo(
+                    x -this.getRadius(),
+                    y
+                    );
             this.ctx.fillStyle = "#006bff"; //blanco
             this.ctx.fill();
             this.ctx.closePath();
+               
         }
     }
     
