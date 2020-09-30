@@ -354,13 +354,16 @@ function verifyBottomWinner(chip,counter,index,gameBoard){
 
 
 function transicionChip(chip,x,y){
+    let i;
     chip.setSelected()
     for(let i=board.getPackageWidth()+board.getRadius();i<=y;i+=board.getChipSize()){
-        transicionPrint(chip,x,i);
+        // i=setTimeout(transicionPrint(chip,x,i) , 10000);
+        transicionPrint(chip,x,i)
     }
 }
 
 function transicionPrint(chip,x,y){
+    console.log("emte")
     chip.setPosition(x,y);
     reDrawing()
 }
