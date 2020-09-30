@@ -1,6 +1,5 @@
 class Board {
   constructor(r, c, ctx, canvas, img, backImg) {
-    console.log(img);
     this.firstDraw = true;
     this.rows = r;
     this.columns = c;
@@ -18,8 +17,6 @@ class Board {
     this.img.setAttribute("height", this.getHeight());
     this.backImg.setAttribute("width", this.getWidth());
     this.backImg.setAttribute("height", this.getHeight());
-    console.log(this.backImg.width.animVal.value);
-    console.log(this.backImg.height.animVal.value);
     let imgSrc = new XMLSerializer().serializeToString(this.img);
     this.img = new Image();
     this.img.onload = function () {
@@ -78,7 +75,7 @@ class Board {
     }
 
     makeGameBoard() {
-        let gBoard = new Array(); //(cantCol);
+        let gBoard = new Array();
         for (
         let x = this.getPackageWidth() + this.getSpace();
         x < this.getWidth() + this.getPackageWidth();
@@ -93,17 +90,16 @@ class Board {
           gBoard[x][y] = null;
       }
     }
-    console.log(gBoard);
     return gBoard;
 }
 finishCard(){
-    this.ctx.font = "bold 30px sans-serif";
-    this.fillStyle="#d3cf55";
+    this.ctx.font = "bold 40px sans-serif";
+    this.ctx.fillStyle="#d3cf55";
+    this.ctx.fill()
     this.ctx.fillText("JUEGO TERMINADO",this.getPackageWidth()+this.getChipSize(),this.getChipSize())
 }
 
 cutBoard() {
-    console.log("cut");
     for (
         let x = this.getPackageWidth() + this.getSpace();
         x < this.getWidth() + this.getPackageWidth();
@@ -183,16 +179,5 @@ cutBoard() {
             }   
         }  
         return chip; 
-    }    // if(lastUb[1]!=(this.cvs.height-(this.altoDeFicha/2))){
-                   /*  let posicion=[
-                        x:lastUb[0],
-                        y:lastUb[1] + altoDeFicha
-                    ] */
-                    // this.arregloDePosiciones.push(posicion);
-                    // return    
-            // }
-        // let anchoDelFichero= this.anchoDeFicha * this.columDeFichero;
-        // let altoDelFichero= this.altoDeFicha *this.fila;
-        // let posX= this.canvas +  anchoDeFicha;
-        // let posY=this.canvas + altoDeFicha;
+    }   
 }

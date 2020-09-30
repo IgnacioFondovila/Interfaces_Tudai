@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="Css/style1.css">
-    <title>Document</title>
+    <title>4EnLinea</title>
 </head>
 
 <body>
     <header>
         <nav class="navbar sticky-top navbar-expand-lg navbar-light ">
             <h1 class="navbar-brand" >
-                4 en linea
+                4 En Linea
             </h1>
         </nav>
     </header>
@@ -22,11 +22,10 @@
         <div hidden id="cardL" class="card text-white bg-danger mb-3" style="max-width: 18rem;">
             <div class="card-header">
                 <h2 class="card-title">EMPATE</h2>
-                <!-- <a class="navbar-brand" id="reset" href="#">
-                    <!-- <img src="images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> -->
+                   <!-- <a class="navbar-brand" id="reset" href="#">
                     Reset Game
-                </a> -->
-            </div>
+                   </a>  -->
+             </div>
             <div class="card-body">
             <p class="card-text">No hubo ganadores</p>
             </div>
@@ -36,10 +35,9 @@
             <div class="card-body">
             <h2 id="wnner" class="card-text"></h2>
             </div>
-            <a class="navbar-brand" id="reset" href="#">
-                <!-- <img src="images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> -->
-                Reset Game
-            </a>
+            <!-- <a class="navbar-brand" id="reset" href="#">
+                Reiniciar juego
+            </a> -->
         </div>
     </div>
     <form id="form">
@@ -62,28 +60,18 @@
 
         <div class="col-auto my-1">
             <select class="custom-select mr-sm-2" id="boards">
-                <option value="0" selected hidden>Select Board Size(COLxFIL)</option>
+                <option value="0" selected hidden>Elige el tamaño del tablero(COLxFIL)</option>
                 <option value="1">7x6</option>
+                <option value="3">8x5</option>
                 <option value="2">9x6</option>
-                <option value="3">10x10</option>
             </select>
         </div>
-        <!--  <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary active">
-              <input type="radio" name="options" id="option1" checked> Active
-            </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option2"> Radio
-            </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option3"> Radio
-            </label>
-          </div> -->
-        <div class="col-auto">
 
-            <button id="btnStart" type="button" class="btn btn-primary">Start Game</button>
+        <div class="col-auto">
+            <button id="btnStart" type="button" class="btn btn-primary">Iniciar Juego</button>
             <input id="start" type="hidden" ></input>
         </div>
+
     </form>
     
     <svg hidden id="svgElement" width="100" height="100" viewBox="41 54 106 122">

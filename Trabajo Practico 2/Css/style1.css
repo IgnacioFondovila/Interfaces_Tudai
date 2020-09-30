@@ -27,6 +27,13 @@ footer{
     margin-top: 10%;
     position: none;
 }
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-between;
+}
 #p1 ,#arrow1,#arrow2, #p2{
     padding: 1%;
     border-radius: 10px;
