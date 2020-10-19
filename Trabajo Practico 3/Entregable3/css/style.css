@@ -1,0 +1,125 @@
+/*///////////////////Acordeon/////////////////////////*/
+.event-date-inner{
+    display: flex;
+    flex-direction:column;
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+}
+.event-date-inner span{
+    width: auto;
+    height: 20px;
+    color: rgb(184, 181, 181);
+} 
+.event-date{
+    position: absolute;
+    width: 5%;
+    height: 9%;
+    margin-top: -16px;
+    margin-left: 11px;
+    border-radius: 8px;
+    background-color: rgba(209, 202, 193, 0.548);
+    padding: 4px;
+    /* background-color: blue; */
+}
+.accordeon{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    color: black;
+    border-radius: 12px;
+    border: coral solid 1px;
+    height: auto;
+    padding: 4%;
+    margin: 4%;
+    font-family: 'Russo One', sans-serif;
+}
+button{
+    outline: none;    
+    outline-style: none;
+}
+.accordeon button{
+    margin: 2%;
+    background-color:rgba(14, 13, 13, 0.76);
+    border-radius: 6px;
+    border:rgb(146, 144, 255) solid ;   
+    /* background-color: rgb(184, 181, 181); */
+    height: 80px;
+    opacity: 1;
+}
+.displayEvent{
+    height: auto;
+    max-height: 100vh;
+    transition: 1s ease-in-out;
+} 
+
+.showEvent{
+    height: auto;
+    max-height: 0;
+}
+.showEvent p{
+    height: 100px;
+}
+@keyframes showEvents{
+}
+/*--------------------- hero----------------------- */
+/* #bkImage{
+    background-color: blueviolet;
+} */
+
+.center{
+    width: 1310px;
+    height: 1742px;
+    /* position: absolute; */
+    background-color: blueviolet;
+}
+#carImage{
+    position: absolute;
+    /* position: sticky; */
+    top: 200px;
+    background-color: blueviolet;
+    background-image: url("../images/timeMachine-II.png");
+    background-size: cover;
+    background-position: center;
+    width: 200px;
+    height:100px;
+    /*animation : moveCar 2s infinite; */
+}
+
+.centralCards{
+    margin: 10px;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* top: 0px; */
+    margin-top: 390px;
+    background-color: white;
+
+}
+
+.case{
+    background-color: yellow;
+    position: absolute;
+    margin-left: 10px;
+    margin-right: 10px;
+    top: 200px;
+    height: auto;
+}
+
+@keyframes moveCar{
+    0% {
+        transform-origin: 10px;
+    }
+    100% {
+        transform-origin: 100px;
+
+    }
+}
+
+/* 
+.pages a{    width:50px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+}    */

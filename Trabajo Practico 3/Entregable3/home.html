@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/nave.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Back to the future</title>
+</head>
+<body>
+<!-- <header>
+    <nav class="navegador">
+        <input type="checkbox" id="menu">
+        <label for="menu" id="burguer"></label>
+        <ul class="desplegable">
+            <a href="">Home</a>
+            <a href="">Eventos</a>
+            <a href="">Comentarios</a>
+        </ul> -->
+    <!-- </nav> -->
+    
+<header>
+    <nav class="nav">
+        <a href="home.html"> 
+            <div class="home">
+            </div>
+        </a>
+        <div class="burger">
+            <button id="burger" > Pages</button>
+            <ul  hidden class="pages">
+                <a href="page1.html"><li class="li enabled" id="p1">
+                    <h5>Parte 1</h5>
+                </li></a>
+                <a href="page2.html"><li class="li enabled" id="p2">
+                    <h5>Parte 2</h5>
+                </li>
+            </a>
+            <a aria-disabled="true"><li class="li disabled" id="p3">
+                <h5>PROXIMAMENTE</h5>
+            </li></a>
+            <a href=""><li class="li enabled" id="pg">
+                <h5>Game</h5>
+            </li></a>
+            </ul>
+        </div>
+    </nav>
+</header>
+    <section class="hero">
+        <div id="bkImage"></div>
+        <div id="frImage"></div>
+        <div class="center">
+            <div id="carImage"></div>
+            <div class="centralCards" >            
+                <div  style="width: 18rem;" class="case card" id="c1">  
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div  style="width: 18rem;" class="case card" id="c2"> 
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div  style="width: 18rem;" class="case card" id="c3">  
+                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="accordeon">
+        <button>
+            <div class="event-date">
+                <div class="event-date-inner">
+                  <span class="event-date-month">Dec</span>
+                  <span class="event-date-day">21</span>
+                </div>
+            </div>
+            Primera charla
+        </button>
+        <div hidden class="showEvent">
+            <img src="images/videoCall.jpeg" alt="">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus unde architecto nam ipsa, sed rem nisi placeat quam vitae, possimus voluptas maiores doloremque quaerat qui consectetur tempora repellendus molestias cum!
+            </p>
+        </div>
+
+        <button>
+            <div class="event-date">
+                <div class="event-date-inner">
+                  <span class="event-date-month">Dec</span>
+                  <span class="event-date-day">23</span>
+                </div>
+            </div>
+            Segunda charla
+        </button>
+        <div class="showEvent" hidden>
+            <img src="" alt="">
+            <p>
+            </p>
+        </div>
+        
+        <button>
+            <div class="event-date">
+                <div class="event-date-inner">
+                  <span class="event-date-month">Jul</span>
+                  <span class="event-date-day">19</span>
+                </div>
+            </div>
+            Tercera charla
+        </button>
+        <div class="showEvent" hidden>
+            <img src="" alt="">
+            <p>
+            </p>
+        </div>
+        
+        <button>
+            <div class="event-date">
+                <div class="event-date-inner">
+                  <span class="event-date-month">Jun</span>
+                  <span class="event-date-day">6</span>
+                </div>
+            </div>
+            cuarta charla
+        </button>
+        <div class="showEvent" hidden>
+            <img src="" alt="">
+            <p>
+            </p>
+        </div>
+    </section>
+    <section class="countdown">
+        <div id="countdown">
+            <tr id="timeCount">
+                <tr>
+                    <td> Dias</td>
+                    <td> Horas</td>
+                    <td> Minutos</td>
+                    <td> Segundos</td>
+                </tr>
+            </tr>
+        </div>
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/hero.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>
+<!-- <div class="display-120hz-medias margin-top-5x"><div data-v-04b65c40="" class="section-120hz active end" style="display: block;"><div data-v-04b65c40="" class="section-120hz__container" style="transform: translate3d(-50%, 0px, 0px) scale(1);"><div data-v-04b65c40="" class="section-120hz__mask-container active"><div data-v-04b65c40="" class="section-120hz__mask-extral"><div data-v-04b65c40="" class="section-120hz__mask-content"></div></div></div> <div data-v-04b65c40="" class="section-120hz__roll active"><ul data-v-04b65c40="" class="active end"><li data-v-04b65c40=""></li><li data-v-04b65c40=""></li><li data-v-04b65c40=""></li><li data-v-04b65c40=""></li><li data-v-04b65c40=""></li><li data-v-04b65c40=""></li><li data-v-04b65c40=""></li><li data-v-04b65c40=""></li><li data-v-04b65c40=""></li><li data-v-04b65c40=""></li><li data-v-04b65c40=""></li><li data-v-04b65c40=""></li><li data-v-04b65c40=""></li><li data-v-04b65c40=""></li><li data-v-04b65c40=""></li></ul></div></div></div> <div class="display-120hz-video"></div></div> -->

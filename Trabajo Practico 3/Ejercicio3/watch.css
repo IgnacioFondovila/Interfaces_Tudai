@@ -1,0 +1,108 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    flex-flow: column;
+    align-content: space-around;
+    align-items: center;
+    background-color: aqua;
+    /* justify-content: space-around; */
+}
+.seconds:start{
+    margin: 2%;
+    border-radius: 5px;
+    background-color: rgb(40, 146, 207);
+    transition: ease-in 5s ;  
+}
+.seconds{
+    border-radius: 5px;
+    transition: ease-in 3s ;  
+}
+.seconds:hover{
+    margin-bottom: 5%;
+    background-color: red;
+    transition: ease-out 2s;
+}
+
+#minutes{
+    margin: 2%;
+    border-radius: 5px;
+    background-color: springgreen;
+    width: 120px;
+    transition: ease-in 2s ;   
+}
+
+#minutes:hover{
+    margin-top: 15%;
+    margin-bottom: 15%;
+    width: 202px;
+    height: auto;
+    background-color: red;
+    transition: ease-out 2s ;   
+}
+
+#hours{
+    position: relative;
+    border-radius: 5px;
+    background-color: rgb(0, 255, 64);
+    transition: ease-out 2s;
+}
+
+#hours:active{
+    margin-top: 15%;
+    margin-bottom: 15%;
+    background-color: blue;
+    transition: ease-in 2s;
+}
+
+
+#watch{
+    margin: 2%;
+    border-radius: 5px;
+    width: 100px;
+    border-width: 2px;
+    background-color: rgb(207, 140, 40);
+    transition: 2s ease-out  ;   
+}
+
+#watch:focus{
+    background-color:rebeccapurple;
+    width: 200px;
+    /* transition: 2s cubic-bezier(0.895, 0.03, 0.685, 0.22) ; */
+    transition: ease-in-out 2s ;
+}
+/* printsheet */
+/* #cont{
+    position: absolute left center;
+    width: 199px;
+    height: 191px;
+    background-image: url("birdSheet.png");
+    animation:moveFrame steps(2) 1s infinite;
+} */
+
+/* background-position: 12px; */
+/* @keyframes moveFrame{
+    from{
+        background-position: -834px;
+    }
+    to{
+        background-position: -14px;
+    }
+} */
+#cont{
+    position: inherit;
+    margin: 4%;
+    width: 174.4px;
+    height: 193px;
+    background-image: url("birdSheet1.png");
+    animation:moveFrame steps(4) 1s infinite;
+}
+
+/* background-position: 12px; */
+@keyframes moveFrame{
+    from{
+        background-position: -704px;
+    }
+    to{
+        background-position: -4.4px;
+    }
+}

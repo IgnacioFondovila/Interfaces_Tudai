@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/nave.css">
+	<link rel="stylesheet" href="css/rock.css">
+    <title>Back to the future</title>
+</head>
+<body>
+	<section class="loader">
+		<article class="clock">
+			<div class="clockFace">
+				<div class="hours-container">
+					<div class="hours"></div>
+				</div>
+				<div class="minutes-container">
+					<div class="minutes"></div>
+				</div>
+				<div class="seconds-container">
+					<div class="seconds"></div>
+				</div>
+			</div>
+		  </article>
+	</section>
+	<div hidden class="bigContainer">
+		<header>
+			<nav class="nav">
+				<a href="home.html"> 
+					<div class="home">
+					</div>
+				</a>
+				<div class="burger">
+					<button id="burger" > Pages</button>
+					<ul  hidden class="pages">
+						<a href="page1.html"><li class="li enabled" id="p1">
+							<h5>Parte 1</h5>
+						</li></a>
+						<a href="page2.html"><li class="li enabled" id="p2">
+							<h5>Parte 2</h5>
+						</li></a>
+					<a aria-disabled="true"><li class="li disabled" id="p3">
+						<h5>Parte 3</h5>
+					</li></a>
+					<a href=""><li class="li enabled" id="pg">
+						<h5>Game</h5>
+					</li></a>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		
+
+		<main class="content">
+			<h1 class="visuallyhidden">Rock keypad</h1>
+			<button  >Click para empezar</button>
+			<button  >Click para mutear</button>
+			<div class="moves-wrap cf">
+				<!-- <section class="move" >
+					<h2 class="visuallyhidden">Windmill</h2>
+					<img src="images/Rock/img3_PeteTown.png" class="tooltip move3 tooltipstered" alt="Pete Townshend's Windmill">
+					<audio src="sounds/Complet_Johnny_B._Goode.mp3"></audio>
+				</section> -->
+				<section class="move">
+					<!-- <h2 class="visuallyhidden">Amp-Assisted Windmill</h2> -->
+					<img src="images/Rock/img4_PeteTown2.png" class="tooltip move4 tooltipstered" alt="Pete Townshend's Amp-Assisted Windmill">
+					<audio src="sounds/1-johnny-b-goode.mp3"></audio>
+				</section>
+				<section class="move">
+					<!-- <h2 class="visuallyhidden">Amp Abuse</h2> -->
+					<img src="images/Rock/img9_PeteTown3.png" class="tooltip move9 tooltipstered" alt="Pete Townshend's Amp Abuse">
+					<audio src="sounds/2-johnny-b-goode.mp3"></audio>
+				</section>
+				<section  class="move">
+					<!-- <h2 class="visuallyhidden">Staccato Slide Down</h2> -->
+					<img src="images/Rock/img2_DickDale.png" class="tooltip move2 tooltipstered" alt="Dick Dale's Staccato Slide Down">
+					<audio src="sounds/3-johnny-b-goode.mp3"></audio>
+				</section>
+				<section class="move">
+					<!-- <h2 class="visuallyhidden">Behind the Head</h2> -->
+					<img src="images/Rock/img6_JimmyH.png" class="tooltip move6 tooltipstered" alt="Jim Hendrix's Behind the Head">
+					<audio src="sounds/4-johnny-b-goode.mp3"></audio>
+				</section>
+				<section class="move">
+					<!-- <h2 class="visuallyhidden">Duck Walk</h2> -->
+					<img src="images/Rock/img1_chuckBerry.png" class="tooltip move1 tooltipstered" alt="Chuck Berry's Duck Walk">
+					<audio src="sounds/5-johnny-b-goode_.mp3"></audio>
+				</section>
+				<section class="move" ">
+					<!-- <h2 class="visuallyhidden">Vertical Neck Finger Tapping</h2> -->
+					<img src="images/Rock/img5_VanHalen.png" class="tooltip move5 tooltipstered" alt="Eddie Van Halen's Vertical Neck Finger Tapping">
+					<audio src="sounds/6-johnny-b-goode.mp3"></audio>
+				</section>	
+				<section class="move">
+					<!-- <h2 class="visuallyhidden">Power Slide</h2> -->
+					<img src="images/Rock/img7_PeteTown4.png" class="tooltip move7 tooltipstered" alt="Pete Townshend's Power Slide">
+					<audio src="sounds/Complet_Johnny_B._Goode.mp3"></audio>
+				</section>
+				<section class="move">
+					<!-- <h2 class="visuallyhidden">The Spasm</h2> -->
+					<img src="images/Rock/img8_AngusY.png" class="tooltip move8 tooltipstered" alt="Angus Young's The Spasm">
+					<audio src="sounds/Complet_Johnny_B._Goode.mp3"></audio>
+				</section>
+				<p class="moves-footer">
+					<span>HOVER OVER EACH IMAGE</span>to see who he was imitating.
+				</p>
+			</div>
+		</main>
+		<section class="formulary">
+			<h1>Deje su saludo a los protagonistas</h1>
+			<form >
+				<input type="text" placeholder="Nombre">
+				<input type="text" placeholder="Apellido">
+				<input type="text" placeholder="Saludo">
+				<input type="email" placeholder="example@email.com">
+				<input type="submit" >
+			</form>
+		</section>
+		<div id="countdown">
+		
+		</div>
+	</div>
+
+<script src="js/home.js"></script>
+<script src="js/rock.js"></script>
+</body>
+
+</html>
