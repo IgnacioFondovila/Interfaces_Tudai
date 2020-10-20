@@ -10,7 +10,7 @@ function hidLoader(){
     loaderClock.hidden=true
     all.hidden=false 
 }
-
+/////
 
 let logo=document.querySelector(".home");
 let btnBurg=document.querySelector("#burger");
@@ -72,17 +72,31 @@ function reduceCard(){
 
 ////////////////////countDownn//////////////////
 let count=document.getElementById("countdown");
-    let info=document.createElement("tr")
-    let Idays=document.createElement("td").textContent=" Dias "
-    let Ihours=document.createElement("td").textContent=" Horas "
-    let Iminutes=document.createElement("td").textContent=" Minutos "
-    let Iseconds=document.createElement("td").textContent=" Segundos "
-    info.append(Idays,Ihours,Iminutes,Iseconds);
+let infoHead=document.createElement("h1");
+let infoH=document.createTextNode("El estreno sera en:");
+infoHead.append(infoH);
+infoHead.className="countHead";
+let infoFoot=document.createElement("tr")
+let Idays=document.createElement("td")
+let d=document.createTextNode("Dias")
+Idays.append(d)
+let Ihours=document.createElement("td")
+let h=document.createTextNode("Horas")
+Ihours.append(h)
+let Iminutes=document.createElement("td")
+let m=document.createTextNode("Mins")
+Iminutes.append(m)
+let Iseconds=document.createElement("td")
+let s=document.createTextNode("Segs")
+Iseconds.append(s)
+infoFoot.append(Idays,Ihours,Iminutes,Iseconds);
+infoFoot.className="trFoot";
+
 var countDownDate = new Date("Dec 1, 2021 16:20:00").getTime();
 let dateDiv=document.createElement("p");
 
 function digitalCountdown(){
-
+    
     removeAllChildNodes(count)
     
     let now = new Date();
@@ -100,13 +114,15 @@ function digitalCountdown(){
     let hours=document.createElement("td")
     let minutes=document.createElement("td")
     let seconds=document.createElement("td")
-    let s=document.createTextNode( " - ")
-    let sp=document.createElement("p");
-    sp.append(s)
-    let sp1=document.createElement("p");
-    sp1.append(s)
-    let sp2=document.createElement("p");
-    sp2.append(s)
+
+    days.className="day";
+    hours.className="hour";
+    minutes.className="minute";
+    seconds.className="second";
+    Idays.className="day";
+    Ihours.className="hour";
+    Iminutes.className="minute";
+    Iseconds.className="second";
 
    if (sec<10){
        seconds=(":0"+sec);
@@ -117,8 +133,8 @@ function digitalCountdown(){
     minutes.append(min)
     seconds.append(sec)
     count.appendChild(dateDiv)
-    hoursDiv.append(days,sp,hours,sp1,minutes,sp2,seconds);
-    count.append(hoursDiv,info)
+    hoursDiv.append(days,hours,minutes,seconds);
+    count.append(infoHead,hoursDiv,infoFoot)
     
 
 }

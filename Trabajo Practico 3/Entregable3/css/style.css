@@ -48,16 +48,22 @@ button{
     opacity: 1;
 }
 .displayEvent{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
     height: auto;
-    max-height: 100vh;
-    transition: 1s ease-in-out;
+    max-height: 75vh;
 } 
 
 .showEvent{
     height: auto;
     max-height: 0;
+    transition: 1s ease-in-out;
 }
-.showEvent p{
+.showEvent article{
+    display: flex;
+    flex-direction: column;
+    font-style: italic;
     height: 100px;
 }
 @keyframes showEvents{

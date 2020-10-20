@@ -63,7 +63,7 @@ function seeEvents(i){
     shower.classList.toggle("showEvent",false)
     shower.classList.toggle("displayEvent")
     /////como hacer para llamar a una funcion cuendo se deja de hacer focus en un btn
-    btnsAccordeon[i].onmouseleave=function(){
+    btnsAccordeon[i].onmousedown=function(){
         btnsAccordeon[i].removeEventListener("click",function(){seeEvents(i)    });
         hideEvents(i)
     };
