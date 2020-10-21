@@ -1,0 +1,202 @@
+/*///////////////////Acordeon/////////////////////////*/
+.event-date-inner{
+    display: flex;
+    flex-direction:column;
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+}
+.event-date-inner span{
+    width: auto;
+    height: 20px;
+    color: rgb(184, 181, 181);
+} 
+.event-date{
+    position: absolute;
+    width: 5%;
+    height: 9%;
+    margin-top: -16px;
+    margin-left: 11px;
+    border-radius: 8px;
+    background-color: rgba(209, 202, 193, 0.548);
+    padding: 4px;
+    /* background-color: blue; */
+}
+
+.accordeon{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    color: black;
+    border-radius: 12px;
+    border: coral solid 1px;
+    height: auto;
+    padding: 4%;
+    margin: 4%;
+    max-width: 100%;
+    max-height: 100%;
+    font-family: 'Russo One', sans-serif;
+    overflow: hidden;
+  }
+button{
+    outline: none;    
+    outline-style: none;
+}
+.accordeon button{
+    margin: 2%;
+    background-color:rgba(14, 13, 13, 0.76);
+    border-radius: 6px;
+    border:rgb(146, 144, 255) solid ;   
+    /* background-color: rgb(184, 181, 181); */
+    height: 80px;
+    opacity: 1;
+}
+
+.divEvents img{
+    transform-style: preserve-3d;
+    background-color: darkslategray;
+}
+.divEvents{
+    display: flex;
+    flex-direction: row;
+    max-height: 0%;
+    transition: ease-in 4s;
+    background-color: rgba(193, 196, 196,0.4);
+}
+
+.divEvents article{
+    padding: 4%;
+}
+.displayEvent{
+    width: 100%;
+} 
+
+.showEvent{
+    max-height: 100%;
+}
+
+.divEvents article{
+    display: flex;
+    flex-direction: column;
+    font-style: italic;
+}
+
+/*--------------------- hero----------------------- */
+ #frImage{
+    background-image: url("../images/cityNight.png");
+} 
+
+#mouse{
+    position: absolute;
+    top:270px;
+    left:80vh;
+    width: 30vh;
+    height: 40vh;
+}
+
+.center{
+    width: 1310px;
+    height: 1749px;
+    background-color: rgb(50, 50, 122);
+}
+
+#frImage{
+    width: 100%;
+    height: 100px;
+    animation: moveCity infinite 3s;
+    z-index: 1;
+    top: 97px;
+}
+
+@keyframes moveCity{
+    from{
+        background-position-x: 0px;
+    }
+    to{
+        background-position-x: 3774px;
+    }
+}
+
+#carImage, #frImage{
+    position: absolute;
+    /* position: sticky; */
+    background-size: cover;
+    background-position: center;
+}
+#carImage{ 
+    top: 110px;
+    z-index: 2;
+    width: 200px;
+    height:100px;
+    background-image: url("../images/timeMachine-II.png");
+}
+#c1 img,#c2 img,#c3 img{
+    max-width: 416px;
+    max-height: 80vh;
+  } 
+/* #c1{
+    background-image: url("images/poster-part-i.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backface-visibility: visible;
+    z-index: 990999999;
+} */
+.centralCards{
+    margin: 2%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* top: 0px; */
+    max-width: 200vh;
+    max-height: 100vh;
+    margin-top: 273px;
+    background-color: rgba(202, 188, 188, 0.2);
+}
+
+.case{
+    position: absolute;
+    width: auto;
+    height:auto;
+}
+
+.card-body{
+    padding: 0%!important;
+    width: auto;
+    height:auto;
+    max-width: 0px;
+    opacity: 0;
+}
+.card-body-reduce{
+    opacity: 0;
+    max-width: 0px;
+    transition: ease-in-out 1s;
+}
+
+.card-body-ampliate{
+    opacity: 1;
+    max-width: 100vh;
+    transition: ease-in-out 1s;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+@keyframes moveCar{
+    0% {
+        transform-origin: 10px;
+    }
+    100% {
+        transform-origin: 100px;
+
+    }
+}
+
+/* 
+.pages a{    width:50px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+}    */

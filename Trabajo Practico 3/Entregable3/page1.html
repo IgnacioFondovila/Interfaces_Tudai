@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/nave.css">
+	<link rel="stylesheet" href="css/rock.css">
+    <title>Back to the future</title>
+</head>
+<body>
+	<section class="loader">
+		<article class="clock">
+			<div class="clockFace">
+				<div class="hours-container">
+					<div class="hours"></div>
+				</div>
+				<div class="minutes-container">
+					<div class="minutes"></div>
+				</div>
+				<div class="seconds-container">
+					<div class="seconds"></div>
+				</div>
+			</div>
+		  </article>
+	</section>
+	<div hidden class="bigContainer">
+		<header>
+			<nav class="nav">
+				<a href="index	.html"> 
+					<div class="home">
+					</div>
+				</a>
+				<div class="burger">
+					<button id="burger" > Pages</button>
+					<ul  hidden class="pages">
+						<a href="page1.html"><li class="li enabled" id="p1">
+							<h5>Parte 1</h5>
+						</li></a>
+						<a href="page2.html"><li class="li enabled" id="p2">
+							<h5>Parte 2</h5>
+						</li></a>
+					<a aria-disabled="true"><li class="li disabled" id="p3">
+						<h5>Parte 3</h5>
+					</li></a>
+					<a href=""><li class="li enabled" id="pg">
+						<h5>Game</h5>
+					</li></a>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		
+
+		<main class="content">
+		
+		<div class="forms">
+			<section class="formulary">
+				<img src="" alt="">
+				<div class="form">
+					<h1>Deje su saludo a los protagonistas</h1>
+					<form id="form" >
+						<input type="text" placeholder="Nombre">
+						<input type="text" placeholder="Apellido">
+						<input id="coment" type="text" placeholder="Saludo">
+						<input type="email" placeholder="example@email.com">
+						<input id="submit" type="submit" >
+					</form>
+				</div>
+			</section>
+			<section class="formulary">
+				<img src="" alt="">
+				<div class="form">
+					<h1>Deje un comentario</h1>
+					<form id="form" >
+						<input type="text" placeholder="Nombre">
+						<input type="text" placeholder="Apellido">
+						<input id="coment" type="text" placeholder="Comentario">
+						<input type="email" placeholder="example@email.com">
+						<input id="submit" type="submit" >
+					</form>
+				</div>
+			</section>
+		</div>
+		<!-- <section class="countdown">
+			<div id="countdown">
+				<tr id="timeCount">
+					<tr>
+						<td> Dias</td>
+						<td> Horas</td>
+						<td> Minutos</td>
+						<td> Segundos</td>
+					</tr>
+				</tr>
+			</div>
+		</section> -->
+		</div>
+	</div>
+
+<script src="js/home.js"></script>
+<script src="js/rock.js"></script>
+</body>
+
+</html>

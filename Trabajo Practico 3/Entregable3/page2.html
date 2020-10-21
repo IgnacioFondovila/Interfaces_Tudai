@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/nave.css">
+    <link rel="stylesheet" href="css/card.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class="loader">
+		<article class="clock">
+			<div class="clockFace">
+				<div class="hours-container">
+					<div class="hours"></div>
+				</div>
+				<div class="minutes-container">
+					<div class="minutes"></div>
+				</div>
+				<div class="seconds-container">
+					<div class="seconds"></div>
+				</div>
+			</div>
+		  </article>
+	</section>
+
+    <div hidden class="bigContainer">
+        <header>
+            <nav class="nav">
+                <a href="index.html"> 
+                    <div class="home">
+                    </div>
+                </a>
+                <div class="burger">
+                    <button id="burger" > Pages</button>
+                    <ul  hidden class="pages">
+                        <a href="page1.html"><li class="li enabled" id="p1">
+                            <h5>Parte 1</h5>
+                        </li></a>
+                        <a href="page2.html"><li class="li enabled" id="p2">
+                            <h5>Parte 2</h5>
+                        </li>
+                    </a>
+                    <a aria-disabled="true"><li class="li disabled" id="p3">
+                        <h5>PROXIMAMENTE</h5>
+                    </li></a>
+                    <a href=""><li class="li enabled" id="pg">
+                        <h5>Game</h5>
+                    </li></a>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <section class="actors">
+            <div class="cardAct" > 
+                <img class="imgs" src="images/MartyMc.png" alt="">
+                <div class="text">
+                    <h3>McFly</h3>
+                </div>
+            </div>
+            <div class="cardAct" > 
+                <img class="imgs" src="images/Doc.png" alt="">
+                <div class="text">
+                    <h3>Doc</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="carrousel">
+            
+            <div class="sceneImg1 scene"></div>
+            <div class="sceneImg2 scene"></div>
+            <div class="sceneImg3 scene"></div>
+            <div class="sceneImg4 scene"></div>
+            
+            <div class="circulosCarrousel">
+                <span class="slideIndx"></span> 
+                <span class="slideIndx"></span> 
+                <span class="slideIndx"></span>
+                <span class="slideIndx"></span>
+            </div>
+        </section>
+
+
+
+
+        <section class="countdown">
+            <div id="countdown">
+                <tr id="timeCount">
+                    <tr>
+                        <td> Dias</td>
+                        <td> Horas</td>
+                        <td> Minutos</td>
+                        <td> Segundos</td>
+                    </tr>
+                </tr>
+            </div>
+        </section>
+
+    </div>
+    <script src="js/actorCards.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>
