@@ -119,10 +119,10 @@ function digitalCountdown(){
     hours.className="hour";
     minutes.className="minute";
     seconds.className="second";
-    Idays.className="day";
-    Ihours.className="hour";
-    Iminutes.className="minute";
-    Iseconds.className="second";
+    Idays.className="iday";
+    Ihours.className="ihour";
+    Iminutes.className="iminute";
+    Iseconds.className="isecond";
 
    if (sec<10){
        seconds=(":0"+sec);

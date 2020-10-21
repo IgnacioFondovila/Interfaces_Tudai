@@ -21,10 +21,40 @@
     /* transform: rotate3d(1,0,0,60deg; */
     transform-style: preserve-3d;
 }
+.cardAct img:hover{
+    transform:translate3d(2,2)
+}
 .text{
     font-family: 'Russo One', sans-serif;
     text-shadow: 2px 0px 5px rgb(100, 29, 43);
     transform: translateZ(200px);
     transform-style: preserve-3d ;
     text-transform: uppercase;
+}
+/* ///////////////////CARROUSEL///////////////////// */
+
+
+.carrousel {
+    width: 1080px;
+    height: 400px;
+    overflow: hidden;
+    border: solid black 2px;
+}
+
+.sceneImg1, .sceneImg2, .sceneImg3, .sceneImg4 {
+    width: 1080px;
+    height: 400px;
+    background-size: 100%;
+}
+.sceneImg1{
+    background-image: url("../images/scenes1.jpeg");
+}
+.sceneImg2{
+    background-image: url("../images/scenes2.jpg");
+}
+.sceneImg3{
+    background-image: url("../images/scenes3.jpg");
+}
+.sceneImg4{
+    background-image: url("../images/scenes4.jpg");
 }

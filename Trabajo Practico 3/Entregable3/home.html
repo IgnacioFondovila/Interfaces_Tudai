@@ -25,6 +25,7 @@
 			</div>
 		  </article>
     </section>
+
 <div hidden class="bigContainer">
     <header>
         <nav class="nav">
@@ -34,7 +35,7 @@
             </a>
             <div class="burger">
                 <button id="burger" > Pages</button>
-                <ul  hidden class="pages">
+                <ul   class="pages">
                     <a href="page1.html"><li class="li enabled" id="p1">
                         <h5>Parte 1</h5>
                     </li></a>
@@ -57,29 +58,29 @@
             <div id="frImage"></div>
             <div class="center">
                 <div id="carImage"></div>
-                <div class="centralCards" >            
-                    <div  style="width: 18rem;" class="case card" id="c1">  
-                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                
+                <img id="mouse" src="images/scroll-mouse.png" alt="" srcset="">
+
+                <div hidden class="centralCards" >            
+                   <div  class="case card" id="c1">  
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <img src="images/poster-part-i.png" alt="">  
+                          </div>
+                    </div>
+                    <div  class="case card" id="c2"> 
+                        <div class="card-body">
+                            <img src="images/poster-part-ii.png" alt="">  
                         </div>
                     </div>
-                    <div  style="width: 18rem;" class="case card" id="c2"> 
+                    <div   class="case card" id="c3">  
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                    <!-- <img src="..." class="card-img-top" alt="..."> -->
-                    <div  style="width: 18rem;" class="case card" id="c3">  
-                        <!-- <img src="..." class="card-img-top" alt="..."> -->
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <img src="images/poster-part-iii.png" alt="">  
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="accordeon">
+        <section class="accordeon" hidden>
             <button>
                 <div class="event-date">
                     <div class="event-date-inner">
@@ -89,12 +90,14 @@
                 </div>
                 Charla virtual junto a Marty y Doc 
             </button>
-            <div hidden class="showEvent">
+            <div  class="divEvents" hidden>
                 <img src="images/videoCall.jpeg" alt="">
                 <article>
-                    <h6> </h6> 
+                    <h6>Acortando distancias en estos momentos tan dificiles </h6> 
                     <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus unde architecto nam ipsa, sed rem nisi placeat quam vitae, possimus voluptas maiores doloremque quaerat qui consectetur tempora repellendus molestias cum!
+                        Los viajeros del tiempo de la gran pantalla vuelven a juntars, pero esta vez en formato straming!
+                        Acompañados del famoso Josh Gad estaran realizando una transmision especial para quienes quieran
+                        volver a vivir las historias de como se rodo una de las trilogias mas taquilleras de todos los tiempos
                     </p>
                 </article> 
             </div>
@@ -105,16 +108,21 @@
                         <span class="event-date-day">2</span>
                     </div>
                 </div>
-                Charla 2
+                Back to the Future The Musical
             </button>
-            <div hidden class="showEvent">
-                <img src="images/BTTF_Museum_Exhibit.jpg" alt="">
-                <article>
-                    <h6> TRILOGÍA DE REGRESO AL FUTURO: LA EXPOSICIÓN</h6> 
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus unde architecto nam ipsa, sed rem nisi placeat quam vitae, possimus voluptas maiores doloremque quaerat qui consectetur tempora repellendus molestias cum!
-                    </p>
-                </article> 
+            <div class="divEvents" hidden >
+                <img src="images/bttfMusical.jpg" alt="">
+            <article> 
+                <h6> A fines de este año se estará presentando por primera vez en la historia
+                    el Musical de esta gran trilogia</h6>
+                <p>
+                    Adaptando esta icónica historia para el escenario están 
+                    los creadores de la película Bob Gale ( trilogía Regreso al futuro ) y Robert Zemeckis ( Forrest Gump ). 
+                    La producción presenta música original de los ganadores de varios Grammy  Alan Silvestri ( Avengers: Endgame ) 
+                    y Glen Ballard (El hombre en el espejo de Michael Jackson ) , junto con canciones 
+                    exitosas de la película como The Power of Love, Johnny B. Goode, Earth Angel and Back in Time.
+                </p>
+            </article>
             </div>
             <button>
                 <div class="event-date">
@@ -125,12 +133,17 @@
                 </div>
                 Michael J.Fox Presenta su libro
             </button>
-            <div hidden class="showEvent">
+            <div  class="divEvents" hidden>
                 <img src="images/j.fox_book.jpg" alt="">
                 <article>
                     <h6> No hay tiempo como el futuro: un optimista considera la mortalidad</h6> 
                     <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus unde architecto nam ipsa, sed rem nisi placeat quam vitae, possimus voluptas maiores doloremque quaerat qui consectetur tempora repellendus molestias cum!
+                        La vida de nuestro querido Marty McFly como nunca antes la habias visto, 
+                        narrada por quien lo represento en carne viva el gran Michael J.Fox.
+                        En donde tambien cuenta como nacio la Fundación Michael J. Fox para la Investigación del Parkinson,
+                        (que ahora es la organización líder en Parkinson en el mundo)
+                        Y como logró ponerse en el papel de autor  y escribio los tres libros más vendidos del New York Times :
+                         Lucky Man , Always Looking Up y A Funny Thing Happened on the Way to the Future  
                     </p>
                 </article> 
             </div>
@@ -142,21 +155,22 @@
                     <span class="event-date-day">23</span>
                     </div>
                 </div>
-                Back to the Future The Musical 
+                Exposicion en el museo de Las Vegas
             </button>
-            <div class="showEvent" hidden>
-                <img src="images/bttfMusical.jpg" alt="">
-            <article> 
-                <h6> A fines de este año se estará presentando por primera vez en la historia
+            <div  class="divEvents" hidden>
+                <img src="images/BTTF_Museum_Exhibit.jpg" alt="">
+                <article>
+                    <h6> TRILOGÍA DE REGRESO AL FUTURO: LA EXPOSICIÓN</h6> 
                     <p>
-                    el Musical de esta gran trilogia</h6>
-                    Adaptando esta icónica historia para el escenario están 
-                    los creadores de la película Bob Gale ( trilogía Regreso al futuro ) y Robert Zemeckis ( Forrest Gump ). 
-                    La producción presenta música original de los ganadores de varios Grammy  Alan Silvestri ( Avengers: Endgame ) 
-                    y Glen Ballard (El hombre en el espejo de Michael Jackson ) , junto con canciones 
-                    exitosas de la película como The Power of Love, Johnny B. Goode, Earth Angel and Back in Time.
-                </p>
-            </article>
+                        La exhibición, constará de tres secciones populares: Hill Valley de 1955, Hill Valley de 1985 y Hill Valley de 1885.
+                         Que rendiran homenaje a la franquicia cinematográfica.
+                         Constara con la presentacion de Rob Klein, uno de los principales coleccionistas de Back to the Future
+                        quien presentara durante la exhibición la túnica de Christopher Lloyd ("Doc Brown") de las Partes I y III,
+                         el traje occidental de Michael J. Fox ("Marty McFly") de la Parte III, hasta el vestido de Mary Steenburgen ( "Clara Clayton")  
+                         y su telescopio de la Parte III, Ademas de la icónica Máquina del tiempo Hero DeLorean en la tercera película, 
+                         con más de 350 artefactos originales que se combinan en pantalla
+                    </p>
+                </article> 
             </div>
             
         </section>

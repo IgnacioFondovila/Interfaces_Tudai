@@ -22,6 +22,7 @@
     padding: 4px;
     /* background-color: blue; */
 }
+
 .accordeon{
     display: flex;
     flex-direction: column;
@@ -32,8 +33,11 @@
     height: auto;
     padding: 4%;
     margin: 4%;
+    max-width: 100%;
+    max-height: 100%;
     font-family: 'Russo One', sans-serif;
-}
+    overflow: hidden;
+  }
 button{
     outline: none;    
     outline-style: none;
@@ -47,43 +51,57 @@ button{
     height: 80px;
     opacity: 1;
 }
-.displayEvent{
+
+.divEvents img{
+    transform-style: preserve-3d;
+    background-color: darkslategray;
+}
+.divEvents{
     display: flex;
     flex-direction: row;
+    max-height: 0%;
+    transition: ease-in 4s;
+    background-color: rgba(193, 196, 196,0.4);
+}
+
+.divEvents article{
+    padding: 4%;
+}
+.displayEvent{
     width: 100%;
-    height: auto;
-    max-height: 75vh;
 } 
 
 .showEvent{
-    height: auto;
-    max-height: 0;
-    transition: 1s ease-in-out;
+    max-height: 100%;
 }
-.showEvent article{
+
+.divEvents article{
     display: flex;
     flex-direction: column;
     font-style: italic;
-    height: 100px;
 }
-@keyframes showEvents{
-}
+
 /*--------------------- hero----------------------- */
 /* #bkImage{
     background-color: blueviolet;
 } */
+#mouse{
+    position: absolute;
+    top:270px;
+    left:80vh;
+    width: 30vh;
+    height: 40vh;
+}
 
 .center{
     width: 1310px;
-    height: 1742px;
-    /* position: absolute; */
-    background-color: blueviolet;
+    height: 1749px;
+    background-color: rgb(50, 50, 122);
 }
 #carImage{
     position: absolute;
     /* position: sticky; */
-    top: 200px;
-    background-color: blueviolet;
+    top: 97px;
     background-image: url("../images/timeMachine-II.png");
     background-size: cover;
     background-position: center;
@@ -91,26 +109,58 @@ button{
     height:100px;
     /*animation : moveCar 2s infinite; */
 }
-
+#c1 img,#c2 img,#c3 img{
+    max-width: 416px;
+    max-height: 80vh;
+  } 
+/* #c1{
+    background-image: url("images/poster-part-i.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backface-visibility: visible;
+    z-index: 990999999;
+} */
 .centralCards{
-    margin: 10px;
+    margin: 2%;
     position: absolute;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     /* top: 0px; */
-    margin-top: 390px;
-    background-color: white;
-
+    max-width: 200vh;
+    max-height: 100vh;
+    margin-top: 273px;
+    background-color: rgba(202, 188, 188, 0.2);
 }
 
 .case{
-    background-color: yellow;
     position: absolute;
-    margin-left: 10px;
-    margin-right: 10px;
-    top: 200px;
-    height: auto;
+    width: auto;
+    height:auto;
+}
+
+.card-body{
+    padding: 0%!important;
+    width: auto;
+    height:auto;
+    max-width: 0px;
+    opacity: 0;
+}
+.card-body-reduce{
+    opacity: 0;
+    max-width: 0px;
+    transition: ease-in-out 1s;
+}
+
+.card-body-ampliate{
+    opacity: 1;
+    max-width: 100vh;
+    transition: ease-in-out 1s;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 @keyframes moveCar{

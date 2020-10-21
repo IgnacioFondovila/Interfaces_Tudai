@@ -97,17 +97,36 @@ border-top: solid #414042;
     text-align: center;
     color: #de1e2c
 }
-/* ///form////// */
+/* //////////////////////FOORMSSS////////////// */
+.forms{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 190vh;
+    padding: 9%;
+    border-radius: 20px;
+    border: solid darkslategrey;
+}
 .formulary{
-display: flex;
-flex-direction: row;
-justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgba(166, 214, 218,0.5);
+    width: 440px;
+    width:46%;
+    border-radius: 1%;
+    padding: 1%;
+    animation: show 2s alternate;
 }
 .form{
     display: flex;
     flex-direction: column;
+    width:100%;
+    /* width:40%; */
+    
 }
 #form{
+    width:85%;
     display: flex;
     flex-direction: column;
     align-items: baseline;
@@ -160,3 +179,4 @@ justify-content: space-around;
 #coment{
     height: 180px;
 }
+

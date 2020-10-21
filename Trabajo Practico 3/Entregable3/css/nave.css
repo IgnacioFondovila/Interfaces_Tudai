@@ -1,13 +1,34 @@
 /* ----------------nav-------------------- */
+@keyframes show{
+    0%{
+        opacity: 0;
+        max-width: 0px;
+        max-height: 0px;
+    }
+    50%{
+        opacity: 0.5;
+        max-width: 50px;
+        max-height: 50px;
+    }
+    100%{
+ 
+        opacity: 1;
+        max-width: 100vh;
+        max-height: 100vh;
+    }
+}
+
 body {
     margin: 0px;
     height: 1900px;
     font-family: 'Russo One', sans-serif;
+    background-color: rgba(49, 48, 48, 0.7) !important;
    
 }
+
 .nav{
     width: 100%;
-    height: 150px;
+    height: 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -23,16 +44,12 @@ body {
     background-position: center;
     margin: 0%; 
     transition: ease-in-out 1s;
-
 }
-/* .home:hover{
-animation: hover 1s;
-} */
 
 @keyframes hover{
     0%{
-        width: 230px;
-        height: 100px;
+        width: 200px;
+        height: 70px;
     }
     100%{
         width: 260px;
@@ -54,7 +71,7 @@ animation: hover 1s;
 }
 
 .burger{
-    height: autopx;
+    width: 250px;
 }
 
 #burger {
@@ -79,17 +96,17 @@ animation: hover 1s;
     
 .pages{
     height:auto;
-    margin-top:-10px;
-    width: 250px;
+    margin-top:-2px;
+    max-width: 250px;
     background-color: beige; 
     flex-direction: column;
     align-content:space-between ;
     overflow: hidden;
 }
 .pages li{
-    width: 140px;
-    height: 140px;
-    margin: 5%;
+    width: 100px;
+    height: 100px;
+    margin-left: 30px;
     position: relative;
     color: beige;
     background-size:cover;
@@ -183,10 +200,10 @@ header{
 }
 /* ///////COUNTDOWN ////////////////////*/
 .countHead{
-    margin: 2%;
+    margin: 20px;
     font-size: medium;
-    margin-top: -14.5%;
-    margin-left: 11%;
+    margin-top: -32px;
+    margin-left: 35px;
     text-shadow: 2px 0px 5px whitesmoke;
 }
 
@@ -196,7 +213,7 @@ header{
     font-size: small;
     position: absolute;
     /* justify-content: center; */
-    margin-top: 5%;
+    margin-top: 13px;
     font-family: 'Russo One', sans-serif;
 }
 .countdown{
@@ -206,9 +223,9 @@ header{
     align-items: center;
     align-content: space-between;
     position: fixed;
-    bottom: 2%;
-    right: 2%;
-    background-color: brown;
+    bottom: 21px;
+    right: 21px;
+    background-color: rgba(221, 42, 42, 0.726);
     height:100px;
     width: 230px;
     transition: step-start 4s;
@@ -238,7 +255,7 @@ header{
     font-size: smaller;
     justify-content: space-between;
 }
-.day, .hour, .minute ,.second{
+.day, .hour, .minute ,.second ,.iday, .ihour, .iminute ,.isecond{
     position: absolute;
     top: 28px;
 }
@@ -252,11 +269,27 @@ header{
 }
 
 .minute{
-    left:172.5px ;
+    left:172px ;
 }
 
 .second{
     left:204.5px ;
+}
+
+.iday{
+    left:18.5px ;
+}
+.ihour{
+    text-align: center;
+    left:107.5px ;
+}
+
+.iminute{
+    left:157px ;
+}
+
+.isecond{
+    left:194.5px ;
 }
 
 /* --------Loooooooaaaaaaadeeeeer------- */
@@ -266,7 +299,6 @@ header{
     align-items: center;
     width: 100%;
     max-height: 100vh;
-    
 }
 .clockFace{
     background-image: url("../images/reloj.png") ;
