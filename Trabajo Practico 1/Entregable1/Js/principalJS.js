@@ -415,9 +415,9 @@ filters.addEventListener("change", function () {
     else if (filters.value == "fGscale") {
         for (let i = 0; i < data.length; i += 4) {
             let grayscale = getRed(i) * .3 + getGreen(i) * .59 + getBlue(i) * .11;
-            data[i + 0] = grayscale;    // r
-            data[i + 1] = grayscale;    // g
-            data[i + 2] = grayscale;    // b
+            data[i + 0] = grayscale;    // r
+            data[i + 1] = grayscale;    // g
+            data[i + 2] = grayscale;    // b
         }
         ctx.putImageData(image, 0, 0)
     }
@@ -491,7 +491,6 @@ filters.addEventListener("change", function () {
                         b += inputData[inptIndex + 2] * weight;
                         a += inputData[inptIndex + 3] * weight;
                     }
-
                 }
                 ouptIndex = (pxAvove + y) * 4
                 output[ouptIndex] = r;

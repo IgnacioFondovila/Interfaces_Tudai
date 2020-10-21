@@ -7,6 +7,7 @@ svgRect=document.querySelector("#svgRect");
     this.backImg.setAttribute("height", this.getHeight());
 */
 let bk=document.querySelector("#bkImage");
+let fr=document.querySelector("#frImage");
 let car = document.querySelector("#carImage");
 let cards = document.querySelector('.centralCards');
 let cardsB = document.querySelectorAll('.card-body');
@@ -24,6 +25,7 @@ function scrollCar(e){
         // c1.style.marginTop=" " +(yfixed) + "px";
         console.log(yfixed);
         car.style.marginTop=" " +(yfixed) + "px";
+        fr.style.marginTop=" " +(yfixed) + "px";
         car.style.transform="translateX("+(yfixed)+"px)";
     }else{
         yfixed=window.scrollY;
@@ -66,10 +68,11 @@ function scrollCards(e){
     }else if(yfixed>1180){
         accordeon.hidden=false 
         // accordeon.style.animation= "cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s";
-        accordeon.style.animation="show 2s"
+        accordeon.style.animation="show 1s"
     }
 }
 ///////////////////ACORDEON///////////////////////
+
 // let shower=document.querySelector(".showEvent");
 let btnsAccordeon=document.querySelector(".accordeon").getElementsByTagName("button")
 let divAccordeon=document.querySelectorAll(".divEvents")

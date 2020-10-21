@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="Css/style1.css">
+    <link rel="icon" type="image/png" href="Images/4icon.png"/>
+    <title>EnLinea</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light ">
+            <h1 class="navbar-brand" >
+                4 En Linea
+            </h1>
+        </nav>
+    </header>
+    <div class="cards">
+        <div hidden id="cardL" class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+            <div class="card-header">
+                <h2 class="card-title">EMPATE</h2>
+                   <!-- <a class="navbar-brand" id="reset" href="#">
+                    Reset Game
+                   </a>  -->
+             </div>
+            <div class="card-body">
+            <p class="card-text">No hubo ganadores</p>
+            </div>
+        </div>
+        <div hidden id="cardW" class="card" style="width: 18rem;">
+            <img src="Images/goldTrophy.png" class="card-img-top">
+            <div class="card-body">
+            <h2 id="wnner" class="card-text"></h2>
+            </div>
+            <!-- <a class="navbar-brand" id="reset" href="#">
+                Reiniciar juego
+            </a> -->
+        </div>
+    </div>
+    <form id="form">
+        <div class="form-row">
+            <div class="col">
+                <input id="name1" class="playerName" type="text" class="form-control" placeholder="Player1 name">
+                    Color de ficha
+                    <input type="color" id="color-picker1" value="#0dc513">
+            </div>
+            <div class="col">
+                <input id="name2" class="playerName" type="text" class="form-control" placeholder="Player2 name">
+                    Color de ficha
+                    <input type="color" id="color-picker2" value="#ff8800">
+            </div>
+        </div>
+        
+        <div id="alert" class="alert alert-warning" role="alert" hidden>
+            Debe seleccionar un tablero antes de jugar
+        </div>
+
+        <div class="col-auto my-1">
+            <select class="custom-select mr-sm-2" id="boards">
+                <option value="0" selected hidden>Elige el tamaño del tablero(COLxFIL)</option>
+                <option value="1">7x6</option>
+                <option value="3">8x5</option>
+                <option value="2">9x6</option>
+            </select>
+        </div>
+
+        <div class="col-auto">
+            <button id="btnStart" type="button" class="btn btn-primary">Iniciar Juego</button>
+            <input id="start" type="hidden" ></input>
+        </div>
+
+    </form>
+    
+    <svg hidden id="svgElement" width="100" height="100" viewBox="41 54 106 122">
+        <rect  id="svgRect" width="100" height="100" style="fill:rgb(0,0,255);" />    
+    </svg>
+
+    <canvas hidden id="canvas" width="600" height="500" class="canvas"></canvas>
+    <footer>
+        <nav hidden id="vis" class="navbar fixed-bottom navbar-light bg-light">
+            <p id="p1" class="navbar-brand" ></p>
+            <div class="turns navbar-brand">
+                <h4 id="turn" >
+                </h4>
+                <span hidden id="arrow1"> &#8592</span>
+                <span hidden id="arrow2">&#8594</span>
+            </div>
+            <p id="p2" class="navbar-brand" ></p>
+        </nav>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="Js/Chip.js"></script>
+    <script type="text/javascript" src="Js/Board.js"></script>
+    <script type="text/javascript" src="Js/main.js"></script>
+</body>
+
+</html>

@@ -102,7 +102,7 @@ function startGame(){
         tx1=document.createTextNode(player1);
         tx2=document.createTextNode(player2);
         tx =document.createTextNode("ES EL TURNO DE");
-        document.querySelector("#turn").append(tx); 
+        document.querySelector("#turn").append(tx);
         p1.append(tx1);
         p2.append(tx2);
         postTurn()
