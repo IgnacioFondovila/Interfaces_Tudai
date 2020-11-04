@@ -11,11 +11,24 @@
         max-height: 50px;
     }
     100%{
- 
         opacity: 1;
         max-width: 100vh;
         max-height: 100vh;
     }
+}
+
+.btnsNav{
+    color: rgb(204, 194, 228);   
+    text-shadow: 2px 0px 1px rgb(69, 53, 100);
+    font-size: larger;
+}
+
+.bigContainer{
+    display: flex;
+    flex-direction: column;
+    flex-flow: column ;
+    align-items: center;
+    visibility: hidden;
 }
 
 body {
@@ -23,10 +36,10 @@ body {
     height: 1900px;
     font-family: 'Russo One', sans-serif;
     background-color: rgba(49, 48, 48, 0.7) !important;
-   
 }
 
 .nav{
+    font-family: 'Russo One', sans-serif;
     width: 100%;
     height: 100px;
     display: flex;
@@ -34,16 +47,13 @@ body {
     justify-content: space-around;
     background-color: black;
     padding: 8px;
+    align-items: center;
+    position: fixed;
+    visibility: hidden;
 }
 
-.home{
-    width: 230px;
-    height: 100px;
-    background-image: url("../images/Bttf2.png");
-    background-size: cover;
-    background-position: center;
-    margin: 0%; 
-    transition: ease-in-out 1s;
+.nav a{
+    outline-style: none;
 }
 
 @keyframes hover{
@@ -76,7 +86,8 @@ body {
 
 #burger {
     font-family: 'Russo One', sans-serif;
-    color: rgb(219, 185, 30);   
+    color: rgb(39, 31, 58);   
+    background-color: rgb(204, 194, 228);   
     border-radius: 5px;
     width: 250px;
     height: 60px;
@@ -95,17 +106,21 @@ body {
     /* } */
     
 .pages{
+    position: absolute;
     height:auto;
     margin-top:-2px;
     max-width: 250px;
+    width: 250px;
     background-color: beige; 
     flex-direction: column;
+    align-items: center;
     align-content:space-between ;
     overflow: hidden;
+    padding: 2%;
 }
 .pages li{
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     margin-left: 30px;
     position: relative;
     color: beige;
@@ -121,12 +136,12 @@ h5{
 }
 
 .enabled:hover{
-    width: 190px;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-    height: 190px;
+    width: 150px;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+    height: 150px;
     margin: 0%;
 }
 
-.enabled:hover h5{
+.social:hover h5, .enabled:hover h5{
     font-family: 'Russo One', sans-serif;
     opacity: 1;
     width: 90px;
@@ -172,7 +187,24 @@ header{
 #pg{
     background-image: url("../images/portada_game.png");
 }
-
+#pt{
+    background-image: url("../images/tw.png");
+}
+#pf{
+    background-image: url("../images/face.png");
+}
+#pi{
+    background-image: url("../images/inst.png");
+}
+#pc{
+    background-image: url("../images/contacto.png");
+}
+/* ////social logos//////////////// */
+.social:hover{
+    margin: 1%;
+    width: 100px;
+    height: 100px ;
+}
 @keyframes reduceCard{
     0% {
         opacity: 1;
@@ -231,6 +263,7 @@ header{
     transition: step-start 4s;
     padding: 1%;
     border-radius: 2%;
+    z-index: 10;
 }
 
 #countdown{
@@ -269,7 +302,7 @@ header{
 }
 
 .minute{
-    left:172px ;
+    left:169px ;
 }
 
 .second{
@@ -331,9 +364,9 @@ header{
   .hours {
     position: absolute;
     background: #000;
-    height: 10%;
+    height: 19%;
     left: 48.7%;
-    top: 40%;
+    top: 32%;
     transform-origin: 48.7% 10%;
     width: 2.5%;
     z-index: 5;
@@ -341,9 +374,9 @@ header{
   .minutes {
     position: absolute;
     background: #000;
-    height: 12%;
+    height: 26%;
     left: 49.1%;
-    top: 38%;
+    top: 25%;
     transform-origin: 49.1% 12%;
     z-index: 4;
     width: 1.9%;
@@ -351,9 +384,9 @@ header{
   .seconds {
     position: absolute;
     background: red;
-    height: 16%;
+    height: 29%;
     left: 49.7%;
-    top: 36%;
+    top: 23%;
     transform-origin: 49.5% 14%;
     width: 0.7%;
     z-index: 3;

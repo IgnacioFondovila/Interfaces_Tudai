@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/nave.css">
+    <link rel="stylesheet" href="css/card.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="images/logo.png">
     <title>Back to the future</title>
 </head>
 <body>
@@ -26,29 +28,55 @@
 		  </article>
     </section>
 
-<div hidden class="bigContainer">
+<div class="bigContainer">
     <header>
         <nav class="nav">
             <a href="index.html"> 
-                <div class="home">
+                <div class="btnsNav">
+                    <h1>Incio</h1>
+                </div>
+            </a>
+            <a href="page1.html"> 
+                <div class="btnsNav">
+                    <h1>Eventos</h1>
+                </div>
+            </a>
+            <a href="page2.html"> 
+                <div class="btnsNav">
+                    <h1>Comentarios</h1>
                 </div>
             </a>
             <div class="burger">
-                <button id="burger" > Pages</button>
+                <button id="burger" >Redes Sociales</button>
                 <ul hidden  class="pages">
-                    <a href="page1.html"><li class="li enabled" id="p1">
-                        <h5>Parte 1</h5>
+                    <!-- <a href="page1.html"><li class="li enabled" id="p1">
+                        <h5>Formulario de comentarios y saludos </h5>
                     </li></a>
                     <a href="page2.html"><li class="li enabled" id="p2">
-                        <h5>Parte 2</h5>
-                    </li>
-                </a>
-                <a aria-disabled="true"><li class="li disabled" id="p3">
-                    <h5>PROXIMAMENTE</h5>
-                </li></a>
-                <a href=""><li class="li enabled" id="pg">
-                    <h5>Game</h5>
-                </li></a>
+                        <h5>Calendario de eventos</h5>
+                    </li></a>
+                    <a aria-disabled="true"><li class="li disabled" id="p3">
+                        <h5>PROXIMAMENTE</h5>
+                    </li></a>
+                     <li>
+                        <ul clas="socials"> -->
+                            <a href=""><li class="li enabled" id="pg">
+                                <h5>Game</h5>
+                            </li></a>
+                            <a href=""><li class="li social" id="pf">
+                                <h5>Facebook</h5>
+                            </li></a>
+                            <a href=""><li class="li social" id="pt">
+                                <h5>Twitter</h5>
+                            </li></a>
+                            <a href=""><li class="li social" id="pi">
+                                <h5>Instagram</h5>
+                            </li></a>
+                            <a href=""><li class="li social" id="pc">
+                                <h5>Contacto</h5>
+                            </li></a>
+                        <!-- </ul>
+                    </li> -->
                 </ul>
             </div>
         </nav>
@@ -59,8 +87,9 @@
             <div class="center">
                 <div id="carImage"></div>
                 
+                <div id="inImage"></div>
                 <img id="mouse" src="images/scroll-mouse.png" alt="" srcset="">
-
+                
                 <div hidden class="centralCards" >            
                    <div  class="case card" id="c1">  
                         <div class="card-body">
@@ -80,100 +109,73 @@
                 </div>
             </div>
         </section>
-        <section class="accordeon" hidden>
-            <button>
-                <div class="event-date">
-                    <div class="event-date-inner">
-                    <span class="event-date-month">Oct</span>
-                    <span class="event-date-day">22</span>
+        
+        <section class="actorsCont">
+            <h2 hidden class="titlesMove">Actores</h2>
+            <div class="actors">
+                <div class="cardAct" > 
+                    <img class="imgs" src="images/MartyMc.png" alt="">
+                    <div class="text">
+                        <h2>J Fox</h2>
                     </div>
                 </div>
-                Charla virtual junto a Marty y Doc 
-            </button>
-            <div  class="divEvents" hidden>
-                <img src="images/videoCall.jpeg" alt="">
-                <article>
-                    <h6>Acortando distancias en estos momentos tan dificiles </h6> 
-                    <p>
-                        Los viajeros del tiempo de la gran pantalla vuelven a juntars, pero esta vez en formato straming!
-                        Acompañados del famoso Josh Gad estaran realizando una transmision especial para quienes quieran
-                        volver a vivir las historias de como se rodo una de las trilogias mas taquilleras de todos los tiempos
-                    </p>
-                </article> 
+                <div class="cardAct" > 
+                    <img class="imgs" width="250px" height="350px" src="images/tom-wilson-.png" alt="">
+                    <div class="text">
+                        <h2>Tom Wilson</h2>
+                    </div>
+                </div>
+                <div class="cardAct" > 
+                    <img class="imgs" width="250px" height="350px" src="images/lea-thompson-.png" alt="">
+                    <div class="text">
+                        <h2>Lea Thompson</h2>
+                    </div>
+                </div>
+                <div class="cardAct" > 
+                    <img class="imgs" width="250px" height="350px" src="images/mary-steenburgen-.png" alt="">
+                    <div class="text">
+                        <h2>Mary Steenburgen</h2>
+                    </div>
+                </div>
+                <div class="cardAct" > 
+                    <img class="imgs" src="images/doc.png" alt="">
+                    <div class="text">
+                        <h2>Doc</h2>
+                    </div>
+                </div>
             </div>
-            <button>
-                <div class="event-date">
-                    <div class="event-date-inner">
-                        <span class="event-date-month">Nov</span>
-                        <span class="event-date-day">2</span>
-                    </div>
+        </section>
+        
+        <h2 hidden class="titlesMove">Escenas destacadas</h2>
+        <section hidden class="carrous">
+            <div class="carrousel">
+                <div hidden class="arrowLeft">
+                    <a class="arrowL"><img src="images/arrow_left.png" alt=""></a>
                 </div>
-                Back to the Future The Musical
-            </button>
-            <div class="divEvents" hidden >
-                <img src="images/bttfMusical.jpg" alt="">
-            <article> 
-                <h6> A fines de este año se estará presentando por primera vez en la historia
-                    el Musical de esta gran trilogia</h6>
-                <p>
-                    Adaptando esta icónica historia para el escenario están 
-                    los creadores de la película Bob Gale ( trilogía Regreso al futuro ) y Robert Zemeckis ( Forrest Gump ). 
-                    La producción presenta música original de los ganadores de varios Grammy  Alan Silvestri ( Avengers: Endgame ) 
-                    y Glen Ballard (El hombre en el espejo de Michael Jackson ) , junto con canciones 
-                    exitosas de la película como The Power of Love, Johnny B. Goode, Earth Angel and Back in Time.
-                </p>
-            </article>
-            </div>
-            <button>
-                <div class="event-date">
-                    <div class="event-date-inner">
-                        <span class="event-date-month">Nov</span>
-                        <span class="event-date-day">17</span>
-                    </div>
+                
+                <div class="sceneImg1 scene"></div>
+                <div class="sceneImg2 scene"></div>
+                <div class="sceneImg3 scene"></div>
+                <div class="sceneImg4 scene"></div>
+                <div class="sceneImg5 scene"></div>
+                <div class="sceneImg6 scene"></div>
+                
+                <div hidden class="arrowRight">
+                    <a class="arrowR"><img src="images/arrow_right.png" alt=""></a>
                 </div>
-                Michael J.Fox Presenta su libro
-            </button>
-            <div  class="divEvents" hidden>
-                <img src="images/j.fox_book.jpg" alt="">
-                <article>
-                    <h6> No hay tiempo como el futuro: un optimista considera la mortalidad</h6> 
-                    <p>
-                        La vida de nuestro querido Marty McFly como nunca antes la habias visto, 
-                        narrada por quien lo represento en carne viva el gran Michael J.Fox.
-                        En donde tambien cuenta como nacio la Fundación Michael J. Fox para la Investigación del Parkinson,
-                        (que ahora es la organización líder en Parkinson en el mundo)
-                        Y como logró ponerse en el papel de autor  y escribio los tres libros más vendidos del New York Times :
-                         Lucky Man , Always Looking Up y A Funny Thing Happened on the Way to the Future  
-                    </p>
-                </article> 
-            </div>
-
-            <button>
-                <div class="event-date">
-                    <div class="event-date-inner">
-                    <span class="event-date-month">Dic</span>
-                    <span class="event-date-day">23</span>
-                    </div>
-                </div>
-                Exposicion en el museo de Las Vegas
-            </button>
-            <div  class="divEvents" hidden>
-                <img src="images/BTTF_Museum_Exhibit.jpg" alt="">
-                <article>
-                    <h6> TRILOGÍA DE REGRESO AL FUTURO: LA EXPOSICIÓN</h6> 
-                    <p>
-                        La exhibición, constará de tres secciones populares: Hill Valley de 1955, Hill Valley de 1985 y Hill Valley de 1885.
-                         Que rendiran homenaje a la franquicia cinematográfica.
-                         Constara con la presentacion de Rob Klein, uno de los principales coleccionistas de Back to the Future
-                        quien presentara durante la exhibición la túnica de Christopher Lloyd ("Doc Brown") de las Partes I y III,
-                         el traje occidental de Michael J. Fox ("Marty McFly") de la Parte III, hasta el vestido de Mary Steenburgen ( "Clara Clayton")  
-                         y su telescopio de la Parte III, Ademas de la icónica Máquina del tiempo Hero DeLorean en la tercera película, 
-                         con más de 350 artefactos originales que se combinan en pantalla
-                    </p>
-                </article> 
             </div>
             
+            <div class="circulosCarrousel">
+                <span class="slideIndx"></span> 
+                <span class="slideIndx"></span> 
+                <span class="slideIndx"></span>
+                <span class="slideIndx"></span>
+                <span class="slideIndx"></span>
+                <span class="slideIndx"></span>
+            </div>
         </section>
+
+        
         <section class="countdown">
             <div id="countdown">
                 <tr id="timeCount">

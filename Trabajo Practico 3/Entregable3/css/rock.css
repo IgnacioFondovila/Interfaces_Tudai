@@ -41,10 +41,6 @@
 border-top: solid #414042;
 }
 
-.content{
-    padding-top: 13%;
-}
-
 .moves-wrap {
     padding: 1%;
     border: solid #414042;
@@ -99,56 +95,58 @@ border-top: solid #414042;
 }
 /* //////////////////////FOORMSSS////////////// */
 .forms{
+    transform-origin: center;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    max-width: 190vh;
-    padding: 9%;
+    width: 150vh;
+    height: 85vh;
+    margin-top: 100px;
+    padding: 1%;
     border-radius: 20px;
     border: solid darkslategrey;
 }
 .formulary{
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
     background-color: rgba(166, 214, 218,0.5);
-    width: 440px;
-    width:46%;
+    width:100%;
+    height:100%;
     border-radius: 1%;
     padding: 1%;
-    animation: show 2s alternate;
 }
-.form{
+
+.formularys{
     display: flex;
     flex-direction: column;
-    width:100%;
-    /* width:40%; */
-    
-}
-#form{
-    width:85%;
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
-    align-content: space-between;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1%;
+    height: 88%;
+    width:95%;
 }
 
 #submit{
+    width: 80%;
     background-color: #d6d3d8 0.4;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
- #submit:hover {
+#submit:hover {
     background-color:darkred !important;
     color:dimgrey;
     font-style: italic;
-    font-size: medium;   
+    font-size: 120%; 
 }
 #submit:active{
-    background-color: #de1e2c !important;    
-    font-size: xx-large;   
+    background-color: #de1e2c !important;
+    color: #414042;       
+    font-size: 150%;   
 }
 
-#form input::placeholder { 
+.formularys input::placeholder { 
     color:blue;
     font-weight: bolder;
     font-variant: small-caps;
@@ -156,20 +154,21 @@ border-top: solid #414042;
     text-shadow: 1px 3px 2px rgb(174, 229, 233);
   }
 
-#form input{
+.formularys input{
     outline: none;
     font-style: italic;
     outline-style: none;
     border-radius: 30px;
     width:100%;
+    height:9.5%;
     border: solid 3px rgb(20, 20, 155);
-    padding: 5%;
-    margin: 2%;
+    padding: 4%;
+    margin: 0.5%;
 }
-#form input:focus,#form input:hover{
+.formularys input:focus,.formularys input:hover{
     background-color: #807f81;
     text-decoration: solid;
-    text-indent: 2%;
+    text-indent: 1%;
     font-size: 90%;
     font-weight: bolder;
     transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s ;
@@ -177,6 +176,53 @@ border-top: solid #414042;
 
 
 #coment{
-    height: 180px;
+    height: 100% ;
+}
+#coment:focus,#coments:hover{
+    font-weight: 800px;
+    height: 100% ;
 }
 
+@keyframes insertInputsLeft{
+    0% {
+        transform: translateX(-100px);
+    }	
+    30% {	
+        transform: translateX(100px);
+    }
+    70%{
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0px);
+    } 
+}
+@keyframes insertInputsRight{
+    0% {
+        transform: translateX(300px);
+    }	
+    30% {	
+        transform: translateX(-100px);
+    }
+    70%{
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0px);
+    } 
+}
+
+@keyframes insertForms{
+    0% {
+        opacity: 0;
+        max-height: 0px;
+    }
+    50%{
+        opacity: 0.5;
+        max-height: 50vh;
+    }
+    100% {
+        opacity: 1;
+        max-height: 100vh;
+    }
+}

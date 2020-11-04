@@ -6,17 +6,39 @@ svgRect=document.querySelector("#svgRect");
     this.backImg.setAttribute("width", this.getWidth());
     this.backImg.setAttribute("height", this.getHeight());
 */
+"use strict";
+
 let bk=document.querySelector("#bkImage");
 let fr=document.querySelector("#frImage");
+let acts=document.querySelector(".actors");
+let insideImage=document.querySelector("#inImage");
 let car = document.querySelector("#carImage");
+let carrousel = document.querySelector(".carrous");
 let cards = document.querySelector('.centralCards');
 let cardsB = document.querySelectorAll('.card-body');
+let titles = document.querySelectorAll('.titlesMove');
 let yfixed=100;
+let altFixed=100;
 
-let accordeon=document.querySelector(".accordeon")
-
+let amount=50
 window.onscroll=function(e){scrollCar(e),scrollCards(e)}
 // window.scrollY=0;
+insideImage.onmousemove=event => {
+    let mouseX = event.clientX
+    let mouseY = event.clientY;
+    let cRect= insideImage.getBoundingClientRect();
+    // const centerX = rect.left + (rect.right - rect.left) * 0.5;
+    // const centerY = rect.top + (rect.bottom - rect.top) * 0.5;
+    const auxX =  (cRect.right - cRect.left*1.5) - mouseX;
+    // const yRotation = 2 * ((xVal - width / 2) / width
+    const auxY = (cRect.bottom  - cRect.top) - mouseY;
+    const xDeg = auxX / amount * -3
+    const yDeg = auxY / amount * -2
+    insideImage.style.transform = `rotate3d(1, 0, 0, ${yDeg}deg) rotate3d(0, 1, 0, ${xDeg}deg)`;
+}     
+insideImage.onmouseleave=event => {
+    insideImage.style.transform = `rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, 0deg)`;
+}
 
 function scrollCar(e){
     if(yfixed<1042){
@@ -26,7 +48,9 @@ function scrollCar(e){
         console.log(yfixed);
         car.style.marginTop=" " +(yfixed) + "px";
         fr.style.marginTop=" " +(yfixed) + "px";
+        insideImage.style.marginTop=" " +(yfixed) + "px";
         car.style.transform="translateX("+(yfixed)+"px)";
+        fr.style.backgroundPositionX=(-yfixed)+"px";
     }else{
         yfixed=window.scrollY;
     }
@@ -65,138 +89,144 @@ function scrollCards(e){
         // cards.style.transform="translateY("+(altFixed)+"px)";
     }else if(altFixed<1){
         cards.hidden=true;
-    }else if(yfixed>1180){
-        accordeon.hidden=false 
+    }else if(yfixed>1180 && yfixed<1300 ){
+        titles[0].hidden=false;
+        titles[0].style.animation="insertTitle 1s"
+        
+        acts.style.animation="insertCards 2s"
+        
         // accordeon.style.animation= "cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s";
-        accordeon.style.animation="show 1s"
+    }else if(yfixed>1800){
+        titles[1].hidden=false;
+        titles[1].style.animation="insertTitle 1s"
+
+        carrousel.hidden=false;
+        carrousel.style.animation="insertCarrousel 7s"
+
     }
 }
-///////////////////ACORDEON///////////////////////
 
-// let shower=document.querySelector(".showEvent");
-let btnsAccordeon=document.querySelector(".accordeon").getElementsByTagName("button")
-let divAccordeon=document.querySelectorAll(".divEvents")
-// let lastBtn;
-const amount = 50;
-for(let i=0;i<btnsAccordeon.length;i++){
+let carrous = document.querySelector(".carrousel");
+let arrowL = document.querySelector(".arrowLeft");
+let arrowR = document.querySelector(".arrowRight");
+
+carrous.onmousemove=function(){
+    arrowL.hidden=false
+    arrowR.hidden=false
+}
+
+carrous.onmouseleave=function(){
+    arrowL.hidden=true
+    arrowR.hidden=true
+}
+
+let index=0
+slideScenes()
+
+arrowL.onmouseup=function(){
+    index=index-2
+    slideScenes()
+}
+arrowR.onmouseup=function(){
+    index=index
+    slideScenes()
+}
+
+
+function slideScenes(){
+    let scenes=document.querySelectorAll(".scene")
+    let slides=document.querySelectorAll(".slideIndx")
+    for (let i = 0; i < scenes.length; i++) {
+        scenes[i].style.display = "none";
+      }
+    index++;
+    if (index > slides.length) {
+        index = 1
+    }    
+    if (index < 1) {
+        index = slides.length
+    }    
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("ubicActiva")
+    }
+    scenes[index-1].style.display = "block"; 
+    slides[index-1].className += " ubicActiva";
+}
+setInterval(slideScenes, 5000);
+
+
+
+////////////////////countDownn//////////////////
+let count=document.getElementById("countdown");
+let infoHead=document.createElement("h1");
+let infoH=document.createTextNode("El estreno sera en:");
+infoHead.append(infoH);
+infoHead.className="countHead";
+let infoFoot=document.createElement("tr")
+let Idays=document.createElement("td")
+let d=document.createTextNode("Dias")
+Idays.append(d)
+let Ihours=document.createElement("td")
+let h=document.createTextNode("Horas")
+Ihours.append(h)
+let Iminutes=document.createElement("td")
+let m=document.createTextNode("Mins")
+Iminutes.append(m)
+let Iseconds=document.createElement("td")
+let s=document.createTextNode("Segs")
+Iseconds.append(s)
+infoFoot.append(Idays,Ihours,Iminutes,Iseconds);
+infoFoot.className="trFoot";
+
+var countDownDate = new Date("Dec 1, 2021 16:20:00").getTime();
+let dateDiv=document.createElement("p");
+
+function digitalCountdown(){
     
-    btnsAccordeon[i].addEventListener("click",function(){seeEvents(i)})
-    let img=divAccordeon[i].getElementsByTagName("img")[0]
-    img.onmousemove=event => {
-        let mouseX = event.clientX
-        let mouseY = event.clientY;
-        let cRect= img.getBoundingClientRect();
-        // const centerX = rect.left + (rect.right - rect.left) * 0.5;
-        // const centerY = rect.top + (rect.bottom - rect.top) * 0.5;
-        const auxX =  (cRect.right - cRect.left*2.2) - mouseX;
-        // const yRotation = 2 * ((xVal - width / 2) / width
-        const auxY = (cRect.bottom  - cRect.top) - mouseY;
-        const xDeg = auxX / amount * -4
-        const yDeg = auxY / amount * -4
-        img.style.transform = `rotate3d(1, 0, 0, ${yDeg}deg) rotate3d(0, 1, 0, ${xDeg}deg)`;
-    }     
-    img.onmouseleave=event => {
-        img.style.transform = `rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, 0deg)`;
+    removeAllChildNodes(count)
+    
+    let now = new Date();
+    let date=countDownDate-now;
+    let hoursDiv=document.createElement("tr")
+    
+    hoursDiv.className="dates";
+    
+    let day = document.createTextNode(Math.floor(date / (1000 * 60 * 60 * 24)));
+    let hour =document.createTextNode(Math.floor((date % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+    let min = document.createTextNode(Math.floor((date % (1000 * 60 * 60)) / (1000 * 60)));
+    let sec = document.createTextNode(Math.floor((date % (1000 * 60)) / 1000));   
+    
+    let days=document.createElement("td")
+    let hours=document.createElement("td")
+    let minutes=document.createElement("td")
+    let seconds=document.createElement("td")
+
+    days.className="day";
+    hours.className="hour";
+    minutes.className="minute";
+    seconds.className="second";
+    Idays.className="iday";
+    Ihours.className="ihour";
+    Iminutes.className="iminute";
+    Iseconds.className="isecond";
+
+   if (sec<10){
+       seconds=(":0"+sec);
+    }
+
+    days.append(day)
+    hours.append(hour)
+    minutes.append(min)
+    seconds.append(sec)
+    count.appendChild(dateDiv)
+    hoursDiv.append(days,hours,minutes,seconds);
+    count.append(infoHead,hoursDiv,infoFoot)
+    
+
+}
+setInterval(digitalCountdown,100);
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
     }
 }
-/*
-const handleMouseMove = event => {
-    const mousePosX = event.clientX
-    const mousePosY = event.clientY;
-
-    imgs.forEach(thing => {
-        const thingRect = thing.getBoundingClientRect();
-
-        const centerX = thingRect.left + (thingRect.right - thingRect.left) * 0.5;
-        const centerY = thingRect.top + (thingRect.bottom - thingRect.top) * 0.5;
-        const distX = centerX - mousePosX;
-        const distY = centerY - mousePosY;
-        const xDeg = distX / amount * -3;
-        const yDeg = distY / amount * -3;
-        thing.style.transform = `rotate3d(1, 0, 0, ${yDeg}deg) rotate3d(0, 1, 0, ${xDeg}deg)`;
-
-    });
-}; */
-
-// window.addEventListener("mousemove", generateEffect(handleMouseMove)); 
-function seeEvents(i){   
-    for(let j=0;j<btnsAccordeon.length;j++){
-        hideEvents(j)
-    }// lastBtn=i
-    let shower=btnsAccordeon[i].nextElementSibling;
-
-    shower.hidden=false;
-
-    shower.className="showEvent divEvents"
-    shower.classList.remove("displayEvent")
-    /////como hacer para llamar a una funcion cuendo se deja de hacer focus en un btn
-    btnsAccordeon[i].onmousedown=function(){
-        btnsAccordeon[i].removeEventListener("click",function(){seeEvents(i)});
-    };
-}
-
-function hideEvents(i){
-    let shower=btnsAccordeon[i].nextElementSibling;
-    shower.classList.remove("showEvent")
-    shower.classList.add("displayEvent")
-    
-    shower.hidden=true
-
-    btnsAccordeon[i].onmousedown=function(){
-        btnsAccordeon[i].addEventListener("click",function(){seeEvents(i)});
-    };
-}
-
-    // let a=pages.getElementsByTagName('a');
-    // for(let i in a){
-    //     (function(i){
-    //         a[i].style.transition="max-height: 100vh"  
-    // })
-    
-    // pages.hidden=false;
-    // btnBurg.removeEventListener("onmouseleave",reduceCard);
-    
-//     car.style.transform="translateY("+(window.sc)+"px)";
-// }
-// window.onscroll=function(){
-//     if(window.scrollY >10 && window.scrollY <1000){
-//         let y =window.scrollY;
-//         car.style.transform="translateY("+(y*2)+"px)";
-//         // car.style.transform="translate("+(y)+"px,"+(yfixed)+"px)";
-//         // car.style.transform="translate("+(y)+"px,"+(yfixed)+"px)";
-//         car.style.animation="moveCar 1s"
-//         // car.getElementsByClassName.animation="moveCar 1s";
-//         console.log("fue1");    
-//     }else if(window.scrollY >90&& window.scrollY <100 ){
-//         console.log("fue2");   
-//     }else if(window.scrollY >120){
-//         let hero=document.querySelector(".hero");
-//         hero.style.postion="relative"
-//         console.log(window.scrollY)
-//     }
-// }
-
-
-// let logo=document.querySelector(".home");
-// let d=document.getElementById("burger");
-// d.style.transform="";
-
-//    let lis= document.querySelectorAll('li.li');
-//    for (let i = 0; i < lis.length; i++) {  
-//        lis[i].onmouseleave=function(){adjustStyle(i)}
-//    }
-       
-//    function adjustStyle(i){
-//        lis[i].style.transform = " transition: ease-in 5s;";
-//     }
-    
-    // if (lis[i].style.transform()){
-        //     lis[i].style.visibility = "visible";
-        // }else {
-            //     lis[i].style.visibility = "hidden";
-            // }
-
-         // function adjustStyle(i) {
-         //     lis[i].setAttribute
-             
-         // }
