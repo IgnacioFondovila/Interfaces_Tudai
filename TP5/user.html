@@ -1,0 +1,2881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spoiler Five</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header>
+        <!-- Mobile -->
+        <div class="displayHoriz navSuperior sombraFuera">
+            <img src="logo-mobile.png" alt="">
+            <div>
+                <img src="Icons/help.png" alt="">
+            </div>
+        </div>
+        <nav class="displayHoriz sombraFuera">
+            <a href="home.html">
+                <div id="btnHome" class="displayHoriz sombraAdentro">
+                    <img src="Icons/home.png" alt="">
+                </div>
+            </a>
+            <a href="search.html">
+                <div id="btnSearch" class="displayHoriz sombraAdentro">
+                    <img src="Icons/search.png" alt="">
+                </div>
+            </a>
+            <a href="user.html">
+                <div id="btnUser" class="displayHoriz sombraAdentro">
+                    <img src="Icons/user.png" alt="">
+                </div>
+            </a>
+        </nav>
+    </header>
+    
+    <div class="space"></div>
+
+    <!-- DESPLEGABLE CONFIGURACION -->
+    
+    <!-- <div class="mobScroll style="overflow:scroll; height:400px;"> -->
+    <div class="config backNegro displayVert">
+        <div class="displayBetween contenedorDesplegable">
+            <div>
+                <input type="checkbox" class="hidden" id="xConfig">
+                <label for="xConfig" id="x"></label>
+            </div>
+            <img src="Icons/userpick.png" alt="">
+        </div>
+        <div class="subConfig">
+            <div>
+                <img src="Icons/config-llave.png" alt="">
+            </div>
+            <p class="colorVerde">Configuraciones</p>
+        </div>
+        <div class="subConfig">
+            <div>
+                <img src="Icons/suscrip-planes.png" alt="">
+            </div>
+            <p class="colorVerde">Suscribite a planes</p>
+        </div>
+        <div class="space"></div>
+        <div class="subConfig">
+            <div>
+                <img src="Icons/cerrarsesion.png" alt="">
+            </div>
+            <p class="colorGris">Cerrar Sesión</p>
+        </div>
+    </div>
+    
+    <div class="displayHoriz perfilUser">
+        <div class="displayHoriz">
+            <img src="Icons/userpick.png" alt="">
+            <div class="nombreUser">
+                <p class="colorBlanco">Juan</p>
+                <p class="colorVerde">González</p>
+            </div>
+        </div>
+        <div>
+            <input type="checkbox" class="hidden" id="configInput">
+            <label for="configInput" id="tuerca"></label>
+        </div>
+    </div>
+
+    <h2 class="colorBlanco">Tus Playlist</h2>
+
+    <div class="displayVert contenedorLista sombraAdentro">
+        <div class="contenedorTitulos">
+            <h3 class="colorVerde">Playlist</h3>
+        </div>
+        <button class="buttonLog colorBlanco backGris">
+            <div class="displayHoriz">
+                <img src="Icons/add.png" alt="">
+                Crear Playlist
+            </div>
+        </button>
+        <!-- Audios -->
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">La jodita</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <p class="colorBlanco">45 can...</p>
+                <div class="seeDropDown">
+                    <input type="text" value="ownPlaylist" class="hidden">
+                    <img src="Icons/desplegable.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">Con amigos!</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <p class="colorBlanco">91 can...</p>
+                <div class="seeDropDown">
+                    <input type="text" value="ownPlaylist" class="hidden">
+                    <img src="Icons/desplegable.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">¡Buen día!</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <p class="colorBlanco">25 can...</p>
+                <div class="seeDropDown">
+                    <input type="text" value="ownPlaylist" class="hidden">
+                    <img src="Icons/desplegable.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">Estudio</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <p class="colorBlanco">70 can...</p>
+                <div class="seeDropDown">
+                    <input type="text" value="ownPlaylist" class="hidden">
+                    <img src="Icons/desplegable.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MÁXIMO DE PLAYLIST -->
+    <!--
+    <div class="displayVert cartelPlaylist backGris">
+        <div class="contenedorTitulos">
+            <button class="backGris"><img src="Icons/x.png" alt=""></button>
+        </div>
+        <div class="contenedorTitulos">
+            <h3 class="colorNegro">Alcanzó el máximo de Playlist creadas</h3>
+        </div>
+        <p class="colorBlanco">El plan que dispone actualmente tiene un limite de 4 playlist.</p>
+        <p class="colorBlanco">Para continuar creando, elimine de su colección alguna de las ya creadas o...</p>
+        <p class="colorVerde">MEJORE SU PLAN MENSUAL</p>
+
+    </div>
+    -->
+
+    <svg width="200" height="1"><line x1="0" y1="0" x2="300" y2="0" style="stroke:white;stroke-width:2" /></svg>
+
+    <h2 class="colorBlanco">Biblioteca de favoritos</h2>
+
+    <div class="displayVert contenedorLista sombraAdentro">
+        <div class="contenedorTitulos">
+            <h3 class="colorVerde">Canciones</h3>
+        </div>
+        <button class="buttonLog colorBlanco backGris">
+            <div class="displayHoriz">
+                <img src="Icons/add.png" alt="">
+                Agregar canción
+            </div>
+        </button>
+        <!-- Audios -->
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">Azul - Balvin</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <p class="colorBlanco">3:45</p>
+                <img src="Icons/desplegable.png" alt="">
+            </div>
+        </div>
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">Quizás porqué - Sui Generis</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <p class="colorBlanco">4:40</p>
+                <img src="Icons/desplegable.png" alt="">
+            </div>
+        </div>
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">Todo sigue igual - Viejas Locas</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <p class="colorBlanco">3:10</p>
+                <img src="Icons/desplegable.png" alt="">
+            </div>
+        </div>
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">November Nain - Guns N' Roses</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <p class="colorBlanco">9:17</p>
+                <img src="Icons/desplegable.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <svg width="200" height="1"><line x1="0" y1="0" x2="300" y2="0" style="stroke:white;stroke-width:2" /></svg>
+
+    <div class="displayVert contenedorLista sombraAdentro">
+        <div class="contenedorTitulos">
+            <h3 class="colorVerde">Episodios</h3>
+        </div>
+        <!-- Audios -->
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">Vendetta - Últimos Cartuchos</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <p class="colorBlanco">23:42</p>
+                <img src="Icons/desplegable.png" alt="">
+            </div>
+        </div>
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">¿Y la comida? - Luisito</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <p class="colorBlanco">20:21</p>
+                <img src="Icons/desplegable.png" alt="">
+            </div>
+        </div>
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">La historia del Gordo Valor</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <p class="colorBlanco">23:00</p>
+                <img src="Icons/desplegable.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <svg width="200" height="1"><line x1="0" y1="0" x2="300" y2="0" style="stroke:white;stroke-width:2" /></svg>
+
+    <div class="displayVert contenedorLista sombraAdentro">
+        <div class="contenedorTitulos">
+            <h3 class="colorVerde">Discos</h3>
+        </div>
+        <!-- Audios -->
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">Oktubre - Los Redondos</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <p class="colorBlanco">12 can...</p>
+                <img src="Icons/desplegable.png" alt="">
+            </div>
+        </div>
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">Sed - Callejeros</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <p class="colorBlanco">13 can...</p>
+                <img src="Icons/desplegable.png" alt="">
+            </div>
+        </div>
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">Help - The Beatles</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <p class="colorBlanco">18 can...</p>
+                <img src="Icons/desplegable.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <svg width="200" height="1"><line x1="0" y1="0" x2="300" y2="0" style="stroke:white;stroke-width:2" /></svg>
+
+    <h2 class="colorBlanco">Colecciones que sigues</h2>
+
+    <div class="displayVert contenedorLista sombraAdentro">
+        <div class="contenedorTitulos">
+            <h3 class="colorVerde">Playlist</h3>
+        </div>
+        <!-- Audios -->
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">Level Up - Marina Pérez</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <img src="Icons/following.png" alt="">
+                <img src="Icons/desplegable.png" alt="">
+            </div>
+        </div>
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">La picante - Julio Fernández</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <img src="Icons/following.png" alt="">
+                <img src="Icons/desplegable.png" alt="">
+            </div>
+        </div>
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">Rutita - Ariel Vilvutio</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <img src="Icons/following.png" alt="">
+                <img src="Icons/desplegable.png" alt="">
+            </div>
+        </div>
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">Jodiña - Ignacio Hutzon</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <img src="Icons/following.png" alt="">
+                <img src="Icons/desplegable.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <svg width="200" height="1"><line x1="0" y1="0" x2="300" y2="0" style="stroke:white;stroke-width:2" /></svg>
+
+    <div class="displayVert contenedorLista sombraAdentro">
+        <div class="contenedorTitulos">
+            <h3 class="colorVerde">Podcast</h3>
+        </div>
+        <button class="buttonLog colorBlanco backGris">
+            <div class="displayHoriz">
+                <img src="Icons/add.png" alt="">
+                Agregar Podcast
+            </div>
+        </button>
+        <!-- Audios -->
+        <div>
+            <img src="Icons/empty.png" alt="" class="empty">
+        </div>
+        <p class="colorBlanco">¡Agregá un Podcast ahora!</p>
+    </div>
+
+    <svg width="200" height="1"><line x1="0" y1="0" x2="300" y2="0" style="stroke:white;stroke-width:2" /></svg>
+
+    <div class="displayVert contenedorLista sombraAdentro">
+        <div class="contenedorTitulos">
+            <h3 class="colorVerde">Artistas</h3>
+        </div>
+        <!-- Audios -->
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">Los Redondos</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <img src="Icons/following.png" alt="">
+                <div class="seeDropDown">
+                    <input type="text" value="artist" class="hidden">
+                    <img src="Icons/desplegable.png"  alt="">
+                </div>
+            </div>
+        </div>
+        <div class="displayHoriz audio"> 
+            <div class="displayHoriz subAudio">
+                <img src="Icons/play.png" alt="" class="playAudioItem">
+                <p class="colorBlanco">Queen</p>
+            </div>
+            <div class="displayHoriz subAudio">
+                <img src="Icons/following.png" alt="">
+                <img src="Icons/desplegable.png" alt="">
+            </div>
+        </div>
+    </div>
+    
+</div>
+    
+    <!-- REPRODUCTOR -->
+
+   <div class="reproductor backNegro">
+        <div class="displayVert">
+            <img src="Icons/barra-play.png" alt="">
+        </div>
+        <div class="displayHoriz empty">
+            <a href="">
+                <div class="backGris infoReproductor">
+                    <p class="colorVerde">Artista</p>
+                    <p class="colorBlanco subText">Archivo de audio</p>
+                </div>
+            </a>
+            <div>
+                <img src="Icons/play-rep.png" alt="">
+            </div>
+            <div class="displayBetween contActionsRepr">
+                <div>
+                    <img src="Icons/favourite.png" alt="">
+                </div>
+                <div>
+                    <img src="Icons/volume.png" alt="">
+                </div>
+                <div>
+                    <img src="Icons/desplegable.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <DROP DOWNS></DROP> -->
+              <!----------------------------- DROPDOWN ---------------------------------------------------->
+
+        <!-- Episode -->
+
+        <div class="dropDown backNegro displayVert hidden" data-value="episode">
+            <div class="contenedorDrop displayVert">
+                <div class="displayBetween sombraFuera navDropDown">
+                    <label class="xDrop" for="xDrop" id="x"></label>
+                </div>
+                <div class="contenedorImgDrop"> 
+                    <img src="Mobile-image/dropDown/ultimoscartuchos.png" alt="">
+                </div>   
+                <h3 class="colorVerde">La Vendetta</h3>
+                <!-- Opciones de Drop Down -->
+                <div class="optionsDropDown option">
+                    <p class="colorBlanco">Agregar a/borrar de favoritos</p>
+                    <div class="seeProfile">
+                        <p class="colorBlanco">Ver información</p>
+                        <input type="text" value="episode" class="hidden">
+                    </div>
+                    <p class="colorBlanco">Ver Podcast</p>
+                    <p class="colorBlanco">Reportar</p>
+                    <p class="colorBlanco">Ocultar este contenido</p>
+                    <p class="colorBlanco">Compartir</p>
+                    <p class="colorBlanco">Reproducir</p>
+                </div>
+                <div class="hidden profileData displayVert profile">
+                
+                    <div class="btnsOptions displayHoriz">
+                        <img src="Icons/favourite.png" alt="">
+                        <img src="Icons/share.png" alt="">
+                        <img src="Icons/desplegable.png" alt="">
+                    </div>
+                    
+                    <div class="extraInfo displayVert">
+                        <p class="colorGris">Duracion 22:22</p>
+                        <p class="colorGris">3.832 favoritos</p>
+                        <p class="colorGris">7.193 reproduciones</p>
+                    </div>
+                </div>
+
+                <h3 class="colorVerde">CALIFICACIÓN</h3> 
+                <div class="displayHoriz">
+                    <h2 class="colorVerde">4.5</h2>
+                    <img src="Icons/estrella.png" alt="">
+                </div>           
+                <button class="buttonOpinions colorNegro backGris">
+                    Dejá tu opinión
+                </button>
+
+                <form onsubmit="return false" class="formOpinion displayVert backGris">
+                    <div class="calification">
+                        <object data-value="1" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="2" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="3" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="4" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="5" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                    </div>
+                    <div class="deleteCalif"> <p class="colorNegro">Eliminar Calificacion</p></div>
+                    <p class="colorNegro">Comentá</p>
+                    <button class="buttonSearch"  >
+                        <div class="displayBetween">
+                            <p class="colorNegro"></p>
+                            <input type="text" style="border-style: none;" placeholder="Deje su comentario">
+                        </div>
+                    </button>  
+                    <div class="displayVert">
+                        <input type="submit" value="Enviar opinión" class="submitOpinion backVerde colorBlanco">
+                    </div>
+                </form> 
+
+                <!-- formulario y estrellas -->
+                <svg width="200" height="1"><line x1="0" y1="0" x2="300" y2="0" style="stroke:white;stroke-width:2" /></svg>
+
+                <div class="optionsDropDown">
+                    <h3 class="colorBlanco">Últimas votaciones</h3>
+                </div>
+
+                <div class="comentarios sombraFuera displayVert">
+                    <div class="displayVert contenedorComent comentDisplay sombraAdentro">
+                        <div class="displayHoriz opinionUser">
+                            <div class="displayHoriz">
+                                <img src="Icons/userrandom1.png">
+                                <div class="displayVert">
+                                    <div class="displayHoriz">
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                    </div>
+                                    <p class="colorBlanco">Juana</p>
+                                </div>
+                            </div>
+                            <p class="colorGris">03/05/2020</p>
+                        </div>
+                        <p class="colorBlanco">Me copa, está copada!</p>
+                    </div>
+        
+                    <div class="displayVert contenedorComent comentDisplay sombraAdentro">
+                        <div class="displayHoriz opinionUser">
+                            <div class="displayHoriz">
+                                <img src="Icons/userrandom3.png">
+                                <div class="displayVert">
+                                    <div class="displayHoriz">
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                    </div>
+                                    <p class="colorBlanco">Ariel</p>
+                                </div>
+                            </div>
+                            <p class="colorGris">19/07/2020</p>
+                        </div>
+                        <p class="colorBlanco">Mmm, hasta ahí...</p>
+                    </div>
+        
+                    <div class="displayVert contenedorComent comentDisplay sombraAdentro">
+                        <div class="displayHoriz opinionUser">
+                            <div class="displayHoriz">
+                                <img src="Icons/userrandom2.png">
+                                <div class="displayVert">
+                                    <div class="displayHoriz">
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                    </div>
+                                    <p class="colorBlanco">Juan Ignacio</p>
+                                </div>
+                            </div>
+                            <p class="colorGris">2/11/2020</p>
+                        </div>
+                        <p class="colorBlanco">No me gusta para nada.</p>
+                    </div>
+                    <div class="verMas backGris comentDisplay hidden"><p class="colorBlanco">Ver más</p></div>
+                </div>
+
+                <div class=" listsArtist hidden displayVert profile">
+                    <button class="buttonLog colorBlanco backVerde">Reproducir</button>
+                </div>
+
+                <div class="space"></div>          
+            </div>
+        </div> 
+
+        <!-- Song -->
+
+        <div class="dropDown backNegro displayVert hidden" data-value="song">
+            <div class="contenedorDrop displayVert">
+                <div class="displayBetween sombraFuera navDropDown">
+                    <label class="xDrop" for="xDrop" id="x"></label>
+                </div>
+                <div class="contenedorImgDrop"> 
+                    <img src="Mobile-image/dropDown/oktubre.png" alt="">
+                </div> 
+                <h3 class="colorVerde">Música para pastillas</h3>
+                <div class="optionsDropDown option">
+                    <p class="colorBlanco">Agregar a/borrar de favoritos</p>
+                    <p class="colorBlanco">Agregar a/borrar de Playlist</p>
+                    <div class="seeProfile">
+                        <p class="colorBlanco">Ver información</p>
+                        <input type="text" value="song" class="hidden">
+                        
+                    </div>
+                    <p class="colorBlanco">Ver artista</p>
+                    <p class="colorBlanco">Ver disco</p>
+                    <p class="colorBlanco">Reportar</p>
+                    <p class="colorBlanco">Ocultar este contenido</p>
+                    <p class="colorBlanco">Compartir</p>
+                    <p class="colorBlanco">Reproducir</p>
+                </div>
+                
+
+                <div class="hidden profileData displayVert profile">
+                
+                    <div class="btnsOptions displayHoriz">
+                        <img src="Icons/following.png" alt="">
+                        <img src="Icons/share.png" alt="">
+                        <img src="Icons/add.png" alt="">
+                        <img src="Icons/desplegable.png" alt="">
+                    </div>
+                    
+                    <div class="extraInfo displayVert">
+                        <p class="colorGris">Duracion 3:40</p>
+                        <p class="colorGris">4.832 favoritos</p>
+                        <p class="colorGris">10.193 reproduciones</p>
+                    </div>
+                </div>
+
+                <h3 class="colorVerde">CALIFICACIÓN</h3> 
+                <div class="displayHoriz">
+                    <h2 class="colorVerde">4.4</h2>
+                    <img src="Icons/estrella.png" alt="">
+                </div>
+                <button class="buttonOpinions colorNegro backGris">
+                    Dejá tu opinión
+                </button>
+
+                <form onsubmit="return false" class="formOpinion displayVert backGris">
+                    <div class="calification">
+                        <object data-value="1" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="2" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="3" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="4" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="5" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        
+                    </div>
+                    <div class="deleteCalif"> <p class="colorNegro">Eliminar Calificacion</p></div>
+                    <p class="colorNegro">Comentá</p>
+                    <button class="buttonSearch"  >
+                        <div class="displayBetween">
+                            <p class="colorNegro"></p>
+                            <input type="text" style="border-style: none;" placeholder="Deje su comentario">
+                        </div>
+                    </button>  
+                    <div class="displayVert">
+                        <input type="submit" value="Enviar opinión" class="submitOpinion backVerde colorBlanco">
+                    </div>
+                </form>
+
+                <!-- formulario y estrellas -->
+                    <svg width="200" height="1"><line x1="0" y1="0" x2="300" y2="0" style="stroke:white;stroke-width:2" /></svg>
+
+                    <div class="optionsDropDown">
+                        <h3 class="colorBlanco">Últimas votaciones</h3>
+                    </div>
+
+                    <div class="comentarios sombraFuera displayVert">
+                        <div class="displayVert contenedorComent comentDisplay sombraAdentro">
+                            <div class="displayHoriz opinionUser">
+                                <div class="displayHoriz">
+                                    <img src="Icons/userrandom1.png">
+                                    <div class="displayVert">
+                                        <div class="displayHoriz">
+                                            <object>
+                                                <svg width="14" height="19" viewBox="0 0 170 165">
+                                                <polygon fill="#BDFF00"
+                                                points="129,150 85,119 41,150 57,104 15,66
+                                                68,66 85,15 102,65 156,66 113,98" />
+                                                </svg>
+                                            </object>
+                                            <object>
+                                                <svg width="14" height="19" viewBox="0 0 170 165">
+                                                <polygon fill="#BDFF00"
+                                                points="129,150 85,119 41,150 57,104 15,66
+                                                68,66 85,15 102,65 156,66 113,98" />
+                                                </svg>
+                                            </object>
+                                            <object>
+                                                <svg width="14" height="19" viewBox="0 0 170 165">
+                                                <polygon fill="#BDFF00"
+                                                points="129,150 85,119 41,150 57,104 15,66
+                                                68,66 85,15 102,65 156,66 113,98" />
+                                                </svg>
+                                            </object>
+                                            <object>
+                                                <svg width="14" height="19" viewBox="0 0 170 165">
+                                                <polygon fill="#BDFF00"
+                                                points="129,150 85,119 41,150 57,104 15,66
+                                                68,66 85,15 102,65 156,66 113,98" />
+                                                </svg>
+                                            </object>
+                                            <object>
+                                                <svg width="14" height="19" viewBox="0 0 170 165">
+                                                <polygon fill="#BDFF00"
+                                                points="129,150 85,119 41,150 57,104 15,66
+                                                68,66 85,15 102,65 156,66 113,98" />
+                                                </svg>
+                                            </object>
+                                        </div>
+                                        <p class="colorBlanco">Juana</p>
+                                    </div>
+                                </div>
+                                <p class="colorGris">03/05/2020</p>
+                            </div>
+                            <p class="colorBlanco">Me copa, está copada!</p>
+                        </div>
+            
+                        <div class="displayVert contenedorComent comentDisplay sombraAdentro">
+                            <div class="displayHoriz opinionUser">
+                                <div class="displayHoriz">
+                                    <img src="Icons/userrandom3.png">
+                                    <div class="displayVert">
+                                        <div class="displayHoriz">
+                                            <object>
+                                                <svg width="14" height="19" viewBox="0 0 170 165">
+                                                <polygon fill="#BDFF00"
+                                                points="129,150 85,119 41,150 57,104 15,66
+                                                68,66 85,15 102,65 156,66 113,98" />
+                                                </svg>
+                                            </object>
+                                            <object>
+                                                <svg width="14" height="19" viewBox="0 0 170 165">
+                                                <polygon fill="#BDFF00"
+                                                points="129,150 85,119 41,150 57,104 15,66
+                                                68,66 85,15 102,65 156,66 113,98" />
+                                                </svg>
+                                            </object>
+                                            <object>
+                                                <svg width="14" height="19" viewBox="0 0 170 165">
+                                                <polygon fill="#BDFF00"
+                                                points="129,150 85,119 41,150 57,104 15,66
+                                                68,66 85,15 102,65 156,66 113,98" />
+                                                </svg>
+                                            </object>
+                                            <object>
+                                                <svg width="14" height="19" viewBox="0 0 170 165">
+                                                <polygon fill="#878787"
+                                                points="129,150 85,119 41,150 57,104 15,66
+                                                68,66 85,15 102,65 156,66 113,98" />
+                                                </svg>
+                                            </object>
+                                            <object>
+                                                <svg width="14" height="19" viewBox="0 0 170 165">
+                                                <polygon fill="#878787"
+                                                points="129,150 85,119 41,150 57,104 15,66
+                                                68,66 85,15 102,65 156,66 113,98" />
+                                                </svg>
+                                            </object>
+                                        </div>
+                                        <p class="colorBlanco">Ariel</p>
+                                    </div>
+                                </div>
+                                <p class="colorGris">19/07/2020</p>
+                            </div>
+                            <p class="colorBlanco">Mmm, hasta ahí...</p>
+                        </div>
+            
+                        <div class="displayVert contenedorComent comentDisplay sombraAdentro">
+                            <div class="displayHoriz opinionUser">
+                                <div class="displayHoriz">
+                                    <img src="Icons/userrandom2.png">
+                                    <div class="displayVert">
+                                        <div class="displayHoriz">
+                                            <object>
+                                                <svg width="14" height="19" viewBox="0 0 170 165">
+                                                <polygon fill="#BDFF00"
+                                                points="129,150 85,119 41,150 57,104 15,66
+                                                68,66 85,15 102,65 156,66 113,98" />
+                                                </svg>
+                                            </object>
+                                            <object>
+                                                <svg width="14" height="19" viewBox="0 0 170 165">
+                                                <polygon fill="#878787"
+                                                points="129,150 85,119 41,150 57,104 15,66
+                                                68,66 85,15 102,65 156,66 113,98" />
+                                                </svg>
+                                            </object>
+                                            <object>
+                                                <svg width="14" height="19" viewBox="0 0 170 165">
+                                                <polygon fill="#878787"
+                                                points="129,150 85,119 41,150 57,104 15,66
+                                                68,66 85,15 102,65 156,66 113,98" />
+                                                </svg>
+                                            </object>
+                                            <object>
+                                                <svg width="14" height="19" viewBox="0 0 170 165">
+                                                <polygon fill="#878787"
+                                                points="129,150 85,119 41,150 57,104 15,66
+                                                68,66 85,15 102,65 156,66 113,98" />
+                                                </svg>
+                                            </object>
+                                            <object>
+                                                <svg width="14" height="19" viewBox="0 0 170 165">
+                                                <polygon fill="#878787"
+                                                points="129,150 85,119 41,150 57,104 15,66
+                                                68,66 85,15 102,65 156,66 113,98" />
+                                                </svg>
+                                            </object>
+                                        </div>
+                                        <p class="colorBlanco">Juan Ignacio</p>
+                                    </div>
+                                </div>
+                                <p class="colorGris">2/11/2020</p>
+                            </div>
+                            <p class="colorBlanco">No me gusta para nada.</p>
+                        </div>
+                        <div class="verMas backGris comentDisplay hidden"><p class="colorBlanco">Ver más</p></div>
+                    </div>
+
+                <div class=" listsArtist hidden displayVert profile">
+                    <button class="buttonLog colorBlanco backVerde">Reproducir</button>
+                </div>
+
+                <div class="space"></div>          
+            </div>
+        </div> 
+
+        <!-- Disk -->
+
+        <div class="dropDown backNegro displayVert hidden" data-value="disk">
+            <div class="contenedorDrop displayVert">
+                <div class="displayBetween sombraFuera navDropDown">
+                    <label class="xDrop" for="xDrop" id="x"></label>
+                </div>
+                <div class="contenedorImgDrop"> 
+                    <img src="Mobile-image/dropDown/oktubre.png" alt="">
+                </div>  
+                <h3 class="colorVerde">Oktubre</h3>
+                <div class="optionsDropDown option">
+                    <p class="colorBlanco">Agregar a/borrar de favoritos</p>
+                    <div class="seeProfile">
+                        <p class="colorBlanco">Ver información</p>
+                        <input type="text" value="disk" class="hidden">
+                    </div>
+                    
+                    <p class="colorBlanco">Ver artista</p>
+                    <p class="colorBlanco">Reportar</p>
+                    <p class="colorBlanco">Ocultar este contenido</p>
+                    <p class="colorBlanco">Compartir</p>
+                    <p class="colorBlanco">Reproducir</p>
+                </div>
+                <!-- Detalle cuando apreta "ver info" -->
+                <div class="hidden profileData displayVert profile">
+                
+                    <div class="btnsOptions displayHoriz">
+                        <img src="Icons/favourite.png" alt="">
+                        <img src="Icons/share.png" alt="">
+                        <img src="Icons/desplegable.png" alt="">
+                    </div>
+                    
+                    <div class="extraInfo displayVert">
+                        <p class="colorGris">10 canciones</p>
+                        <p class="colorGris">54.832 favoritos</p>
+                        <p class="colorGris">30.193 reproduciones</p>
+                    </div>
+                </div>
+
+                <button class="buttonOpinions colorNegro backGris">
+                    Dejá tu opinión
+                </button>
+
+                <form onsubmit="return false" class="formOpinion displayVert backGris">
+                    <div class="calification">
+                        <object data-value="1" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="2" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="3" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="4" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="5" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                    </div>
+                    <div class="deleteCalif"> <p class="colorNegro">Eliminar Calificacion</p></div>
+                    <p class="colorNegro">Comentá</p>
+                    <button class="buttonSearch"  >
+                        <div class="displayBetween">
+                            <p class="colorNegro"></p>
+                            <input type="text" style="border-style: none;" placeholder="Deje su comentario">
+                        </div>
+                    </button>  
+                    <div class="displayVert">
+                        <input type="submit" value="Enviar opinión" class="submitOpinion backVerde colorBlanco">
+                    </div>
+                </form>
+
+                <h3 class="colorVerde">CALIFICACIÓN</h3> 
+                <div class="displayHoriz">
+                    <h2 class="colorVerde">4.7</h2>
+                    <img src="Icons/estrella.png" alt="">
+                </div>
+
+                
+                <svg width="200" height="1"><line x1="0" y1="0" x2="300" y2="0" style="stroke:white;stroke-width:2" /></svg>
+
+                <div class="optionsDropDown">
+                    <h3 class="colorBlanco">Últimas votaciones</h3>
+                </div>
+
+                <div class="comentarios sombraFuera displayVert">
+                    <div class="displayVert contenedorComent comentDisplay sombraAdentro">
+                        <div class="displayHoriz opinionUser">
+                            <div class="displayHoriz">
+                                <img src="Icons/userrandom1.png">
+                                <div class="displayVert">
+                                    <div class="displayHoriz">
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                    </div>
+                                    <p class="colorBlanco">Juana</p>
+                                </div>
+                            </div>
+                            <p class="colorGris">03/05/2020</p>
+                        </div>
+                        <p class="colorBlanco">Me copa, está copada!</p>
+                    </div>
+        
+                    <div class="displayVert contenedorComent comentDisplay sombraAdentro">
+                        <div class="displayHoriz opinionUser">
+                            <div class="displayHoriz">
+                                <img src="Icons/userrandom3.png">
+                                <div class="displayVert">
+                                    <div class="displayHoriz">
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                    </div>
+                                    <p class="colorBlanco">Ariel</p>
+                                </div>
+                            </div>
+                            <p class="colorGris">19/07/2020</p>
+                        </div>
+                        <p class="colorBlanco">Mmm, hasta ahí...</p>
+                    </div>
+        
+                    <div class="displayVert contenedorComent comentDisplay sombraAdentro">
+                        <div class="displayHoriz opinionUser">
+                            <div class="displayHoriz">
+                                <img src="Icons/userrandom2.png">
+                                <div class="displayVert">
+                                    <div class="displayHoriz">
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                    </div>
+                                    <p class="colorBlanco">Juan Ignacio</p>
+                                </div>
+                            </div>
+                            <p class="colorGris">2/11/2020</p>
+                        </div>
+                        <p class="colorBlanco">No me gusta para nada.</p>
+                    </div>
+                    <div class="verMas backGris comentDisplay hidden"><p class="colorBlanco">Ver más</p></div>
+                </div>
+
+                <div class="hidden displayVert profile">
+                    <button class="buttonLog colorBlanco backVerde">Reproducir</button>
+                    <div class="archiveList">
+                        <div class="displayVert contenedorLista sombraAdentro">
+                            <!-- Audios -->
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Ji Ji Ji </p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Yo canibal</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Todo un palo</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Todo un palo</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Todo un palo</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Todo un palo</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Todo un palo</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Todo un palo</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space"></div>          
+            </div>
+        </div> 
+
+        <!-- Podcast -->
+
+        <div class="dropDown backNegro displayVert hidden" data-value="podcast">
+            <div class="contenedorDrop displayVert">
+                <div class="displayBetween sombraFuera navDropDown">
+                    <label class="xDrop" for="xDrop" id="x"></label>
+                </div>
+                <div class="contenedorImgDrop"> 
+                    <img src="Mobile-image/dropDown/ultimoscartuchos.png" alt="">
+                </div>   
+                <h3 class="colorVerde">Últimos Cartuchos</h3>
+                <div class="optionsDropDown option">
+                    <p class="colorBlanco">Agregar a/borrar de favoritos</p>
+                    <div class="seeProfile">
+                        <p class="colorBlanco">Ver información</p>
+                        <input type="text" value="podcast" class="hidden">
+                        
+                    </div>
+                    
+                    <p class="colorBlanco">Seguir/dejar de seguir</p>
+                    <p class="colorBlanco">Reportar</p>
+                    <p class="colorBlanco">Ocultar este contenido</p>
+                    <p class="colorBlanco">Compartir</p>
+                    <p class="colorBlanco">Reproducir</p>
+                </div>
+
+                <!-- Detalle cuando apreta "ver info" -->
+                <div class="hidden profileData displayVert profile">
+                                            
+                    <div class="btnsOptions displayHoriz">
+                        <img src="Icons/following.png" alt="">
+                        <img src="Icons/share.png" alt="">
+                        <img src="Icons/desplegable.png" alt="">
+                    </div>
+                    
+                    <div class="extraInfo displayVert">
+                        <p class="colorGris">190 canciones</p>
+                        <p class="colorGris">43.832 favoritos</p>
+                        <p class="colorGris">103.193 reproduciones</p>
+                    </div>
+                </div> 
+
+                <button class="buttonOpinions colorNegro backGris">
+                    Dejá tu opinión
+                </button>
+
+                <form onsubmit="return false" class="formOpinion displayVert backGris">
+                    <div class="calification">
+                        <object data-value="1" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="2" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="3" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="4" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="5" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                    </div>
+                    <div class="deleteCalif"> <p class="colorNegro">Eliminar Calificacion</p></div>
+                    <p class="colorNegro">Comentá</p>
+                    <button class="buttonSearch"  >
+                        <div class="displayBetween">
+                            <p class="colorNegro"></p>
+                            <input type="text" style="border-style: none;" placeholder="Deje su comentario">
+                        </div>
+                    </button>  
+                    <div class="displayVert">
+                        <input type="submit" value="Enviar opinión" class="submitOpinion backVerde colorBlanco">
+                    </div>
+                </form>
+
+                <h3 class="colorVerde">CALIFICACIÓN</h3> 
+                <div class="displayHoriz">
+                    <h2 class="colorVerde">4.7</h2>
+                    <img src="Icons/estrella.png" alt="">
+                </div>
+
+                
+                <svg width="200" height="1"><line x1="0" y1="0" x2="300" y2="0" style="stroke:white;stroke-width:2" /></svg>
+
+                <div class="optionsDropDown">
+                    <h3 class="colorBlanco">Últimas votaciones</h3>
+                </div>
+
+                <div class="comentarios sombraFuera displayVert">
+                    <div class="displayVert contenedorComent comentDisplay sombraAdentro">
+                        <div class="displayHoriz opinionUser">
+                            <div class="displayHoriz">
+                                <img src="Icons/userrandom1.png">
+                                <div class="displayVert">
+                                    <div class="displayHoriz">
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                    </div>
+                                    <p class="colorBlanco">Juana</p>
+                                </div>
+                            </div>
+                            <p class="colorGris">03/05/2020</p>
+                        </div>
+                        <p class="colorBlanco">Me copa, está copada!</p>
+                    </div>
+        
+                    <div class="displayVert contenedorComent comentDisplay sombraAdentro">
+                        <div class="displayHoriz opinionUser">
+                            <div class="displayHoriz">
+                                <img src="Icons/userrandom3.png">
+                                <div class="displayVert">
+                                    <div class="displayHoriz">
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                    </div>
+                                    <p class="colorBlanco">Ariel</p>
+                                </div>
+                            </div>
+                            <p class="colorGris">19/07/2020</p>
+                        </div>
+                        <p class="colorBlanco">Mmm, hasta ahí...</p>
+                    </div>
+        
+                    <div class="displayVert contenedorComent comentDisplay sombraAdentro">
+                        <div class="displayHoriz opinionUser">
+                            <div class="displayHoriz">
+                                <img src="Icons/userrandom2.png">
+                                <div class="displayVert">
+                                    <div class="displayHoriz">
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                    </div>
+                                    <p class="colorBlanco">Juan Ignacio</p>
+                                </div>
+                            </div>
+                            <p class="colorGris">2/11/2020</p>
+                        </div>
+                        <p class="colorBlanco">No me gusta para nada.</p>
+                    </div>
+                    <div class="verMas backGris comentDisplay hidden"><p class="colorBlanco">Ver más</p></div>
+                </div>
+
+
+                <div class=" listsArtist hidden displayVert profile">
+                    <button class="buttonLog colorBlanco backVerde">Reproducir</button>
+                    <div class="archiveList">
+                        <div class="displayVert contenedorLista sombraAdentro">
+                            <!-- Audios -->
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Ji Ji Ji </p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Yo canibal</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Todo un palo</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Todo un palo</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Todo un palo</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Todo un palo</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Todo un palo</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Todo un palo</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space"></div>          
+            </div>
+        </div> 
+
+        <!-- OWN playlist -->
+        
+        <div class="dropDown backNegro displayVert hidden" data-value="ownPlaylist">
+            <div class="contenedorDrop displayVert">
+                <div class="displayBetween sombraFuera navDropDown">
+                    <label class="xDrop" for="xDrop" id="x"></label>
+                </div>
+                <div class="contenedorImgDrop"> 
+                    <img src="Mobile-image/dropDown/ruta.png" alt="">
+                </div>   
+                
+                <div class="contenedorBtns profile displayHoriz"> 
+                    <button class="colorVerde backGris btnOwnPlaylist">Eliminar</button>
+                    <button class="colorVerde backGris btnOwnPlaylist">Editar</button>
+                </div>   
+
+                <h3 class="colorVerde">De fiesta</h3>
+                <div class="option optionsDropDown">
+                    <p class="colorBlanco">Agregar a/borrar de favoritos</p>
+                    <div class="seeProfile">
+                        <p class="colorBlanco">Ver información</p>
+                        <input type="text" value="ownPlaylist" class="hidden">
+                    </div>
+                    <p class="colorBlanco">Modificar</p>
+                    <p class="colorBlanco">Eliminar</p>
+                    <p class="colorBlanco">Compartir</p>
+                    <p class="colorBlanco">Reproducir</p>
+                </div>
+
+                <div class="hidden profileData displayVert profile">
+                
+                    <div class="btnsOptions displayHoriz">
+                        <img src="Icons/share.png" alt="">
+                        <img src="Icons/desplegable.png" alt="">
+                    </div>
+                    
+                    <div class="extraInfo displayVert">
+                        <p class="colorGris">6 canciones</p>
+                        <p class="colorGris">82 favoritos</p>
+                        <p class="colorGris">923 reproduciones</p>
+                    </div>
+                </div> 
+
+                
+                <h3 class="colorVerde">CALIFICACIÓN</h3> 
+                <div class="displayHoriz">
+                    <h2 class="colorVerde">4.5</h2>
+                    <img src="Icons/estrella.png" alt="">
+                </div>
+
+                <svg width="200" height="1"><line x1="0" y1="0" x2="300" y2="0" style="stroke:white;stroke-width:2" /></svg>
+               
+                <div class="optionsDropDown">
+                    <h3 class="colorBlanco">Últimas votaciones</h3>
+                </div>
+
+                <div class="comentarios sombraFuera displayVert">
+                    <div class="displayVert contenedorComent comentDisplay sombraAdentro">
+                        <div class="displayHoriz opinionUser">
+                            <div class="displayHoriz">
+                                <img src="Icons/userrandom1.png">
+                                <div class="displayVert">
+                                    <div class="displayHoriz">
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                    </div>
+                                    <p class="colorBlanco">Juana</p>
+                                </div>
+                            </div>
+                            <p class="colorGris">03/05/2020</p>
+                        </div>
+                        <p class="colorBlanco">Me copa, está copada!</p>
+                    </div>
+        
+                    <div class="displayVert contenedorComent comentDisplay sombraAdentro">
+                        <div class="displayHoriz opinionUser">
+                            <div class="displayHoriz">
+                                <img src="Icons/userrandom3.png">
+                                <div class="displayVert">
+                                    <div class="displayHoriz">
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                    </div>
+                                    <p class="colorBlanco">Ariel</p>
+                                </div>
+                            </div>
+                            <p class="colorGris">19/07/2020</p>
+                        </div>
+                        <p class="colorBlanco">Mmm, hasta ahí...</p>
+                    </div>
+        
+                    <div class="displayVert contenedorComent comentDisplay sombraAdentro">
+                        <div class="displayHoriz opinionUser">
+                            <div class="displayHoriz">
+                                <img src="Icons/userrandom2.png">
+                                <div class="displayVert">
+                                    <div class="displayHoriz">
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                    </div>
+                                    <p class="colorBlanco">Juan Ignacio</p>
+                                </div>
+                            </div>
+                            <p class="colorGris">2/11/2020</p>
+                        </div>
+                        <p class="colorBlanco">No me gusta para nada.</p>
+                    </div>
+                    <div class="verMas backGris comentDisplay hidden"><p class="colorBlanco">Ver más</p></div>
+                </div>
+
+                <div class=" listsArtist hidden displayVert profile">
+                    <button class="buttonLog colorBlanco backVerde">Reproducir</button>
+                    <div class="archiveList">
+                        <div class="displayVert contenedorLista sombraAdentro">
+                            <!-- Audios -->
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Ji Ji Ji </p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Yo canibal</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Todo un palo</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">La Bestia Pop</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">4:10</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Negrita</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:26</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Luzbelito</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">6:33</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Jijiji</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:26</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Greenpeace</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">5:12</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Todo un palo</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:29</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Barba azul</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">6:10</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                </div>
+
+                <div class="space"></div>          
+            </div>
+        </div> 
+
+
+        <!-- Playlist -->
+
+        <div class="dropDown backNegro displayVert hidden" data-value="playlist">
+            <div class="contenedorDrop displayVert">
+                <div class="displayBetween sombraFuera navDropDown">
+                    <label class="xDrop" for="xDrop" id="x"></label>
+                </div>
+                <div class="contenedorImgDrop"> 
+                    <img src="Mobile-image/dropDown/ruta.png" alt="">
+                </div>   
+                <h3 class="colorVerde">Ruteando</h3>
+                <div class="optionsDropDown option">
+                    <p class="colorBlanco">Agregar a/borrar de favoritos</p>
+                    <div class="seeProfile">
+                        <p class="colorBlanco">Ver información</p>
+                        <input type="text" value="playlist" class="hidden">
+                    </div>
+                    <p class="colorBlanco">Reportar</p>
+                    <p class="colorBlanco">Ocultar este contenido</p>
+                    <p class="colorBlanco">Compartir</p>
+                    <p class="colorBlanco">Reproducir</p>
+                </div>
+            <!-- Detalle cuando apreta "ver info" -->
+            <div class="hidden profileData displayVert profile">
+                            
+                <div class="btnsOptions displayHoriz">
+                    <img src="Icons/following.png" alt="">
+                    <img src="Icons/share.png" alt="">
+                    <img src="Icons/desplegable.png" alt="">
+                </div>
+                
+                <div class="extraInfo displayVert">
+                    <p class="colorGris">190 canciones</p>
+                    <p class="colorGris">43.832 favoritos</p>
+                    <p class="colorGris">103.193 reproduciones</p>
+                </div>
+            </div> 
+
+            <button class="buttonOpinions colorNegro backGris">
+                Dejá tu opinión
+            </button>
+            
+            <form onsubmit="return false" class="formOpinion displayVert backGris">
+                <div class="calification">
+                    <object data-value="1" class="estrella">
+                        <svg width="20" height="25" viewBox="0 0 170 165">
+                        <polygon fill="#353535"
+                        points="129,150 85,119 41,150 57,104 15,66
+                        68,66 85,15 102,65 156,66 113,98" />
+                        </svg>
+                    </object>
+                    <object data-value="2" class="estrella">
+                        <svg width="20" height="25" viewBox="0 0 170 165">
+                        <polygon fill="#353535"
+                        points="129,150 85,119 41,150 57,104 15,66
+                        68,66 85,15 102,65 156,66 113,98" />
+                        </svg>
+                    </object>
+                    <object data-value="3" class="estrella">
+                        <svg width="20" height="25" viewBox="0 0 170 165">
+                        <polygon fill="#353535"
+                        points="129,150 85,119 41,150 57,104 15,66
+                        68,66 85,15 102,65 156,66 113,98" />
+                        </svg>
+                    </object>
+                    <object data-value="4" class="estrella">
+                        <svg width="20" height="25" viewBox="0 0 170 165">
+                        <polygon fill="#353535"
+                        points="129,150 85,119 41,150 57,104 15,66
+                        68,66 85,15 102,65 156,66 113,98" />
+                        </svg>
+                    </object>
+                    <object data-value="5" class="estrella">
+                        <svg width="20" height="25" viewBox="0 0 170 165">
+                        <polygon fill="#353535"
+                        points="129,150 85,119 41,150 57,104 15,66
+                        68,66 85,15 102,65 156,66 113,98" />
+                        </svg>
+                    </object>
+                    
+                </div>
+                <div class="deleteCalif"> <p class="colorNegro">Eliminar Calificacion</p></div>
+                <p class="colorNegro">Comentá</p>
+                <button class="buttonSearch"  >
+                    <div class="displayBetween">
+                        <p class="colorNegro"></p>
+                        <input type="text" style="border-style: none;" placeholder="Deje su comentario">
+                    </div>
+                </button>  
+                <div class="displayVert">
+                    <input type="submit" value="Enviar opinión" class="submitOpinion backVerde colorBlanco">
+                </div>
+            </form>
+
+                <h3 class="colorVerde">CALIFICACIÓN</h3> 
+                <div class="displayHoriz">
+                    <h2 class="colorVerde">4.5</h2>
+                    <img src="Icons/estrella.png" alt="">
+                </div>
+
+                <svg width="200" height="1"><line x1="0" y1="0" x2="300" y2="0" style="stroke:white;stroke-width:2" /></svg>
+
+                <div class="optionsDropDown">
+                    <h3 class="colorBlanco">Últimas votaciones</h3>
+                </div>
+
+                <div class="comentarios sombraFuera displayVert">
+                    <div class="displayVert contenedorComent comentDisplay sombraAdentro">
+                        <div class="displayHoriz opinionUser">
+                            <div class="displayHoriz">
+                                <img src="Icons/userrandom1.png">
+                                <div class="displayVert">
+                                    <div class="displayHoriz">
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                    </div>
+                                    <p class="colorBlanco">Juana</p>
+                                </div>
+                            </div>
+                            <p class="colorGris">03/05/2020</p>
+                        </div>
+                        <p class="colorBlanco">Me copa, está copada!</p>
+                    </div>
+        
+                    <div class="displayVert contenedorComent comentDisplay sombraAdentro">
+                        <div class="displayHoriz opinionUser">
+                            <div class="displayHoriz">
+                                <img src="Icons/userrandom3.png">
+                                <div class="displayVert">
+                                    <div class="displayHoriz">
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                    </div>
+                                    <p class="colorBlanco">Ariel</p>
+                                </div>
+                            </div>
+                            <p class="colorGris">19/07/2020</p>
+                        </div>
+                        <p class="colorBlanco">Mmm, hasta ahí...</p>
+                    </div>
+        
+                    <div class="displayVert contenedorComent comentDisplay sombraAdentro">
+                        <div class="displayHoriz opinionUser">
+                            <div class="displayHoriz">
+                                <img src="Icons/userrandom2.png">
+                                <div class="displayVert">
+                                    <div class="displayHoriz">
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                    </div>
+                                    <p class="colorBlanco">Juan Ignacio</p>
+                                </div>
+                            </div>
+                            <p class="colorGris">2/11/2020</p>
+                        </div>
+                        <p class="colorBlanco">No me gusta para nada.</p>
+                    </div>
+                    <div class="verMas backGris comentDisplay hidden"><p class="colorBlanco">Ver más</p></div>
+                </div>
+
+                <div class=" listsArtist hidden displayVert profile">
+                    <button class="buttonLog colorBlanco backVerde">Reproducir</button>
+                    <div class="archiveList">
+                        <div class="displayVert contenedorLista sombraAdentro">
+                            <!-- Audios -->
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Ji Ji Ji </p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Yo canibal</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Todo un palo</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">La Bestia Pop</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">4:10</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Negrita</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:26</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Luzbelito</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">6:33</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Jijiji</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:26</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Greenpeace</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">5:12</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Todo un palo</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:29</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Barba azul</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">6:10</p>
+                                    <div class="seeOption">
+                                         <input type="text" value="artist" class="hidden">
+
+                                        <img src="Icons/desplegable.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="space"></div>          
+                </div>
+                
+                <div class="space"></div>      
+            </div>
+        </div> 
+
+        <!-- Artist -->
+
+        <div class="dropDown backNegro displayVert hidden" data-value="artist">
+            <div class="contenedorDrop displayVert">
+                <div class="displayBetween sombraFuera navDropDown">
+                    <label class="xDrop" for="xDrop" id="x"></label>
+                </div>
+                <div class="contenedorImgDrop"> 
+                    <img src="Mobile-image/dropDown/losredondos.png" alt="">
+                </div>   
+                <h3 class="colorVerde">Los Redondos</h3>
+                <!-- Opciones de Drop Down -->
+                <div class="optionsDropDown option hidden">
+                    <div class="seeProfile">
+                        <p class="colorBlanco">Ver información</p>
+                        <input type="text" value="artist" class="hidden">
+                        
+                    </div>
+                    <p class="colorBlanco">Seguir/dejar de seguir</p>
+                    <p class="colorBlanco">Ocultar este contenido</p>
+                    <p class="colorBlanco">Compartir</p>
+                    <p class="colorBlanco">Reproducir</p>
+                </div>
+                <!-- Detalle cuando apreta "ver info" -->
+                <div class="hidden profileData displayVert profile">
+                
+                    <div class="btnsOptions displayHoriz">
+                        <img src="Icons/following.png" alt="">
+                        <img src="Icons/share.png" alt="">
+                        <img src="Icons/desplegable.png" alt="">
+                    </div>
+                    
+                    <div class="extraInfo displayVert">
+                        <p class="colorGris">190 canciones</p>
+                        <p class="colorGris">43.832 favoritos</p>
+                        <p class="colorGris">103.193 reproduciones</p>
+                    </div>
+                </div> 
+
+               
+                <button class="buttonOpinions colorNegro backGris">
+                    Dejá tu opinión
+                </button>
+
+                <form onsubmit="return false" class="formOpinion displayVert backGris">
+                    <div class="calification">
+                        <object data-value="1" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="2" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="3" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="4" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                        <object data-value="5" class="estrella">
+                            <svg width="20" height="25" viewBox="0 0 170 165">
+                            <polygon fill="#353535"
+                            points="129,150 85,119 41,150 57,104 15,66
+                            68,66 85,15 102,65 156,66 113,98" />
+                            </svg>
+                        </object>
+                    </div>
+                    <div class="deleteCalif"> <p class="colorNegro">Eliminar Calificacion</p></div>
+                    <p class="colorNegro">Comentá</p>
+                    <button class="buttonSearch"  >
+                        <div class="displayBetween">
+                            <p class="colorNegro"></p>
+                            <input type="text" style="border-style: none;" placeholder="Deje su comentario">
+                        </div>
+                    </button>  
+                    <div class="displayVert">
+                        <input type="submit" value="Enviar opinión" class="submitOpinion backVerde colorBlanco">
+                    </div>
+                </form>
+
+            
+                <svg width="200" height="1"><line x1="0" y1="0" x2="300" y2="0" style="stroke:white;stroke-width:2" /></svg>
+
+                <div class="optionsDropDown">
+                    <h3 class="colorBlanco">Últimas votaciones</h3>
+                </div>
+
+                <div class="comentarios sombraFuera displayVert">
+                    <div class="displayVert contenedorComent comentDisplay hidden sombraAdentro">
+                        <div class="displayHoriz opinionUser">
+                            <div class="displayHoriz">
+                                <img src="Icons/userrandom1.png">
+                                <div class="displayVert">
+                                    <div class="displayHoriz">
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                    </div>
+                                    <p class="colorBlanco">Juana</p>
+                                </div>
+                            </div>
+                            <p class="colorGris">03/05/2020</p>
+                        </div>
+                        <p class="colorBlanco">Me copa, está copada!</p>
+                    </div>
+        
+                    <div class="displayVert contenedorComent comentDisplay hidden sombraAdentro">
+                        <div class="displayHoriz opinionUser">
+                            <div class="displayHoriz">
+                                <img src="Icons/userrandom3.png">
+                                <div class="displayVert">
+                                    <div class="displayHoriz">
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                    </div>
+                                    <p class="colorBlanco">Ariel</p>
+                                </div>
+                            </div>
+                            <p class="colorGris">19/07/2020</p>
+                        </div>
+                        <p class="colorBlanco">Mmm, hasta ahí...</p>
+                    </div>
+        
+                    <div class="displayVert contenedorComent comentDisplay hidden sombraAdentro">
+                        <div class="displayHoriz opinionUser">
+                            <div class="displayHoriz">
+                                <img src="Icons/userrandom2.png">
+                                <div class="displayVert">
+                                    <div class="displayHoriz">
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#BDFF00"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                        <object>
+                                            <svg width="14" height="19" viewBox="0 0 170 165">
+                                            <polygon fill="#878787"
+                                            points="129,150 85,119 41,150 57,104 15,66
+                                            68,66 85,15 102,65 156,66 113,98" />
+                                            </svg>
+                                        </object>
+                                    </div>
+                                    <p class="colorBlanco">Juan Ignacio</p>
+                                </div>
+                            </div>
+                            <p class="colorGris">2/11/2020</p>
+                        </div>
+                        <p class="colorBlanco">No me gusta para nada.</p>
+                    </div>
+                    <div class="verMas backGris comentDisplay hidden"><p class="colorBlanco">Ver más</p></div>
+                </div>
+
+                
+                <div class="listsArtist hidden displayVert profile">
+                    <button class="buttonLog colorBlanco backVerde">Reproducir</button>
+                    <div class="archiveList">
+                        <div class="displayVert contenedorLista sombraAdentro">
+                            <div class="contenedorTitulos">
+                                <h3 class="colorVerde">Mejor Calificados</h3>
+                            </div>
+                            <!-- Audios -->
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Ji Ji Ji </p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <img src="Icons/desplegable.png" alt="">
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Yo canibal</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <img src="Icons/desplegable.png" alt="">
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Todo un palo</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">3:20</p>
+                                    <img src="Icons/desplegable.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="displayVert contenedorLista sombraAdentro">
+                            <div class="contenedorTitulos">
+                                <h3 class="colorVerde">Discos</h3>
+                            </div>
+                            <!-- Audios -->
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Oktubre </p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">12 can...</p>
+                                    <img src="Icons/desplegable.png" alt="">
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Gulp</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">10 can...</p>
+                                    <img src="Icons/desplegable.png" alt="">
+                                </div>
+                            </div>
+                            <div class="displayHoriz audio"> 
+                                <div class="displayHoriz subAudio">
+                                    <img src="Icons/play.png" alt="" class="playAudioItem">
+                                    <p class="colorBlanco">Lobo Suelto</p>
+                                </div>
+                                <div class="displayHoriz subAudio">
+                                    <p class="colorBlanco">13 can...</p>
+                                    <img src="Icons/desplegable.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space"></div>          
+            </div>
+        </div>
+
+    </div> 
+
+
+
+    <div class="space"></div>
+
+    <script src="js/user.js"></script>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

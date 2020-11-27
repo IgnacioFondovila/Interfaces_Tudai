@@ -1,0 +1,976 @@
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.desktopProfile{
+    margin-top: 100px;
+    width: 100%;
+}
+
+/* Deja el dropDown arriba, fijo. */
+.dropFijo {
+    top: 0;
+    bottom:0;
+    position: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.mobile, .desktop {
+    width: 100%;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    background-color: #353535;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background-color: #353535;
+    z-index: 100;
+}
+
+footer {
+    width: 100%;
+}
+
+
+footer picture {
+    padding: 2%;
+}
+
+p, h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+}
+
+p {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 5px;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 96px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 54px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    
+}
+
+.buttonLog, .buttonOpinions, .buttonLogDesktop {
+    font-family: 'Poppins', sans-serif;
+    width: 200px;
+    height: 60px;
+    border-radius: 40px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
+}
+
+.buttonOpinionsDesktop {
+    font-family: 'Poppins', sans-serif;
+    width: 280px;
+    height: 60px;
+    border-radius: 40px 40px 0px  0px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
+}
+
+.buttonForm, .submitOpinion, .submitOpinionDesktop {
+    font-family: 'Poppins', sans-serif;
+    margin: 10%;
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+}
+
+.buttonFilter {
+    margin: 2%;
+    border-radius: 30px;
+}
+
+.sombraFuera {
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
+}
+
+.sombraAdentro {
+    box-shadow: inset 0px -4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.colorVerde  {
+    color: #BDFF00;
+}
+
+.colorGris  {
+    color: #878787;
+}
+
+.colorBlanco {
+    color: #FFFFFF;
+}
+
+.colorNegro {
+    color:#353535;
+}
+
+.backVerde {
+    background-color: #BDFF00;
+}
+
+.backGris {
+    background-color: #878787;
+}
+
+.backBlanco {
+    background-color: #FFFFFF;
+}
+
+.backNegro {
+    background-color: #353535;
+}
+
+.displayVert {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.displayHoriz {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.displayBetween {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cartelPlaylist {
+    width: 70%;
+    border-radius: 30px;
+    padding: 0 5%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.spaceIndex {
+    height: 120px;
+}
+
+.contenedorTitulos {
+    width: 80%;
+    display: flex;
+    justify-content: start;
+}
+
+.nombreUser {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.audio {
+    justify-content: space-between;
+    width: 100%;
+}
+
+.audio:active .playAudioItem {
+    transform: scale3d(1.3,1.3,1.3);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) .3s;
+}
+.audio:active {
+    background-color: #3f3e3e;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) .2s;
+}
+
+.subAudio {
+    padding: 0 4%;
+}
+
+.subAudio p, .subAudio img {
+    padding: 0 8px;
+}
+
+.verMas, .verMenos {
+    border-radius: 20px 20px 0 0;
+    padding: 1% 3%;
+}
+
+@media (max-width: 411px) {
+    
+    /* Mobile */
+
+    /* --------------------General----------------------------*/
+    
+    .formLog {
+        height: 0px;
+        width: 200px;
+        margin-top: 0px;
+        padding: 0 20px;
+        overflow: hidden;
+        border-radius: 0 0 30px 30px;
+        transition: 3s;
+    }
+
+    .logoIndex {
+        padding: 8% 0;
+    }
+
+    .navSuperior {
+        padding: 8% 0;
+    }
+    
+    nav, nav a, .contenedorDesplegable, .dropDown {
+        width: 100%;
+    }
+
+    nav a div {
+        height: 60px;       
+    }
+
+    /* #btnHome {
+        background-image: url("../Icons/contenedorHome.png");
+        background-size: 100%;
+    } */
+
+    .space {
+        height: 160px;
+    }
+
+    /* .selected {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        height: 60px;
+        box-shadow: none;
+        background-color: #353535;
+    }
+    
+    .selected img {
+        margin-left: 40%
+    }
+
+    .search_for_home {
+        height: 64px;
+        box-shadow: inset 4px -4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .home_for_search {
+        background: #353535;
+        box-shadow: inset -4px -4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .user_for_search {
+        background: #353535;
+        box-shadow: inset 4px -4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .home_for_user {
+        background: #353535;
+        box-shadow: inset 0px -4px 4px rgba(0, 0, 0, 0.25);
+    } */
+    
+    footer .displayHoriz {
+        width: 40%;
+    }
+
+    svg {
+        margin: 10%;
+    }
+
+    /* --------------------Home----------------------------*/
+
+    .displayHoriz img {
+        padding: 5px;
+    }
+
+    .contenedorAudios, .contenedorFiltros {
+        width: 300px;
+        overflow-x: auto;
+        white-space: nowrap;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+    }
+
+    .contenedorAudios ~ svg {
+        margin: 5%;
+    }
+
+    .contenedorAudios .displayVert {
+        padding: 0 2%;
+    }
+
+    /* --------------------User----------------------------*/
+
+    .perfilUser {
+        margin-top: 5%;
+        width: 100%;
+    }
+
+    .perfilUser p {
+        line-height: 2px;
+    }
+
+    /* CONFIGURACIONES */
+
+    #tuerca, #x {
+        box-sizing: border-box;
+        display: inline-block;
+        user-select: none;
+        background-size: 100%;
+    }
+    
+    #tuerca {
+        width: 25px;
+        height: 25px;
+        background-image: url("../Icons/config.png");
+    }
+
+    #x {
+        width: 35px;
+        height: 35px;
+        background-image: url("../Icons/x.png");
+    }
+
+    .config {
+        width: 260px;
+        height: 360px;
+        overflow-y: hidden;
+        position: fixed;
+        margin: 155px 0 auto 80px;
+        box-shadow: -8px 0px 4px -4px rgba(0, 0, 0, 0.25);
+    }
+
+    .subConfig {
+        display: flex;
+        flex-direction: row;
+        width: 70%;
+        margin-top: 4%;
+    }
+
+    .subConfig p {
+        margin-left: 4%;
+    }
+
+    /* LISTAS DE AUDIOS */
+
+    .contenedorLista {
+        width: 300px;
+        border-radius: 15px;
+    }
+
+    .reproductor {
+        width: 100%;
+        padding: 2% 0;
+        position: fixed;
+        margin-top: 535px;
+        box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25), inset 0px -4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .reproductor p {
+        line-height: 5px;
+    }
+
+    .infoReproductor {
+        width: 110px;
+        padding: 2% 0 2% 6%;
+        border-radius: 15px;
+    }
+
+    .infoReproductor .subText {
+        font-size: 10px;
+    }
+
+    .contActionsRepr {
+        width: 110px;
+    }
+
+    .subAudio p {
+        line-height: 25px;
+    }
+
+    .empty {
+        padding: 15px 0 0 0;
+    }
+
+    /* --------------------Preview Plan----------------------------*/
+
+    .navDropDown {
+        width: 90%;
+        height: 40px;
+        padding: 5%;
+    }
+
+    .planActual {
+        padding: 5%;
+        border-radius: 15px;
+        border: 1px solid #BDFF00;
+    }
+
+    /* --------------------Search----------------------------*/
+
+    .buttonSearch {
+        width: 70%;
+        border-radius: 30px;
+        border: 1px solid #BDFF00;
+        padding: 2%;
+        margin-top: 30px;
+    }
+
+    .contenedorBusqRecientes, .optionsDropDown {
+        width: 70%;
+    }
+
+    /* --------------------DropDown----------------------------*/
+
+    .dropDown h2, .dropDown h3 {
+        line-height: 2px;
+    }
+
+    .btnOwnPlaylist{
+        width: 139px;
+        height: 40px;
+        border-radius: 40px;
+        margin: 1%;
+        box-shadow:(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .contenedorImgDrop {
+        margin: 0;
+        text-align: center;
+        width: 100%;
+        height: 200px;
+    }
+    
+    .oculto {
+        display: none;
+    }
+
+    .desktop {
+        display: none;
+    }
+    
+    /* Que se scrollee lo de adentro del drop */
+    .contenedorDrop {
+        width: 100%;
+        position: relative;
+    }
+
+    
+    /* Opiniones */
+
+    .optionsDropDown p {
+        margin-bottom: 30px;
+    }
+
+    .formOpinion {
+        height: 0px;
+        width: 260px;
+        margin-top: 0px;
+        padding: 0 10px;
+        overflow: hidden;
+        border-radius: 0 0 30px 30px;
+        transition: 3s;
+    }
+
+    .estrella {
+        width: 22px;
+        height: 22px;
+    }
+
+    .calification {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 8%;
+        width: 100%;
+    }
+
+    .calification svg {
+        margin: 0;
+    }
+
+    .opinionUser {
+        justify-content: space-between;
+        width: 90%;
+    }
+
+    .comentarios {
+        width: 90%;
+        padding: 2% 2% 0 2%;
+        border-radius: 40px;
+        margin-bottom: 20px;
+    }
+
+    .contenedorComent {
+        margin-bottom: 20px;
+        width: 90%;
+        border-radius: 40px;
+    }
+
+}
+
+/* Desktop */
+
+@media (min-width: 1300px) {
+
+    /* Reproductor */
+    #x_desktop {
+        position: fixed;
+        top: 121px;
+        left:412px ;
+        width: 35px;
+        height: 35px;
+        z-index: 12;
+        background-image: url("../Icons/x.png");
+    }
+
+    .reproductorDesktop {
+        position: fixed;
+        margin-left: 330px;
+        margin-top: 445px;
+        padding: 5px 60px;
+        box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
+    }
+    #vol-control{
+        width: 70px;
+        position: fixed;
+        margin-left:30px;
+        margin-top:3px;
+    }
+
+    input[type='range'] {
+        overflow: hidden;
+        width: 62px;
+        -webkit-appearance: none;
+        background-color: #878787;
+      }
+      
+      input[type='range']::-webkit-slider-runnable-track {
+        height: 10px;
+        -webkit-appearance: none;
+        color: #BDFF00;
+        margin-top: -1px;
+      }
+      
+      input[type='range']::-webkit-slider-thumb {
+        width: 10px;
+        -webkit-appearance: none;
+        height: 10px;
+        cursor: ew-resize;
+        background: #434343;
+        box-shadow: -80px 0 0 80px #BDFF00;
+
+      
+  
+  }
+
+    .infoReproductor {
+        width: 180px;
+        padding: 1% 0 1% 8%;
+        border-radius: 40px;
+    }
+
+    .infoReproductor .subText {
+        font-size: 10px;
+    }
+
+    .reproductorDesktop .empty {
+        width: 100%;
+    }
+
+    .buttonOpiRep {
+        font-family: 'Poppins', sans-serif;
+        width: 100px;
+        padding: 10%;
+        border-radius: 40px;
+        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
+    }
+
+    .contActionsRepr {
+        width: 300px;
+    }
+
+    /* General */
+
+    .homeDesktop img {
+        padding: 10px;
+    } 
+
+    .displayUserAndHome {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .displayUserAndHome svg {
+        margin: 30px;
+    }
+
+    footer {
+        width: 30%;
+    }
+
+    footer .displayHoriz {
+        width:150px;
+    }
+
+    .space {
+        height: 96px;
+    }
+
+    .spaceHoriz {
+        width: 480px;
+    }
+
+    /* -------------------- Index ----------------------------*/
+
+    svg {
+        margin: 10%;
+    }
+
+    .contenedorWelcome {
+        width: 70%;
+    }
+
+    .contenedorFormLog {
+        height: auto;
+    }
+
+    .logoIndex {
+        padding: 2% 0;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    /* Formularios */
+
+    .planes {
+        padding: 5%;
+        border-radius: 30px;
+    }
+
+    .planes svg {
+        margin:0;
+        padding: 2% 2%;
+    }
+
+    .formLogDesktop {
+        height: 0px;
+        height: 0px;
+        width: 570px;
+        margin-top: 0px;
+        padding: 0;
+        overflow: hidden;
+        border-radius: 0 0 30px 30px;
+        margin-bottom: 30px;
+    }
+
+    .formLogDesktop p {
+        line-height: 25px;
+    }
+    .logosRegist, .formLog .displayVert .displayHoriz img {
+        padding: 5%;
+    }
+
+    .formLog .displayBetween {
+        width: 80%;
+    }
+
+    .formLog p {
+        line-height: 15px;
+    }
+
+    /* -------------------- Home ----------------------------*/
+
+    .buttonSearch {
+        width: 170px;
+        border-radius: 30px;
+    }
+
+    .contenedorHeader {
+        padding: 2%;
+    }
+
+    /* User */
+
+    .OwnPlaylist {
+        width: 150px;
+        height: 160px;
+        padding: 5px;
+        position: fixed;
+        margin-left: 420px;
+        margin-top: 200px;
+        line-height: 10px;
+        box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 0 40px 40px 40px;
+    }
+
+    .contenedorUser::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }   
+
+    .contenedorUser {
+        position: fixed;
+        padding: 2%;
+        margin-top: -5px;
+        height: 478px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        display: flex;
+        float: left;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.25);
+        z-index: 90;
+    }
+
+    .contenedorUser svg {
+        margin-bottom: 0;
+    }
+
+    .infoUser {
+        width: 100%;
+    }
+
+    .nombreUser p {
+        line-height: 10px;
+        margin: 5px;
+    }
+
+    .planActual {
+        padding: 8%;
+        border-radius: 15px;
+        border: 1px solid #BDFF00;
+    }
+
+    .contenedorLista, .contenedorListaUser {
+        width: 300px;
+        border-radius: 15px;
+        padding: 1%;
+    }
+
+    .contenedorListaUser {
+        display: none;
+    }
+
+    .buttonCollections {
+        font-family: 'Poppins', sans-serif;
+        width: 200px;
+        height: 170px;
+        border-radius: 40px;
+        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
+    }
+
+    .buttonCollections {
+        margin: 2%;
+    }
+
+    .subAudio p {
+        line-height: 20px;
+    }
+
+    /* Home */
+
+    .contenedorHome {
+        width: 100%;
+        float: right;
+    }
+
+    .contenedorTipoAudio {
+        width: 90%;
+        padding: 0 2%;
+        border-radius: 40px;
+        margin: 2%;
+    }
+
+    .contenedorAudios {
+        width: 300px;
+        overflow-x: auto;
+        white-space: nowrap;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+    }
+
+    .contenedorAudiosDesktop {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .contenedorAudiosDesktop .displayVert {
+        padding: 0 2%;
+    }
+
+    /* Profile */
+
+    .calificationProfile {
+        width: auto;
+        padding: 5%;
+        border-radius: 40px;
+    }
+
+    .contListaDesktop {
+        border-radius: 40px;
+    }
+
+    .episodeProfile, .podcastProfile, .songProfile, .diskProfile, .artistProfile, .contListaDesktop, .playlistProfile {
+        width: 100%;
+        /* width: 100%; */
+        position: relative;
+        /* position: absolute; */
+    }
+
+    .contListaDesktop img {
+        margin: 0 20px;
+    }
+
+    .subConjuntoNombreDesktop, .subBusqueda {
+        justify-content: start;
+    }
+    
+    .subConjuntoListaDesktop, .subConjuntoNombreDesktop, .subBusqueda {
+        width: 200px;
+    }
+
+    .subConjuntoNombreDesktop .displayVert p {
+        line-height: 25px;
+    }
+    
+    .calificationProfile h3, .calificationProfile h2 {
+        line-height: 5px;
+    }
+
+    .buttonRepProfile {
+        margin: 5%;
+    }
+
+    .optionProfile {
+        margin: 5px;
+    }
+
+    .btnOwnPlaylist {
+        position: absolute;
+        width: 139px;
+        height: 40px;
+        border-radius: 40px;
+        margin-right: 500px;
+        box-shadow:(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    /* ------------------------------Search--------------------------------------------- */
+
+    .buttonSearchWidth {
+        width: 650px;
+        border-radius: 30px;
+        padding: 1%;
+    }
+
+    .contenedorFiltros {
+        position: fixed;
+        z-index: 150;
+        margin-top: 82px;
+        margin-left: 400px;
+        width: 500px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    /* ------------------------------Calification----------------------------------------- */
+
+    .formOpinion {
+        height: auto;
+        width: 260px;
+        margin-top: 0px;
+        padding: 0 10px;
+        overflow: hidden;
+        border-radius: 0 0 30px 30px;
+        transition: 3s;
+    }
+
+    .comentador {
+        margin-right: 50px
+    }
+
+    .estrella {
+        width: 22px;
+        height: 22px;
+    }
+
+    .calification {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 8%;
+        width: 100%;
+    }
+
+    .calification svg {
+        margin: 0;
+    }
+
+    .inputComent {
+        width: 100%;
+    }
+
+    .optionsDropDown {
+        width: 70%;
+    }
+
+    .comentarios {
+        width: 100%;
+        padding: 10%;
+        border-radius: 40px;
+        margin-bottom: 20px;
+    }
+
+    .contenedorComent {
+        margin: 20px;
+        padding: 5%;
+        width: 100%;
+        border-radius: 40px;
+    }
+
+    .opinionUser {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .opinionUser svg {
+        margin: 0;
+    }
+
+}
